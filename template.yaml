@@ -4,38 +4,43 @@ Description: >
   DnDCloudCompagnon
 
   Sample SAM Template for DnDCloudCompagnon
-  
+
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
     Timeout: 3
 
 Resources:
-  HelloWorldFunction:
+  SpellsApiFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: hello-world/
+      CodeUri: spells-api/
       Handler: app.lambdaHandler
       Runtime: nodejs24.x
       Architectures:
         - x86_64
       Events:
-        HelloWorld:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+        ListSpells:
+          Type: HttpApi
           Properties:
-            Path: /hello
+            Path: /spells
             Method: get
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: "es2022"
+        Sourcemap: true
+        EntryPoints:
+          - app.ts
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  HelloWorldApi:
-    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/Prod/hello/"
-  HelloWorldFunction:
-    Description: "Hello World Lambda Function ARN"
-    Value: !GetAtt HelloWorldFunction.Arn
-  HelloWorldFunctionIamRole:
-    Description: "Implicit IAM Role created for Hello World function"
-    Value: !GetAtt HelloWorldFunctionRole.Arn
+  SpellsApiFunction:
+    Description: "Spells API Lambda Function ARN"
+    Value: !GetAtt SpellsApiFunction.Arn
+  SpellsApiFunctionIamRole:
+    Description: "Implicit IAM Role created for the Spells API function"
+    Value: !GetAtt SpellsApiFunctionRole.Arn

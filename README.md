@@ -2,9 +2,9 @@
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
-- hello-world - Code for the application's Lambda function.
+- spells-api - Code for the application's Lambda function.
 - events - Invocation events that you can use to invoke the function.
-- hello-world/tests - Unit tests for the application code. 
+- spells-api/tests - Unit tests for the application code. 
 - template.yaml - A template that defines the application's AWS resources.
 
 The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
@@ -59,31 +59,31 @@ Build your application with the `sam build` command.
 DnDCloudCompagnon$ sam build
 ```
 
-The SAM CLI installs dependencies defined in `hello-world/package.json`, creates a deployment package, and saves it in the `.aws-sam/build` folder.
+The SAM CLI installs dependencies defined in `spells-api/package.json`, creates a deployment package, and saves it in the `.aws-sam/build` folder.
 
 Test a single function by invoking it directly with a test event. An event is a JSON document that represents the input that the function receives from the event source. Test events are included in the `events` folder in this project.
 
 Run functions locally and invoke them with the `sam local invoke` command.
 
 ```bash
-DnDCloudCompagnon$ sam local invoke HelloWorldFunction --event events/event.json
+DnDCloudCompagnon$ sam local invoke SpellsApiFunction --event events/event.json
 ```
 
 The SAM CLI can also emulate your application's API. Use the `sam local start-api` to run the API locally on port 3000.
 
 ```bash
 DnDCloudCompagnon$ sam local start-api
-DnDCloudCompagnon$ curl http://localhost:3000/
+DnDCloudCompagnon$ curl http://localhost:3000/spells
 ```
 
 The SAM CLI reads the application template to determine the API's routes and the functions that they invoke. The `Events` property on each function's definition includes the route and method for each path.
 
 ```yaml
       Events:
-        HelloWorld:
-          Type: Api
+        ListSpells:
+          Type: HttpApi
           Properties:
-            Path: /hello
+            Path: /spells
             Method: get
 ```
 
@@ -97,19 +97,19 @@ To simplify troubleshooting, SAM CLI has a command called `sam logs`. `sam logs`
 `NOTE`: This command works for all AWS Lambda functions; not just the ones you deploy using SAM.
 
 ```bash
-DnDCloudCompagnon$ sam logs -n HelloWorldFunction --stack-name DnDCloudCompagnon --tail
+DnDCloudCompagnon$ sam logs -n SpellsApiFunction --stack-name DnDCloudCompagnon --tail
 ```
 
 You can find more information and examples about filtering Lambda function logs in the [SAM CLI Documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html).
 
 ## Unit tests
 
-Tests are defined in the `hello-world/tests` folder in this project. Use NPM to install the [Mocha test framework](https://mochajs.org/) and run unit tests.
+Tests are defined in the `spells-api/tests` folder in this project. Use NPM to install the [Mocha test framework](https://mochajs.org/) and run unit tests.
 
 ```bash
-DnDCloudCompagnon$ cd hello-world
-hello-world$ npm install
-hello-world$ npm run test
+DnDCloudCompagnon$ cd spells-api
+spells-api$ npm install
+spells-api$ npm run test
 ```
 
 ## Cleanup

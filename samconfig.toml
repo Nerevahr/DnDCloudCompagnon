@@ -25,6 +25,7 @@ watch = true
 
 [default.local_start_api.parameters]
 warm_containers = "EAGER"
+region = "eu-west-3"
 
 [default.local_start_lambda.parameters]
 warm_containers = "EAGER"
