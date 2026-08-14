@@ -10,6 +10,12 @@ Globals:
   Function:
     Timeout: 3
 
+Parameters:
+  BudgetAlertEmail:
+    Type: String
+    Description: Email address notified as soon as the AWS account incurs any real cost (i.e. leaves the Free Tier)
+    Default: mathieu.verpillat@gmail.com
+
 Resources:
   SpellsApiFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -39,6 +45,44 @@ Resources:
     Properties:
       LogGroupName: !Sub "/aws/lambda/${SpellsApiFunction}"
       RetentionInDays: 7
+
+  # Zero-spend budget: this is an account-level resource (it tracks the whole
+  # AWS account's bill, not just this stack) that alerts by email as soon as
+  # any real charge appears, i.e. as soon as the account leaves the Free Tier.
+  # AWS Budgets is a global billing service backed by us-east-1: if this stack
+  # is deployed to another region and the resource fails to create, move it to
+  # its own stack deployed in us-east-1.
+  FreeTierBudgetAlarm:
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetName: !Sub "${AWS::StackName}-zero-spend-budget"
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit:
+          Amount: "0.01"
+          Unit: USD
+        CostTypes:
+          IncludeTax: true
+          IncludeSubscription: true
+          UseBlended: false
+          IncludeRefund: false
+          IncludeCredit: false
+          IncludeUpfront: true
+          IncludeRecurring: true
+          IncludeOtherSubscription: true
+          IncludeSupport: true
+          IncludeDiscount: true
+          UseAmortized: false
+      NotificationsWithSubscribers:
+        - Notification:
+            NotificationType: ACTUAL
+            ComparisonOperator: GREATER_THAN
+            Threshold: 100
+            ThresholdType: PERCENTAGE
+          Subscribers:
+            - SubscriptionType: EMAIL
+              Address: !Ref BudgetAlertEmail
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
