@@ -17,6 +17,24 @@ Parameters:
     Default: mathieu.verpillat@gmail.com
 
 Resources:
+  SpellsUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: dndcloud-users
+      AutoVerifiedAttributes:
+        - email
+      UsernameAttributes:
+        - email
+
+  SpellsUserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref SpellsUserPool
+      GenerateSecret: false
+      ExplicitAuthFlows:
+        - ALLOW_USER_PASSWORD_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+
   SpellsHttpApi:
     Type: AWS::Serverless::HttpApi
     Properties:
@@ -33,6 +51,15 @@ Resources:
       DefaultRouteSettings:
         ThrottlingBurstLimit: 10
         ThrottlingRateLimit: 5
+      Auth:
+        Authorizers:
+          CognitoAuthorizer:
+            JwtConfiguration:
+              issuer: !Sub "https://cognito-idp.${AWS::Region}.amazonaws.com/${SpellsUserPool}"
+              audience:
+                - !Ref SpellsUserPoolClient
+            IdentitySource: "$request.header.Authorization"
+        DefaultAuthorizer: CognitoAuthorizer
 
   SpellsApiFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -106,6 +133,12 @@ Outputs:
   SpellsApiEndpoint:
     Description: "API Gateway endpoint URL for the Spells API"
     Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/spells"
+  SpellsUserPoolId:
+    Description: "Cognito User Pool ID used to authenticate API requests"
+    Value: !Ref SpellsUserPool
+  SpellsUserPoolClientId:
+    Description: "Cognito User Pool Client ID used to authenticate API requests"
+    Value: !Ref SpellsUserPoolClient
   SpellsApiFunction:
     Description: "Spells API Lambda Function ARN"
     Value: !GetAtt SpellsApiFunction.Arn
