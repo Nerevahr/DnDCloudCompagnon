@@ -55,6 +55,22 @@ Resources:
             IdentitySource: "$request.header.Authorization"
         DefaultAuthorizer: CognitoAuthorizer
 
+  SpellsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: DnD_Companion
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+
   SpellsApiFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -63,6 +79,12 @@ Resources:
       Runtime: nodejs24.x
       Architectures:
         - x86_64
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref SpellsTable
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref SpellsTable
       Events:
         ListSpells:
           Type: HttpApi
@@ -86,6 +108,9 @@ Resources:
       RetentionInDays: 7
 
 Outputs:
+  SpellsTableName:
+    Description: "DynamoDB table name storing spells data"
+    Value: !Ref SpellsTable
   SpellsApiEndpoint:
     Description: "API Gateway endpoint URL for the Spells API"
     Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/spells"
