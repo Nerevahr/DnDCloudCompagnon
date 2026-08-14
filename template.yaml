@@ -17,6 +17,23 @@ Parameters:
     Default: mathieu.verpillat@gmail.com
 
 Resources:
+  SpellsHttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: prod
+      CorsConfiguration:
+        AllowOrigins:
+          - "*"
+        AllowMethods:
+          - GET
+          - OPTIONS
+        AllowHeaders:
+          - Content-Type
+          - Authorization
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 10
+        ThrottlingRateLimit: 5
+
   SpellsApiFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -29,6 +46,7 @@ Resources:
         ListSpells:
           Type: HttpApi
           Properties:
+            ApiId: !Ref SpellsHttpApi
             Path: /spells
             Method: get
     Metadata:
@@ -85,9 +103,9 @@ Resources:
               Address: !Ref BudgetAlertEmail
 
 Outputs:
-  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
-  # Find out more about other implicit resources you can reference within SAM
-  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  SpellsApiEndpoint:
+    Description: "API Gateway endpoint URL for the Spells API"
+    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/spells"
   SpellsApiFunction:
     Description: "Spells API Lambda Function ARN"
     Value: !GetAtt SpellsApiFunction.Arn
