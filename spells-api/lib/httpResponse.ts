@@ -17,3 +17,9 @@ export const errorResponse = (message: string, error: Error): APIGatewayProxyStr
         details: error.message
     })
 });
+
+export const notFoundResponse = (message: string): APIGatewayProxyStructuredResultV2 => ({
+    statusCode: 404,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ error: message })
+});
