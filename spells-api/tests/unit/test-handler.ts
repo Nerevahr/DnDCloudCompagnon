@@ -1,7 +1,7 @@
 'use strict';
 
 import { mockClient } from 'aws-sdk-client-mock';
-import { ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { GetCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { expect } from 'chai';
 import type { APIGatewayProxyEventV2 } from 'aws-lambda';
 import { lambdaHandler } from '../../app';
@@ -10,9 +10,21 @@ import { docClient } from '../../lib/dynamoClient';
 const ddbMock = mockClient(docClient);
 
 const rawSpells = [
-    { PK: 'SPELL#boule-de-feu', SK: 'METADATA', name: 'Boule de feu', School: 'Évocation', Level: 3 },
-    { PK: 'SPELL#lumiere', SK: 'METADATA', name: 'Lumière', School: 'Évocation', Level: 0 }
+    { PK: 'SPELL#boule-de-feu', SK: 'METADATA', Name: 'Boule de feu', School: 'Évocation', Level: 3, Classes: ['Magicien'] },
+    { PK: 'SPELL#lumiere', SK: 'METADATA', Name: 'Lumière', School: 'Évocation', Level: 0, Classes: ['Clerc', 'Magicien'] }
 ];
+
+const baseEvent = {
+    headers: { 'x-forwarded-proto': 'https' },
+    requestContext: {
+        domainName: '1234567890.execute-api.eu-west-3.amazonaws.com',
+        stage: 'prod'
+    }
+};
+
+function buildEvent(overrides: Record<string, unknown> = {}): APIGatewayProxyEventV2 {
+    return { ...baseEvent, queryStringParameters: null, pathParameters: null, ...overrides } as unknown as APIGatewayProxyEventV2;
+}
 
 describe('Tests index', function () {
     beforeEach(() => {
@@ -22,8 +34,7 @@ describe('Tests index', function () {
     it('verifies successful response without filter', async () => {
         ddbMock.on(ScanCommand).resolves({ Count: rawSpells.length, Items: rawSpells });
 
-        const event = { queryStringParameters: null } as unknown as APIGatewayProxyEventV2;
-        const result = await lambdaHandler(event);
+        const result = await lambdaHandler(buildEvent());
 
         expect(result).to.be.an('object');
         expect(result.statusCode).to.equal(200);
@@ -35,16 +46,46 @@ describe('Tests index', function () {
         expect(response.filterApplied).to.deep.equal({ school: 'none', level: 'none', class: 'none' });
         expect(response.count).to.equal(2);
         expect(response.spells).to.deep.equal([
-            { name: 'Boule de feu', School: 'Évocation', Level: 3 },
-            { name: 'Lumière', School: 'Évocation', Level: 0 }
+            {
+                id: 'boule-de-feu',
+                Name: 'Boule de feu',
+                School: 'Évocation',
+                Level: 3,
+                Classes: ['Magicien'],
+                self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/boule-de-feu'
+            },
+            {
+                id: 'lumiere',
+                Name: 'Lumière',
+                School: 'Évocation',
+                Level: 0,
+                Classes: ['Clerc', 'Magicien'],
+                self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/lumiere'
+            }
         ]);
+    });
+
+    it('only requests minimal fields from DynamoDB via a projection expression', async () => {
+        ddbMock.on(ScanCommand).resolves({ Count: rawSpells.length, Items: rawSpells });
+
+        await lambdaHandler(buildEvent());
+
+        const scanCalls = ddbMock.commandCalls(ScanCommand);
+        expect(scanCalls).to.have.lengthOf(1);
+        const { input } = scanCalls[0].args[0];
+        expect(input.ProjectionExpression).to.equal('PK, #pName, #pLevel, #pSchool, #pClasses');
+        expect(input.ExpressionAttributeNames).to.deep.include({
+            '#pName': 'Name',
+            '#pLevel': 'Level',
+            '#pSchool': 'School',
+            '#pClasses': 'Classes'
+        });
     });
 
     it('applies the school filter to the DynamoDB scan when provided', async () => {
         ddbMock.on(ScanCommand).resolves({ Count: 1, Items: [rawSpells[0]] });
 
-        const event = { queryStringParameters: { school: 'Évocation' } } as unknown as APIGatewayProxyEventV2;
-        const result = await lambdaHandler(event);
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { school: 'Évocation' } }));
 
         expect(result.statusCode).to.equal(200);
 
@@ -60,8 +101,7 @@ describe('Tests index', function () {
     it('applies multiple school filters (comma-separated, as merged by API Gateway HTTP API) to the scan', async () => {
         ddbMock.on(ScanCommand).resolves({ Count: 2, Items: rawSpells });
 
-        const event = { queryStringParameters: { school: 'Illusion,Conjuration' } } as unknown as APIGatewayProxyEventV2;
-        const result = await lambdaHandler(event);
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { school: 'Illusion,Conjuration' } }));
 
         expect(result.statusCode).to.equal(200);
 
@@ -80,8 +120,7 @@ describe('Tests index', function () {
     it('applies the level filter to the DynamoDB scan when provided', async () => {
         ddbMock.on(ScanCommand).resolves({ Count: 1, Items: [rawSpells[0]] });
 
-        const event = { queryStringParameters: { level: '3' } } as unknown as APIGatewayProxyEventV2;
-        const result = await lambdaHandler(event);
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { level: '3' } }));
 
         expect(result.statusCode).to.equal(200);
 
@@ -100,8 +139,7 @@ describe('Tests index', function () {
     it('applies multiple level filters and combines them with the school filter', async () => {
         ddbMock.on(ScanCommand).resolves({ Count: 2, Items: rawSpells });
 
-        const event = { queryStringParameters: { school: 'Évocation', level: '0,3' } } as unknown as APIGatewayProxyEventV2;
-        const result = await lambdaHandler(event);
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { school: 'Évocation', level: '0,3' } }));
 
         expect(result.statusCode).to.equal(200);
 
@@ -121,8 +159,7 @@ describe('Tests index', function () {
     it('applies the class filter to the DynamoDB scan when provided', async () => {
         ddbMock.on(ScanCommand).resolves({ Count: 1, Items: [rawSpells[0]] });
 
-        const event = { queryStringParameters: { class: 'Clerc' } } as unknown as APIGatewayProxyEventV2;
-        const result = await lambdaHandler(event);
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { class: 'Clerc' } }));
 
         expect(result.statusCode).to.equal(200);
 
@@ -141,8 +178,7 @@ describe('Tests index', function () {
     it('applies multiple class filters (comma-separated) combined with an OR on the scan', async () => {
         ddbMock.on(ScanCommand).resolves({ Count: 2, Items: rawSpells });
 
-        const event = { queryStringParameters: { class: 'Clerc,Druide' } } as unknown as APIGatewayProxyEventV2;
-        const result = await lambdaHandler(event);
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { class: 'Clerc,Druide' } }));
 
         expect(result.statusCode).to.equal(200);
 
@@ -160,13 +196,72 @@ describe('Tests index', function () {
     it('returns a 500 response when DynamoDB fails', async () => {
         ddbMock.on(ScanCommand).rejects(new Error('boom'));
 
-        const event = { queryStringParameters: null } as unknown as APIGatewayProxyEventV2;
-        const result = await lambdaHandler(event);
+        const result = await lambdaHandler(buildEvent());
 
         expect(result.statusCode).to.equal(500);
 
         const response = JSON.parse(result.body as string);
         expect(response.error).to.equal('Impossible de récupérer les sorts');
         expect(response.details).to.equal('boom');
+    });
+
+    describe('GET /spells/{id}', function () {
+        const fullSpell = {
+            PK: 'SPELL#boule-de-feu',
+            SK: 'METADATA',
+            Name: 'Boule de feu',
+            School: 'Évocation',
+            Level: 3,
+            Classes: ['Magicien'],
+            Range: '45 mètres',
+            Description: 'Une boule de feu explose...'
+        };
+
+        it('returns the full detail of a spell, including a self link', async () => {
+            ddbMock.on(GetCommand).resolves({ Item: fullSpell });
+
+            const result = await lambdaHandler(buildEvent({ pathParameters: { id: 'boule-de-feu' } }));
+
+            expect(result.statusCode).to.equal(200);
+
+            const response = JSON.parse(result.body as string);
+            expect(response).to.deep.equal({
+                id: 'boule-de-feu',
+                Name: 'Boule de feu',
+                School: 'Évocation',
+                Level: 3,
+                Classes: ['Magicien'],
+                Range: '45 mètres',
+                Description: 'Une boule de feu explose...',
+                self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/boule-de-feu'
+            });
+
+            const getCalls = ddbMock.commandCalls(GetCommand);
+            expect(getCalls).to.have.lengthOf(1);
+            expect(getCalls[0].args[0].input.Key).to.deep.equal({ PK: 'SPELL#boule-de-feu', SK: 'METADATA' });
+        });
+
+        it('returns a 404 response when the spell does not exist', async () => {
+            ddbMock.on(GetCommand).resolves({ Item: undefined });
+
+            const result = await lambdaHandler(buildEvent({ pathParameters: { id: 'sort-inconnu' } }));
+
+            expect(result.statusCode).to.equal(404);
+
+            const response = JSON.parse(result.body as string);
+            expect(response.error).to.include('sort-inconnu');
+        });
+
+        it('returns a 500 response when DynamoDB fails', async () => {
+            ddbMock.on(GetCommand).rejects(new Error('boom'));
+
+            const result = await lambdaHandler(buildEvent({ pathParameters: { id: 'boule-de-feu' } }));
+
+            expect(result.statusCode).to.equal(500);
+
+            const response = JSON.parse(result.body as string);
+            expect(response.error).to.equal('Impossible de récupérer le sort');
+            expect(response.details).to.equal('boom');
+        });
     });
 });

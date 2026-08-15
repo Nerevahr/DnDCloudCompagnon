@@ -98,6 +98,12 @@ Resources:
             ApiId: !Ref SpellsHttpApi
             Path: /spells
             Method: get
+        GetSpell:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /spells/{id}
+            Method: get
     Metadata:
       BuildMethod: esbuild
       BuildProperties:

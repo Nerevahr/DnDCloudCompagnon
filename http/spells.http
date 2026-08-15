@@ -13,3 +13,15 @@ GET http://localhost:3000/spells
     });
 %}
 ###
+
+GET http://localhost:3000/spells/flamme-sacree
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+    client.test("Body has a self link", function () {
+        client.assert(response.body.hasOwnProperty("self"), "missing self link");
+    });
+%}
+###
