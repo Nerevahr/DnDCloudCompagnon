@@ -119,6 +119,31 @@ Resources:
       LogGroupName: !Sub "/aws/lambda/${SpellsApiFunction}"
       RetentionInDays: 7
 
+  SpellsDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        HttpVersion: http2and3
+        DefaultCacheBehavior:
+          TargetOriginId: ApiGatewayOrigin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+            - OPTIONS
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          OriginRequestPolicyId: b689b0a8-53d0-40bc-9861-9d59eef3b379
+        Origins:
+          - DomainName: !Sub "${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
+            Id: ApiGatewayOrigin
+            CustomOriginConfig:
+              HTTPPort: 80
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+              OriginSSLProtocols:
+                - TLSv1.2
+
   # Zero-spend budget: this is an account-level resource (it tracks the whole
   # AWS account's bill, not just this stack) that alerts by email as soon as
   # any real charge appears, i.e. as soon as the account leaves the Free Tier.
@@ -161,8 +186,14 @@ Outputs:
   SpellsTableName:
     Description: "DynamoDB table name storing spells data"
     Value: !Ref SpellsTable
-  SpellsApiEndpoint:
-    Description: "API Gateway endpoint URL for the Spells API"
+  SpellsCloudFrontDomain:
+    Description: "CloudFront distribution domain (use this for API requests)"
+    Value: !GetAtt SpellsDistribution.DomainName
+  SpellsCloudFrontEndpoint:
+    Description: "Full CloudFront URL for accessing the Spells API"
+    Value: !Sub "https://${SpellsDistribution.DomainName}/spells"
+  SpellsApiGatewayEndpoint:
+    Description: "Direct API Gateway endpoint (for admin use only, client requests should use CloudFront)"
     Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/spells"
   SpellsUserPoolId:
     Description: "Cognito User Pool ID used to authenticate API requests"

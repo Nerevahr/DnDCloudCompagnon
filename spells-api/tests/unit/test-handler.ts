@@ -39,6 +39,7 @@ describe('Tests index', function () {
         expect(result).to.be.an('object');
         expect(result.statusCode).to.equal(200);
         expect(result.body).to.be.a('string');
+        expect(result.headers?.['Cache-Control']).to.equal('public, max-age=3600');
 
         const response = JSON.parse(result.body as string);
 
@@ -203,6 +204,7 @@ describe('Tests index', function () {
         const response = JSON.parse(result.body as string);
         expect(response.error).to.equal('Impossible de récupérer les sorts');
         expect(response.details).to.equal('boom');
+        expect(result.headers?.['Cache-Control']).to.equal('no-store');
     });
 
     describe('GET /spells/{id}', function () {
@@ -235,6 +237,7 @@ describe('Tests index', function () {
                 Description: 'Une boule de feu explose...',
                 self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/boule-de-feu'
             });
+            expect(result.headers?.['Cache-Control']).to.equal('public, max-age=3600');
 
             const getCalls = ddbMock.commandCalls(GetCommand);
             expect(getCalls).to.have.lengthOf(1);
@@ -250,6 +253,7 @@ describe('Tests index', function () {
 
             const response = JSON.parse(result.body as string);
             expect(response.error).to.include('sort-inconnu');
+            expect(result.headers?.['Cache-Control']).to.equal('no-store');
         });
 
         it('returns a 500 response when DynamoDB fails', async () => {
