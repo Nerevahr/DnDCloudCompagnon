@@ -34,6 +34,27 @@ Resources:
       ExplicitAuthFlows:
         - ALLOW_USER_PASSWORD_AUTH
         - ALLOW_REFRESH_TOKEN_AUTH
+      SupportedIdentityProviders:
+        - COGNITO
+      AllowedOAuthFlowsUserPoolClient: true
+      AllowedOAuthFlows:
+        - implicit
+        - code
+      AllowedOAuthScopes:
+        - openid
+        - email
+        - profile
+      CallbackURLs:
+        - https://example.com/callback
+        - https://oauth.pstmn.io/v1/callback
+      LogoutURLs:
+        - https://example.com/logout
+
+  SpellsUserPoolDomain:
+    Type: AWS::Cognito::UserPoolDomain
+    Properties:
+      UserPoolId: !Ref SpellsUserPool
+      Domain: !Sub "dndcloud-${AWS::AccountId}"
 
   SpellsHttpApi:
     Type: AWS::Serverless::HttpApi
@@ -133,10 +154,11 @@ Resources:
             - HEAD
             - OPTIONS
           CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
-          OriginRequestPolicyId: b689b0a8-53d0-40bc-9861-9d59eef3b379
+          OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
         Origins:
           - DomainName: !Sub "${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
             Id: ApiGatewayOrigin
+            OriginPath: /prod
             CustomOriginConfig:
               HTTPPort: 80
               HTTPSPort: 443
@@ -198,6 +220,9 @@ Outputs:
   SpellsUserPoolId:
     Description: "Cognito User Pool ID used to authenticate API requests"
     Value: !Ref SpellsUserPool
+  SpellsHostedUILoginUrl:
+    Description: "Cognito Hosted UI login page (implicit flow, token returned in the callback URL fragment)"
+    Value: !Sub "https://dndcloud-${AWS::AccountId}.auth.${AWS::Region}.amazoncognito.com/login?client_id=${SpellsUserPoolClient}&response_type=token&scope=openid+email+profile&redirect_uri=https://example.com/callback"
   SpellsUserPoolClientId:
     Description: "Cognito User Pool Client ID used to authenticate API requests"
     Value: !Ref SpellsUserPoolClient
