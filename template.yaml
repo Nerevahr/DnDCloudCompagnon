@@ -119,12 +119,16 @@ Resources:
             ApiId: !Ref SpellsHttpApi
             Path: /spells
             Method: get
+            Auth:
+              Authorizer: NONE
         GetSpell:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
             Path: /spells/{id}
             Method: get
+            Auth:
+              Authorizer: NONE
     Metadata:
       BuildMethod: esbuild
       BuildProperties:
@@ -140,6 +144,25 @@ Resources:
       LogGroupName: !Sub "/aws/lambda/${SpellsApiFunction}"
       RetentionInDays: 7
 
+  # Copie le Host du visiteur (le domaine CloudFront) dans un header custom X-Forwarded-Host.
+  # On ne peut pas forwarder le header Host lui-même jusqu'à API Gateway : le endpoint execute-api
+  # par défaut exige que Host corresponde exactement à son propre domaine et répond 403 Forbidden
+  # sinon. Le header custom, lui, n'a aucune incidence sur le routage. Cf. lib/links.ts.
+  SpellsForwardHostFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub "${AWS::StackName}-forward-host"
+      AutoPublish: true
+      FunctionConfig:
+        Comment: "Copie le Host du visiteur dans X-Forwarded-Host"
+        Runtime: cloudfront-js-2.0
+      FunctionCode: |
+        function handler(event) {
+            var request = event.request;
+            request.headers['x-forwarded-host'] = { value: request.headers.host.value };
+            return request;
+        }
+
   SpellsDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
@@ -154,7 +177,12 @@ Resources:
             - HEAD
             - OPTIONS
           CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          # AllViewerExceptHostHeader : Host doit rester celui d'API Gateway (voir SpellsForwardHostFunction
+          # ci-dessus pour comment la Lambda récupère quand même le domaine public via X-Forwarded-Host).
           OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt SpellsForwardHostFunction.FunctionARN
         Origins:
           - DomainName: !Sub "${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
             Id: ApiGatewayOrigin
