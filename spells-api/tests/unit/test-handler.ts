@@ -39,7 +39,7 @@ describe('Tests index', function () {
         expect(result).to.be.an('object');
         expect(result.statusCode).to.equal(200);
         expect(result.body).to.be.a('string');
-        expect(result.headers?.['Cache-Control']).to.equal('public, max-age=3600');
+        expect(result.headers?.['Cache-Control']).to.be.undefined;
 
         const response = JSON.parse(result.body as string);
 
@@ -204,7 +204,37 @@ describe('Tests index', function () {
         const response = JSON.parse(result.body as string);
         expect(response.error).to.equal('Impossible de récupérer les sorts');
         expect(response.details).to.equal('boom');
-        expect(result.headers?.['Cache-Control']).to.equal('no-store');
+        expect(result.headers?.['Cache-Control']).to.be.undefined;
+    });
+
+    it('sorts spells by level when sort=level is provided', async () => {
+        ddbMock.on(ScanCommand).resolves({ Count: rawSpells.length, Items: rawSpells });
+
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { sort: 'level' } }));
+
+        const response = JSON.parse(result.body as string);
+        expect(response.sortApplied).to.equal('level');
+        expect(response.spells.map((spell: { Name: string }) => spell.Name)).to.deep.equal(['Lumière', 'Boule de feu']);
+    });
+
+    it('sorts spells alphabetically when sort=name is provided', async () => {
+        ddbMock.on(ScanCommand).resolves({ Count: rawSpells.length, Items: rawSpells });
+
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { sort: 'name' } }));
+
+        const response = JSON.parse(result.body as string);
+        expect(response.sortApplied).to.equal('name');
+        expect(response.spells.map((spell: { Name: string }) => spell.Name)).to.deep.equal(['Boule de feu', 'Lumière']);
+    });
+
+    it('ignores an unknown sort value and leaves the scan order untouched', async () => {
+        ddbMock.on(ScanCommand).resolves({ Count: rawSpells.length, Items: rawSpells });
+
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { sort: 'popularity' } }));
+
+        const response = JSON.parse(result.body as string);
+        expect(response.sortApplied).to.equal('none');
+        expect(response.spells.map((spell: { Name: string }) => spell.Name)).to.deep.equal(['Boule de feu', 'Lumière']);
     });
 
     describe('GET /spells/{id}', function () {
@@ -237,7 +267,7 @@ describe('Tests index', function () {
                 Description: 'Une boule de feu explose...',
                 self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/boule-de-feu'
             });
-            expect(result.headers?.['Cache-Control']).to.equal('public, max-age=3600');
+            expect(result.headers?.['Cache-Control']).to.be.undefined;
 
             const getCalls = ddbMock.commandCalls(GetCommand);
             expect(getCalls).to.have.lengthOf(1);
@@ -253,7 +283,7 @@ describe('Tests index', function () {
 
             const response = JSON.parse(result.body as string);
             expect(response.error).to.include('sort-inconnu');
-            expect(result.headers?.['Cache-Control']).to.equal('no-store');
+            expect(result.headers?.['Cache-Control']).to.be.undefined;
         });
 
         it('returns a 500 response when DynamoDB fails', async () => {

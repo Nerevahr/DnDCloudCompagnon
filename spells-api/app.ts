@@ -11,6 +11,28 @@ export const lambdaHandler = async (
     return spellId ? getSpell(event, spellId) : listSpells(event);
 };
 
+const SORT_OPTIONS = ["level", "name"] as const;
+type SortOption = typeof SORT_OPTIONS[number];
+
+// Trie une liste de sorts par niveau (puis par nom à niveau égal) ou par ordre alphabétique.
+// Le tri se fait côté application car DynamoDB Scan ne garantit aucun ordre et ne supporte pas ORDER BY.
+const sortSpells = (
+    spells: Array<{ id: string } & Record<string, unknown>>,
+    sort?: SortOption
+) => {
+    if (!sort) {
+        return spells;
+    }
+
+    const sorted = [...spells];
+    sorted.sort((a, b) => {
+        const levelDiff = sort === "level" ? (a.Level as number) - (b.Level as number) : 0;
+        return levelDiff !== 0 ? levelDiff : (a.Name as string).localeCompare(b.Name as string, "fr");
+    });
+
+    return sorted;
+};
+
 const listSpells = async (event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> => {
     try {
         // Récupération des paramètres "school", "level" et "class" depuis l'URL
@@ -31,6 +53,10 @@ const listSpells = async (event: APIGatewayProxyEventV2): Promise<APIGatewayProx
             ? rawClassFilter.split(",").map((classe) => classe.trim()).filter(Boolean)
             : [];
 
+        // Tri optionnel du résultat : ?sort=level (par niveau) ou ?sort=name (alphabétique)
+        const rawSort = event.queryStringParameters?.sort;
+        const sort = SORT_OPTIONS.includes(rawSort as SortOption) ? (rawSort as SortOption) : undefined;
+
         const { count, spells } = await scanSpells(schoolFilters, levelFilters, classFilters);
 
         return successResponse({
@@ -40,9 +66,10 @@ const listSpells = async (event: APIGatewayProxyEventV2): Promise<APIGatewayProx
                 level: levelFilters.length > 0 ? levelFilters : "none",
                 class: classFilters.length > 0 ? classFilters : "none"
             },
+            sortApplied: sort ?? "none",
             // Informations minimales uniquement (nom, niveau, école, classes) pour garder le body léger ;
             // le lien "self" permet au client de retrouver le détail complet du sort (auto-discovery)
-            spells: spells.map(({ id, ...spell }) => ({
+            spells: sortSpells(spells, sort).map(({ id, ...spell }) => ({
                 id,
                 ...spell,
                 self: buildSpellSelfLink(event, id)
