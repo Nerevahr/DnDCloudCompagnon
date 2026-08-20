@@ -163,6 +163,34 @@ Resources:
             return request;
         }
 
+  # Policy CachingOptimized géré par AWS (658327ea-f89d-4fab-a63d-7e88639e58f6) exclut les query
+  # strings de la clé de cache : les filtres ?school=/?level=/?class=/?sort= étaient bien transmis
+  # à l'origine (via OriginRequestPolicy) mais CloudFront servait la même réponse en cache pour
+  # toutes les combinaisons. On whitelist donc explicitement ces paramètres dans la clé de cache.
+  SpellsCachePolicy:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        Name: !Sub "${AWS::StackName}-spells-cache-policy"
+        Comment: "Cache spells responses par combinaison de filtres (school/level/class/sort)"
+        DefaultTTL: 86400
+        MinTTL: 1
+        MaxTTL: 31536000
+        ParametersInCacheKeyAndForwardedToOrigin:
+          EnableAcceptEncodingGzip: true
+          EnableAcceptEncodingBrotli: true
+          QueryStringsConfig:
+            QueryStringBehavior: whitelist
+            QueryStrings:
+              - school
+              - level
+              - class
+              - sort
+          HeadersConfig:
+            HeaderBehavior: none
+          CookiesConfig:
+            CookieBehavior: none
+
   SpellsDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
@@ -176,7 +204,7 @@ Resources:
             - GET
             - HEAD
             - OPTIONS
-          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          CachePolicyId: !Ref SpellsCachePolicy
           # AllViewerExceptHostHeader : Host doit rester celui d'API Gateway (voir SpellsForwardHostFunction
           # ci-dessus pour comment la Lambda récupère quand même le domaine public via X-Forwarded-Host).
           OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
