@@ -18,6 +18,7 @@ interface Spell {
     classes: string[];
     concentration: boolean;
     descriptionSort: string;
+    ameliorationSortMineur?: string;
     isOffensive?: boolean;
     requiresSavingThrow?: boolean;
     savingThrowStat?: string;
@@ -41,6 +42,7 @@ interface SpellItem {
     ComponentM: boolean;
     MaterialDescription: string;
     Description: string;
+    MinorSpellImprovement: string;
     IsOffensive: boolean;
     RequiresSavingThrow: boolean;
     SavingThrowStat: string;
@@ -95,6 +97,7 @@ function toItem(spell: Spell): SpellItem {
         ComponentM: spell.componentM,
         MaterialDescription: spell.materialDescription ?? "",
         Description: spell.descriptionSort,
+        MinorSpellImprovement: spell.ameliorationSortMineur ?? "",
         IsOffensive: spell.isOffensive ?? false,
         RequiresSavingThrow: spell.requiresSavingThrow ?? false,
         SavingThrowStat: spell.savingThrowStat ?? "",
