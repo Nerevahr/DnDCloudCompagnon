@@ -19,7 +19,8 @@
       "savingThrowStat":"Sagesse",
       "damageAmount":"4d10",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous sondez les cauchemars d'une créature que vous pouvez voir à portée et créez une illusion de ses peurs les plus profondes, visible uniquement par cette créature. La cible effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit 4d10 dégâts psychiques et subit un Désavantage aux jets de caractéristique et d'attaque pendant toute la durée du sort. En cas de réussite, elle subit seulement la moitié des dégâts et le sort prend fin. Pendant toute la durée du sort, la cible effectue un jet de sauvegarde de Sagesse à la fin de chacun de ses tours. En cas d'échec, elle subit à nouveau les dégâts psychiques. En cas de réussite, le sort prend fin.\n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Vous sondez les cauchemars d'une créature que vous pouvez voir à portée et créez une illusion de ses peurs les plus profondes, visible uniquement par cette créature. La cible effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit 4d10 dégâts psychiques et subit un Désavantage aux jets de caractéristique et d'attaque pendant toute la durée du sort. En cas de réussite, elle subit seulement la moitié des dégâts et le sort prend fin. Pendant toute la durée du sort, la cible effectue un jet de sauvegarde de Sagesse à la fin de chacun de ses tours. En cas d'échec, elle subit à nouveau les dégâts psychiques. En cas de réussite, le sort prend fin.",
+      "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Aura de pureté",
@@ -85,7 +86,8 @@
       "savingThrowStat":"Charisme",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Une créature que vous pouvez voir à portée doit réussir un jet de sauvegarde de Charisme ou être transportée sur un demi-plan inoffensif pendant la durée du sort. Là, la cible subit l'état Incapable d'agir. À la fin du sort, la cible réapparaît dans la case qu'elle a quittée ou dans la case libre la plus proche si cette case est occupée. \nSi la cible est une aberration, un céleste, un élémentaire, une fée ou un fiélon, elle ne revient pas si le sort dure 1 minute. Elle est transportée vers un emplacement aléatoire sur un plan (au choix du MD) associé à son type de créature. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Une créature que vous pouvez voir à portée doit réussir un jet de sauvegarde de Charisme ou être transportée sur un demi-plan inoffensif pendant la durée du sort. Là, la cible subit l'état Incapable d'agir. À la fin du sort, la cible réapparaît dans la case qu'elle a quittée ou dans la case libre la plus proche si cette case est occupée. \nSi la cible est une aberration, un céleste, un élémentaire, une fée ou un fiélon, elle ne revient pas si le sort dure 1 minute. Elle est transportée vers un emplacement aléatoire sur un plan (au choix du MD) associé à son type de créature.",
+      "emplacementNiveauSuperieur":"Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Bouclier de feu",
@@ -129,7 +131,8 @@
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Une créature que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. Elle a un Avantage si vous ou vos alliés la combattez. En cas d'échec, la cible subit l'état Charmé jusqu'à la fin du sort ou jusqu'à ce que vous ou vos alliés la blessiez. La créature charmée est amicale envers vous. À la fin du sort, la cible sait que vous l'avez charmée.\n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Une créature que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. Elle a un Avantage si vous ou vos alliés la combattez. En cas d'échec, la cible subit l'état Charmé jusqu'à la fin du sort ou jusqu'à ce que vous ou vos alliés la blessiez. La créature charmée est amicale envers vous. À la fin du sort, la cible sait que vous l'avez charmée.",
+      "emplacementNiveauSuperieur":"Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Châtiment de stupeur",
@@ -151,7 +154,8 @@
       "savingThrowStat":"Sagesse",
       "damageAmount":"4d6",
       "alternateDamageAmount":"",
-      "descriptionSort":"La cible subit 4d6 dégâts psychiques supplémentaires suite à l'attaque, et doit réussir un jet de sauvegarde de Sagesse ou subir l'état Étourdi jusqu'à la fin de votre prochain tour.\n**Emplacement de niveau supérieur.** Les dégâts supplémentaires augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"La cible subit 4d6 dégâts psychiques supplémentaires suite à l'attaque, et doit réussir un jet de sauvegarde de Sagesse ou subir l'état Étourdi jusqu'à la fin de votre prochain tour.",
+      "emplacementNiveauSuperieur":"Les dégâts supplémentaires augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Chien de garde de Mordenkainen",
@@ -239,7 +243,8 @@
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Chaque créature dans une Sphère de 3 mètres de rayon centrée sur un point que vous choisissez à portée doit réussir un jet de sauvegarde de Sagesse, sinon cette cible ne peut pas prendre d'actions Bonus ou de Réactions et doit lancer 1d10 au début de chacun de ses tours pour déterminer son comportement pour ce tour, en consultant la table ci-dessous. 1d10Comportement pour le tour 1La cible ne prend aucune action et utilise tout son mouvement pour se déplacer. Lancez 1d4 pour la direction : 1=nord, 2=est, 3=sud ou 4=ouest. 2–6La cible ne bouge pas et ne prend aucune action. 7–8La cible ne bouge pas et prend l'action Attaque pour effectuer une attaque au corps à corps contre une créature aléatoire à sa portée. Si aucune créature n'est à sa portée, la cible ne prend aucune action. 9–10 La cible choisit son comportement. À la fin de chacun de ses tours, une cible affectée refait son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.\n**Emplacement de niveau supérieur.** Le rayon de la Sphère augmente de 1,50 mètre pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Chaque créature dans une Sphère de 3 mètres de rayon centrée sur un point que vous choisissez à portée doit réussir un jet de sauvegarde de Sagesse, sinon cette cible ne peut pas prendre d'actions Bonus ou de Réactions et doit lancer 1d10 au début de chacun de ses tours pour déterminer son comportement pour ce tour, en consultant la table ci-dessous. 1d10Comportement pour le tour 1La cible ne prend aucune action et utilise tout son mouvement pour se déplacer. Lancez 1d4 pour la direction : 1=nord, 2=est, 3=sud ou 4=ouest. 2–6La cible ne bouge pas et ne prend aucune action. 7–8La cible ne bouge pas et prend l'action Attaque pour effectuer une attaque au corps à corps contre une créature aléatoire à sa portée. Si aucune créature n'est à sa portée, la cible ne prend aucune action. 9–10 La cible choisit son comportement. À la fin de chacun de ses tours, une cible affectée refait son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.",
+      "emplacementNiveauSuperieur":"Le rayon de la Sphère augmente de 1,50 mètre pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Contrôle de l'eau",
@@ -283,7 +288,8 @@
       "savingThrowStat":"",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous invoquez l'esprit d'une aberration. Celui-ci se manifeste dans un espace libre que vous pouvez voir à portée et utilise le profil de l'esprit aberrant. Lorsque vous lancez le sort, choisissez entre tyrannoeillidé, slaad ou flagelleur mental. La créature ressemble à une Aberration de ce type, ce qui détermine certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0 point de vie ou à la fin du sort. Cette créature est votre alliée et celle de vos alliés. En combat, elle partage votre Initiative, mais son tour commence immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son mouvement pour éviter le danger.\n**Emplacement de niveau supérieur.** Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil."
+      "descriptionSort":"Vous invoquez l'esprit d'une aberration. Celui-ci se manifeste dans un espace libre que vous pouvez voir à portée et utilise le profil de l'esprit aberrant. Lorsque vous lancez le sort, choisissez entre tyrannoeillidé, slaad ou flagelleur mental. La créature ressemble à une Aberration de ce type, ce qui détermine certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0 point de vie ou à la fin du sort. Cette créature est votre alliée et celle de vos alliés. En combat, elle partage votre Initiative, mais son tour commence immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son mouvement pour éviter le danger.",
+      "emplacementNiveauSuperieur":"Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil."
    },
    {
       "name":"Convocation d'artificiel",
@@ -327,7 +333,8 @@
       "savingThrowStat":"",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous invoquez l'esprit d'un élémentaire. Celui-ci se manifeste dans un espace libre que vous pouvez voir à portée et utilise le profil de l'esprit élémentaire. Lorsque vous lancez le sort, choisissez un élément : Air, Terre, Feu ou Eau. La créature ressemble à une forme bipède enveloppée dans l'élément choisi, ce qui détermine certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0 point de vie ou à la fin du sort. Cette créature est votre alliée et celle de vos alliés. En combat, elle partage votre Initiative, mais son tour commence immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son mouvement pour éviter le danger.\n**Emplacement de niveau supérieur.** Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil."
+      "descriptionSort":"Vous invoquez l'esprit d'un élémentaire. Celui-ci se manifeste dans un espace libre que vous pouvez voir à portée et utilise le profil de l'esprit élémentaire. Lorsque vous lancez le sort, choisissez un élément : Air, Terre, Feu ou Eau. La créature ressemble à une forme bipède enveloppée dans l'élément choisi, ce qui détermine certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0 point de vie ou à la fin du sort. Cette créature est votre alliée et celle de vos alliés. En combat, elle partage votre Initiative, mais son tour commence immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son mouvement pour éviter le danger.",
+      "emplacementNiveauSuperieur":"Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil."
    },
    {
       "name":"Divination",
@@ -371,7 +378,8 @@
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Une bête que vous pouvez voir à portée doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. La cible bénéficie d'un Avantage pour ce jet si vous ou vos alliés la combattez. Chaque fois que la cible subit des dégâts, elle renouvelle le jet de sauvegarde, mettant fin au sort en cas de réussite. Vous disposez d'un lien télépathique avec la cible charmée tant que vous êtes sur le même plan d'existence. À votre tour, vous pouvez utiliser ce lien pour lui donner des ordres (aucune action requise), tels que « Attaque cette créature », « Va là-bas » ou « Récupère cet objet ». La cible fait de son mieux pour obéir pendant son tour. Si elle exécute un ordre et ne reçoit aucune autre instruction de votre part, elle agit et se déplace à sa guise, se concentrant sur sa protection. Vous pouvez ordonner à la cible de prendre une Réaction, mais vous devez prendre votre propre Réaction pour cela.\n**Emplacement de niveau supérieur.** Votre concentration peut durer plus longtemps avec un emplacement de sort de niveau 5 (jusqu'à 10 minutes), 6 (jusqu'à 1 heure) ou 7 ou plus (jusqu'à 8 heures)."
+      "descriptionSort":"Une bête que vous pouvez voir à portée doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. La cible bénéficie d'un Avantage pour ce jet si vous ou vos alliés la combattez. Chaque fois que la cible subit des dégâts, elle renouvelle le jet de sauvegarde, mettant fin au sort en cas de réussite. Vous disposez d'un lien télépathique avec la cible charmée tant que vous êtes sur le même plan d'existence. À votre tour, vous pouvez utiliser ce lien pour lui donner des ordres (aucune action requise), tels que « Attaque cette créature », « Va là-bas » ou « Récupère cet objet ». La cible fait de son mieux pour obéir pendant son tour. Si elle exécute un ordre et ne reçoit aucune autre instruction de votre part, elle agit et se déplace à sa guise, se concentrant sur sa protection. Vous pouvez ordonner à la cible de prendre une Réaction, mais vous devez prendre votre propre Réaction pour cela.",
+      "emplacementNiveauSuperieur":"Votre concentration peut durer plus longtemps avec un emplacement de sort de niveau 5 (jusqu'à 10 minutes), 6 (jusqu'à 1 heure) ou 7 ou plus (jusqu'à 8 heures)."
    },
    {
       "name":"Fabrication",
@@ -437,7 +445,8 @@
       "savingThrowStat":"Constitution",
       "damageAmount":"8d8",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Une créature que vous pouvez voir à portée effectue un jet de sauvegarde de Constitution et subit 8d8 dégâts nécrotiques en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature du type plante rate automatiquement le jet de sauvegarde. Vous pouvez également cibler une plante non magique qui n'est pas une créature, comme un arbre ou un arbuste. Celle-ci ne lance pas de jet de sauvegarde ; elle se fane et meurt.\n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Une créature que vous pouvez voir à portée effectue un jet de sauvegarde de Constitution et subit 8d8 dégâts nécrotiques en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature du type plante rate automatiquement le jet de sauvegarde. Vous pouvez également cibler une plante non magique qui n'est pas une créature, comme un arbre ou un arbuste. Celle-ci ne lance pas de jet de sauvegarde ; elle se fane et meurt.",
+      "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Fontaine de lune",
@@ -503,7 +512,8 @@
       "savingThrowStat":"",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous invoquez un mille-pattes, une araignée ou une guêpe géante (choisie lors du lancement du sort). L'insecte se manifeste dans un espace libre que vous pouvez voir à portée et utilise le profil de l'insecte géant. La forme choisie détermine certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0 point de vie ou à la fin du sort. Cette créature est votre alliée et celle de vos alliés. En combat, elle partage votre Initiative, mais son tour commence immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son mouvement pour éviter le danger.\n**Emplacement de niveau supérieur.** Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil."
+      "descriptionSort":"Vous invoquez un mille-pattes, une araignée ou une guêpe géante (choisie lors du lancement du sort). L'insecte se manifeste dans un espace libre que vous pouvez voir à portée et utilise le profil de l'insecte géant. La forme choisie détermine certains détails de son profil. La créature disparaît lorsqu'elle tombe à 0 point de vie ou à la fin du sort. Cette créature est votre alliée et celle de vos alliés. En combat, elle partage votre Initiative, mais son tour commence immédiatement après le vôtre. Elle obéit à vos ordres verbaux (aucune action requise). Si vous n'en donnez pas, elle prend l'action Esquive et utilise son mouvement pour éviter le danger.",
+      "emplacementNiveauSuperieur":"Utilisez le niveau de l'emplacement de sort pour le niveau du sort dans le profil."
    },
    {
       "name":"Invisibilité suprême",
@@ -547,7 +557,8 @@
       "savingThrowStat":"",
       "damageAmount":"2d8",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous invoquez des esprits des plans élémentaires qui voltigent autour de vous sous forme d'Émanation de 4,50 mètres pendant toute la durée du sort. Jusqu'à la fin du sort, chaque attaque que vous effectuez inflige 2d8 dégâts supplémentaires lorsque vous touchez une créature dans l'Émanation. Ces dégâts sont d'acide, de froid, de feu ou de foudre (au choix lors de l'attaque). De plus, le sol de l'Émanation est un terrain difficile pour vos ennemis.\n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Vous invoquez des esprits des plans élémentaires qui voltigent autour de vous sous forme d'Émanation de 4,50 mètres pendant toute la durée du sort. Jusqu'à la fin du sort, chaque attaque que vous effectuez inflige 2d8 dégâts supplémentaires lorsque vous touchez une créature dans l'Émanation. Ces dégâts sont d'acide, de froid, de feu ou de foudre (au choix lors de l'attaque). De plus, le sol de l'Émanation est un terrain difficile pour vos ennemis.",
+      "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Invocation d'êtres sylvestres",
@@ -569,7 +580,8 @@
       "savingThrowStat":"Sagesse",
       "damageAmount":"5d8",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous invoquez des esprits de la nature qui voltigent autour de vous sous forme d'Émanation de 3 mètres pendant la durée du sort. Chaque fois que l'Émanation pénètre dans l'espace d'une créature que vous pouvez voir, ou chaque fois qu'une créature que vous pouvez voir y pénètre ou y termine son tour, vous pouvez forcer cette créature à effectuer un jet de sauvegarde de Sagesse. La créature subit 5d8 dégâts de Force en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature n'effectue ce jet qu'une seule fois par tour. De plus, vous pouvez prendre l'action Désengagement comme action Bonus pendant la durée du sort.\n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Vous invoquez des esprits de la nature qui voltigent autour de vous sous forme d'Émanation de 3 mètres pendant la durée du sort. Chaque fois que l'Émanation pénètre dans l'espace d'une créature que vous pouvez voir, ou chaque fois qu'une créature que vous pouvez voir y pénètre ou y termine son tour, vous pouvez forcer cette créature à effectuer un jet de sauvegarde de Sagesse. La créature subit 5d8 dégâts de Force en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature n'effectue ce jet qu'une seule fois par tour. De plus, vous pouvez prendre l'action Désengagement comme action Bonus pendant la durée du sort.",
+      "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Liane avide",
@@ -591,7 +603,8 @@
       "savingThrowStat":"",
       "damageAmount":"4d8",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous invoquez une liane qui pousse sur une surface dans un espace libre que vous pouvez voir à portée. La liane persiste pour toute la durée du sort. Effectuez une attaque de sort au corps à corps contre une créature dans un rayon de 9 mètres autour de la liane. Si l'attaque touche, la cible subit 4d8 dégâts contondants et la liane l'attire de jusqu'à 9 mètres vers elle ; si la cible est de taille G ou inférieure, elle subit l'etat Agrippé (évasion DD égal au DD de sauvegarde de votre sort). La liane ne peut agripper qu'une seule créature à la fois, et vous pouvez lui faire libérer une créature agrippée (aucune action requise). Par une action Bonus lors de vos tours suivants, vous pouvez répéter l'attaque contre une créature dans un rayon de 9 mètres autour de la liane.\n**Emplacement de niveau supérieur.** Le nombre de créatures que la liane peut agripper augmente de un pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Vous invoquez une liane qui pousse sur une surface dans un espace libre que vous pouvez voir à portée. La liane persiste pour toute la durée du sort. Effectuez une attaque de sort au corps à corps contre une créature dans un rayon de 9 mètres autour de la liane. Si l'attaque touche, la cible subit 4d8 dégâts contondants et la liane l'attire de jusqu'à 9 mètres vers elle ; si la cible est de taille G ou inférieure, elle subit l'etat Agrippé (évasion DD égal au DD de sauvegarde de votre sort). La liane ne peut agripper qu'une seule créature à la fois, et vous pouvez lui faire libérer une créature agrippée (aucune action requise). Par une action Bonus lors de vos tours suivants, vous pouvez répéter l'attaque contre une créature dans un rayon de 9 mètres autour de la liane.",
+      "emplacementNiveauSuperieur":"Le nombre de créatures que la liane peut agripper augmente de un pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Liberté de mouvement",
@@ -613,7 +626,8 @@
       "savingThrowStat":"",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous touchez une créature consentante. Pendant la durée du sort, les mouvements de la cible ne sont pas affectés par un Terrain difficile, et les sorts et autres effets magiques ne peuvent ni réduire sa Vitesse ni lui infliger les états Paralysé ou Entravé. La cible a également une Vitesse de nage égale à sa Vitesse. \nDe plus, la cible peut utiliser 1,50 mètre de mouvement pour s'échapper automatiquement des entraves non magiques, comme des menottes ou une créature lui imposant l'état Agrippé. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Vous touchez une créature consentante. Pendant la durée du sort, les mouvements de la cible ne sont pas affectés par un Terrain difficile, et les sorts et autres effets magiques ne peuvent ni réduire sa Vitesse ni lui infliger les états Paralysé ou Entravé. La cible a également une Vitesse de nage égale à sa Vitesse. \nDe plus, la cible peut utiliser 1,50 mètre de mouvement pour s'échapper automatiquement des entraves non magiques, comme des menottes ou une créature lui imposant l'état Agrippé.",
+      "emplacementNiveauSuperieur":"Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Localisation de créature",
@@ -679,7 +693,8 @@
       "savingThrowStat":"Dextérité",
       "damageAmount":"5d8",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous créez un mur de feu sur une surface solide à portée. Vous pouvez créer un mur mesurant jusqu'à 18 mètres de long, 6 mètres de haut et 30 cm d'épaisseur, ou un mur encerclé mesurant jusqu'à 6 mètres de diamètre, 6 mètres de haut et 30 cm d'épaisseur. Le mur est opaque et reste en place pendant toute la durée du sort. Lorsque le mur apparaît, Toute créature dans sa zone effectue un jet de sauvegarde de Dextérité, subissant 5d8 dégâts de Feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Un côté du mur, que vous choisissez lors du lancement de ce sort, inflige 5d8 dégâts de feu à toute créature qui termine son tour à 3 mètres ou moins de ce côté ou à l'intérieur du mur. Une créature subit les mêmes dégâts lorsqu'elle pénètre dans le mur pour la première fois au cours d'un tour ou y termine son tour. L'autre côté du mur n'inflige aucun dégât.\n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Vous créez un mur de feu sur une surface solide à portée. Vous pouvez créer un mur mesurant jusqu'à 18 mètres de long, 6 mètres de haut et 30 cm d'épaisseur, ou un mur encerclé mesurant jusqu'à 6 mètres de diamètre, 6 mètres de haut et 30 cm d'épaisseur. Le mur est opaque et reste en place pendant toute la durée du sort. Lorsque le mur apparaît, Toute créature dans sa zone effectue un jet de sauvegarde de Dextérité, subissant 5d8 dégâts de Feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Un côté du mur, que vous choisissez lors du lancement de ce sort, inflige 5d8 dégâts de feu à toute créature qui termine son tour à 3 mètres ou moins de ce côté ou à l'intérieur du mur. Une créature subit les mêmes dégâts lorsqu'elle pénètre dans le mur pour la première fois au cours d'un tour ou y termine son tour. L'autre côté du mur n'inflige aucun dégât.",
+      "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Oeil du mage",
@@ -789,7 +804,8 @@
       "savingThrowStat":"",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous sécurisez magiquement une zone à portée. Cette zone est un Cube dont les dimensions peuvent varier de 1,50 mètre à 30 mètres de côté. Lorsque vous lancez le sort, vous décidez du niveau de sécurité qu'il offre en choisissant l'une des propriétés suivantes :\n• Le son ne peut pas traverser la barrière du périmètre de la zone protégée.\n• La barrière de la zone protégée apparaît sombre et brumeuse, empêchant toute vision (y compris par Vision dans le noir) à travers elle.\n• Les capteurs créés par les sorts de Divination ne peuvent pas apparaître à l'intérieur de la zone protégée ni traverser la barrière de son périmètre.\n• Les créatures présentes dans la zone ne peuvent pas être ciblées par des sorts de Divination.\n• Rien ne peut se téléporter vers ou hors de la zone protégée.\n• Un voyage interplanaire est bloqué dans la zone protégée. Lancer ce sort au même endroit chaque jour pendant 365 jours le fait durer jusqu'à sa dissipation.\n**Emplacement de niveau supérieur.** Vous pouvez augmenter la taille du Cube de 30 mètres pour chaque niveau d'emplacement de sort supérieur supérieur à 4."
+      "descriptionSort":"Vous sécurisez magiquement une zone à portée. Cette zone est un Cube dont les dimensions peuvent varier de 1,50 mètre à 30 mètres de côté. Lorsque vous lancez le sort, vous décidez du niveau de sécurité qu'il offre en choisissant l'une des propriétés suivantes :\n• Le son ne peut pas traverser la barrière du périmètre de la zone protégée.\n• La barrière de la zone protégée apparaît sombre et brumeuse, empêchant toute vision (y compris par Vision dans le noir) à travers elle.\n• Les capteurs créés par les sorts de Divination ne peuvent pas apparaître à l'intérieur de la zone protégée ni traverser la barrière de son périmètre.\n• Les créatures présentes dans la zone ne peuvent pas être ciblées par des sorts de Divination.\n• Rien ne peut se téléporter vers ou hors de la zone protégée.\n• Un voyage interplanaire est bloqué dans la zone protégée. Lancer ce sort au même endroit chaque jour pendant 365 jours le fait durer jusqu'à sa dissipation.",
+      "emplacementNiveauSuperieur":"Vous pouvez augmenter la taille du Cube de 30 mètres pour chaque niveau d'emplacement de sort supérieur supérieur à 4."
    },
    {
       "name":"Sphère de vitriol",
@@ -811,7 +827,8 @@
       "savingThrowStat":"Dextérité",
       "damageAmount":"10d4",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous pointez un endroit à portée, et une boule d'acide brillante de 30 cm de diamètre y jaillit avant d'exploser dans une Sphère de 6 mètres de rayon. Toute créature dans cette zone effectue un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit 10d4 dégâts d'Acide, puis 5d4 supplémentaires à la fin de son prochain tour. En cas de réussite, la créature subit seulement la moitié des dégâts initiaux.\n**Emplacement de niveau supérieur.** Les dégâts initiaux augmentent de 2d4 pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"Vous pointez un endroit à portée, et une boule d'acide brillante de 30 cm de diamètre y jaillit avant d'exploser dans une Sphère de 6 mètres de rayon. Toute créature dans cette zone effectue un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit 10d4 dégâts d'Acide, puis 5d4 supplémentaires à la fin de son prochain tour. En cas de réussite, la créature subit seulement la moitié des dégâts initiaux.",
+      "emplacementNiveauSuperieur":"Les dégâts initiaux augmentent de 2d4 pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Sphère résiliente d'Otiluke",
@@ -855,7 +872,8 @@
       "savingThrowStat":"Dextérité",
       "damageAmount":"2d10",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"La grêle tombe dans un Cylindre de 6 mètres de rayon et 12 mètres de haut, centré sur un point à portée. Toute créature dans le Cylindre effectue un jet de sauvegarde de Dextérité. Une créature subit 2d10 dégâts contondants et 4d6 dégâts de froid en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Les grêlons transforment le sol du Cylindre en Terrain difficile jusqu'à la fin de votre prochain tour.\n**Emplacement de niveau supérieur.** Les dégâts contondants augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 4."
+      "descriptionSort":"La grêle tombe dans un Cylindre de 6 mètres de rayon et 12 mètres de haut, centré sur un point à portée. Toute créature dans le Cylindre effectue un jet de sauvegarde de Dextérité. Une créature subit 2d10 dégâts contondants et 4d6 dégâts de froid en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Les grêlons transforment le sol du Cylindre en Terrain difficile jusqu'à la fin de votre prochain tour.",
+      "emplacementNiveauSuperieur":"Les dégâts contondants augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 4."
    },
    {
       "name":"Tentacules noirs d'Evard",

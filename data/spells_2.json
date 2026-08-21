@@ -19,7 +19,8 @@
       "savingThrowStat":"",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Choisissez jusqu'à trois créatures à portée. Les points de vie maximum et actuels de chaque cible augmentent de 5 pendant la durée. \n**Emplacement de niveau supérieur.** Les points de vie de chaque cible augmentent de 5 pour chaque niveau d'emplacement de sort supérieur à 2."
+      "descriptionSort":"Choisissez jusqu'à trois créatures à portée. Les points de vie maximum et actuels de chaque cible augmentent de 5 pendant la durée.",
+      "emplacementNiveauSuperieur":"Les points de vie de chaque cible augmentent de 5 pour chaque niveau d'emplacement de sort supérieur à 2."
    },
    {
       "name":"Amélioration de caractéristique",
@@ -41,7 +42,8 @@
       "savingThrowStat":"",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous touchez une créature et choisissez entre Force, Dextérité, Intelligence, Sagesse ou Charisme. Pendant toute la durée du sort, la cible obtient un Avantage aux jets de caractéristique utilisant la caractéristique choisie. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2. Vous pouvez choisir une caractéristique différente pour chaque cible."
+      "descriptionSort":"Vous touchez une créature et choisissez entre Force, Dextérité, Intelligence, Sagesse ou Charisme. Pendant toute la durée du sort, la cible obtient un Avantage aux jets de caractéristique utilisant la caractéristique choisie.",
+      "emplacementNiveauSuperieur":"Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2. Vous pouvez choisir une caractéristique différente pour chaque cible."
    },
    {
       "name":"Apaisement des émotions",
@@ -85,7 +87,8 @@
       "savingThrowStat":"",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous créez une force spectrale flottante ressemblant à une arme de votre choix et qui dure toute la durée du sort. \nLa force apparaît à portée, dans un espace de votre choix, et vous pouvez immédiatement effectuer une attaque de sort au corps à corps contre une créature à 1,50 mètre ou moins de la force. Si l'attaque touche, la cible subit des dégâts de force égaux à 1d8, plus le modificateur de votre caractéristique d'incantation. \nPar une action Bonus lors de vos tours suivants, vous pouvez déplacer la force jusqu'à 6 mètres et répéter l'attaque contre une créature à 1,50 mètre ou moins. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 2."
+      "descriptionSort":"Vous créez une force spectrale flottante ressemblant à une arme de votre choix et qui dure toute la durée du sort. \nLa force apparaît à portée, dans un espace de votre choix, et vous pouvez immédiatement effectuer une attaque de sort au corps à corps contre une créature à 1,50 mètre ou moins de la force. Si l'attaque touche, la cible subit des dégâts de force égaux à 1d8, plus le modificateur de votre caractéristique d'incantation. \nPar une action Bonus lors de vos tours suivants, vous pouvez déplacer la force jusqu'à 6 mètres et répéter l'attaque contre une créature à 1,50 mètre ou moins.",
+      "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 2."
    },
    {
       "name":"Augure",
@@ -129,7 +132,8 @@
       "savingThrowStat":"Constitution",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Une créature que vous pouvez voir à portée doit réussir un jet de sauvegarde de Constitution, ou subir l'état Aveuglé ou Assourdi (selon votre choix) pendant toute la durée du sort. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2."
+      "descriptionSort":"Une créature que vous pouvez voir à portée doit réussir un jet de sauvegarde de Constitution, ou subir l'état Aveuglé ou Assourdi (selon votre choix) pendant toute la durée du sort. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.",
+      "emplacementNiveauSuperieur":"Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2."
    },
    {
       "name":"Détection des pièges",
@@ -217,7 +221,8 @@
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Choisissez un humanoïde que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Paralysé pendant toute la durée du sort. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite. \n**Emplacement de niveau supérieur.** Vous pouvez cibler un humanoïde supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2."
+      "descriptionSort":"Choisissez un humanoïde que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Paralysé pendant toute la durée du sort. À la fin de chacun de ses tours, la cible renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.",
+      "emplacementNiveauSuperieur":"Vous pouvez cibler un humanoïde supplémentaire pour chaque niveau d'emplacement de sort supérieur à 2."
    },
    {
       "name":"Lien de protection",
@@ -283,7 +288,8 @@
       "savingThrowStat":"",
       "damageAmount":"",
       "alternateDamageAmount":"",
-      "descriptionSort":"Jusqu'à cinq créatures de votre choix restant à portée pendant toute la durée du sort bénéficient d'un Repos court et récupèrent 2d8 points de vie. Une créature ne peut plus être affectée par ce sort avant d'avoir terminé un Repos long. \n**Emplacement de niveau supérieur.** Les soins augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 2."
+      "descriptionSort":"Jusqu'à cinq créatures de votre choix restant à portée pendant toute la durée du sort bénéficient d'un Repos court et récupèrent 2d8 points de vie. Une créature ne peut plus être affectée par ce sort avant d'avoir terminé un Repos long.",
+      "emplacementNiveauSuperieur":"Les soins augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 2."
    },
    {
       "name":"Protection contre le poison",

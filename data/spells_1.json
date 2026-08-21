@@ -39,7 +39,8 @@
          "Rôdeur"
       ],
       "concentration": false,
-      "descriptionSort": "Ciblez une bête que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. Si vous ou l'un de vos alliés infligez des dégâts à la cible, le sort prend fin. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une bête supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Ciblez une bête que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. Si vous ou l'un de vos alliés infligez des dégâts à la cible, le sort prend fin.",
+      "emplacementNiveauSuperieur": "Vous pouvez cibler une bête supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": false,
       "requiresSavingThrow": true,
       "savingThrowStat": "Sagesse",
@@ -83,7 +84,8 @@
          "Occultiste"
       ],
       "concentration": false,
-      "descriptionSort": "Un givre magique protecteur vous enveloppe. Vous gagnez 5 points de vie temporaires. Si une créature vous touche avec un jet d'attaque au corps à corps avant la fin du sort, elle subit 5 dégâts de froid. Le sort prend fin prématurément si vous n'avez plus de points de vie temporaires. \n**Emplacement de niveau supérieur.** Les points de vie temporaires et les dégâts de froid augmentent de 5 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Un givre magique protecteur vous enveloppe. Vous gagnez 5 points de vie temporaires. Si une créature vous touche avec un jet d'attaque au corps à corps avant la fin du sort, elle subit 5 dégâts de froid. Le sort prend fin prématurément si vous n'avez plus de points de vie temporaires.",
+      "emplacementNiveauSuperieur": "Les points de vie temporaires et les dégâts de froid augmentent de 5 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -156,7 +158,8 @@
       "savingThrowStat": "Constitution",
       "damageAmount": "2d10",
       "alternateDamageAmount": "",
-      "descriptionSort": "Une créature que vous touchez effectue un jet de sauvegarde de Constitution et subit 2d10 dégâts nécrotiques en cas d'échec, ou la moitié de ces dégâts en cas de réussite. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 1."
+      "descriptionSort": "Une créature que vous touchez effectue un jet de sauvegarde de Constitution et subit 2d10 dégâts nécrotiques en cas d'échec, ou la moitié de ces dégâts en cas de réussite.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 1."
    },
    {
       "name": "Bouclier",
@@ -225,7 +228,8 @@
       "savingThrowStat": "",
       "damageAmount": "",
       "alternateDamageAmount": "",
-      "descriptionSort": "Vous bénissez jusqu'à trois créatures à portée. Chaque fois qu'une cible effectue un jet d'attaque ou de sauvegarde avant la fin du sort, elle ajoute 1d4 à son jet d'attaque ou de sauvegarde. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1."
+      "descriptionSort": "Vous bénissez jusqu'à trois créatures à portée. Chaque fois qu'une cible effectue un jet d'attaque ou de sauvegarde avant la fin du sort, elle ajoute 1d4 à son jet d'attaque ou de sauvegarde.",
+      "emplacementNiveauSuperieur": "Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1."
    },
    {
       "name": "Charme-personne",
@@ -246,7 +250,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Un humanoïde que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. Il le fait avec un Avantage si vous ou vos alliés le combattez. En cas d'échec, la cible subit l'état Charmé jusqu'à la fin du sort ou jusqu'à ce que vous ou vos alliés lui infligiez des dégâts. La créature charmée est amicale envers vous. À la fin du sort, la cible sait que vous l'avez charmée. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Un humanoïde que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. Il le fait avec un Avantage si vous ou vos alliés le combattez. En cas d'échec, la cible subit l'état Charmé jusqu'à la fin du sort ou jusqu'à ce que vous ou vos alliés lui infligiez des dégâts. La créature charmée est amicale envers vous. À la fin du sort, la cible sait que vous l'avez charmée.",
+      "emplacementNiveauSuperieur": "Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": false,
       "requiresSavingThrow": true,
       "savingThrowStat": "Sagesse",
@@ -268,7 +273,8 @@
          "Paladin"
       ],
       "concentration": false,
-      "descriptionSort": "La cible subit 1d6 dégâts nécrotiques supplémentaires suite à l'attaque, et doit réussir un jet de sauvegarde de Sagesse ou subir l'état Effrayé jusqu'à la fin du sort. À la fin de chacun de ses tours, la cible effrayée renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "La cible subit 1d6 dégâts nécrotiques supplémentaires suite à l'attaque, et doit réussir un jet de sauvegarde de Sagesse ou subir l'état Effrayé jusqu'à la fin du sort. À la fin de chacun de ses tours, la cible effrayée renouvelle son jet de sauvegarde, mettant fin au sort sur elle-même en cas de réussite.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Sagesse",
@@ -290,7 +296,8 @@
          "Paladin"
       ],
       "concentration": false,
-      "descriptionSort": "Lorsque vous touchez la cible, elle subit 1d6 dégâts de feu supplémentaires. Au début de chacun de ses tours jusqu'à la fin du sort, la cible subit 1d6 dégâts de feu, puis effectue un jet de sauvegarde de Constitution. En cas d'échec, le sort continue. En cas de réussite, le sort prend fin. \n**Emplacement de niveau supérieur.** \nTous les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Lorsque vous touchez la cible, elle subit 1d6 dégâts de feu supplémentaires. Au début de chacun de ses tours jusqu'à la fin du sort, la cible subit 1d6 dégâts de feu, puis effectue un jet de sauvegarde de Constitution. En cas d'échec, le sort continue. En cas de réussite, le sort prend fin.",
+      "emplacementNiveauSuperieur": "Tous les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Constitution",
@@ -312,7 +319,8 @@
          "Paladin"
       ],
       "concentration": false,
-      "descriptionSort": "Votre coup retentit comme le tonnerre dans un rayon de 90 mètres, et la cible subit 2d6 dégâts de tonnerre supplémentaires. De plus, si la cible est une créature, elle doit réussir un jet de sauvegarde de Force ou être repoussée à 3 mètres de vous et subir l'état À terre. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Votre coup retentit comme le tonnerre dans un rayon de 90 mètres, et la cible subit 2d6 dégâts de tonnerre supplémentaires. De plus, si la cible est une créature, elle doit réussir un jet de sauvegarde de Force ou être repoussée à 3 mètres de vous et subir l'état À terre.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Force",
@@ -334,7 +342,8 @@
          "Paladin"
       ],
       "concentration": false,
-      "descriptionSort": "La cible subit 2d8 dégâts radiants supplémentaires suite à l'attaque. Les dégâts augmentent de 1d8 si la cible est un fiélon ou un mort-vivant. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "La cible subit 2d8 dégâts radiants supplémentaires suite à l'attaque. Les dégâts augmentent de 1d8 si la cible est un fiélon ou un mort-vivant.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -432,7 +441,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Vous créez un éclat de glace et le lancez sur une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, la cible subit 1d10 dégâts perforants. Que l'attaque soit réussie ou non, l'éclat explose. La cible et tout créature dans un rayon de 1,50 mètre doivent réussir un jet de sauvegarde de Dextérité ou subir 2d6 dégâts de froid. \n**Emplacement de niveau supérieur.** Les dégâts de froid augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Vous créez un éclat de glace et le lancez sur une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, la cible subit 1d10 dégâts perforants. Que l'attaque soit réussie ou non, l'éclat explose. La cible et tout créature dans un rayon de 1,50 mètre doivent réussir un jet de sauvegarde de Dextérité ou subir 2d6 dégâts de froid.",
+      "emplacementNiveauSuperieur": "Les dégâts de froid augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Dextérité",
@@ -460,7 +470,8 @@
       "savingThrowStat": "",
       "damageAmount": "",
       "alternateDamageAmount": "",
-      "descriptionSort": "Vous effectuez l'une des actions suivantes : \n**Création d'eau.** Vous créez jusqu'à 40 litres d'eau propre à portée dans un récipient ouvert. L'eau peut aussi tomber sous forme de pluie dans un Cube de 9 mètres de côté à portée, éteignant les flammes. \n**Destruction d'eau.** Vous détruisez jusqu'à 40 litres d'eau dans un récipient ouvert à portée. Vous pouvez aussi détruire le brouillard dans un Cube de 9 mètres ce côté à portée. \n**Emplacement de niveau supérieur.** Vous créez ou détruisez 40 litres d'eau supplémentaires, ou la taille du Cube augmente de 1,50 mètre, pour chaque niveau d'emplacement de sort supérieur à 1."
+      "descriptionSort": "Vous effectuez l'une des actions suivantes : \n**Création d'eau.** Vous créez jusqu'à 40 litres d'eau propre à portée dans un récipient ouvert. L'eau peut aussi tomber sous forme de pluie dans un Cube de 9 mètres de côté à portée, éteignant les flammes. \n**Destruction d'eau.** Vous détruisez jusqu'à 40 litres d'eau dans un récipient ouvert à portée. Vous pouvez aussi détruire le brouillard dans un Cube de 9 mètres ce côté à portée.",
+      "emplacementNiveauSuperieur": "Vous créez ou détruisez 40 litres d'eau supplémentaires, ou la taille du Cube augmente de 1,50 mètre, pour chaque niveau d'emplacement de sort supérieur à 1."
    },
    {
       "name": "Disque flottant de Tenser",
@@ -693,7 +704,8 @@
          "Magicien"
       ],
       "concentration": true,
-      "descriptionSort": "Une créature de votre choix que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit les états À terre et Incapable d'agir pendant toute la durée du sort. Pendant ce temps, elle rit de manière incontrôlable si elle en est capable, et elle ne peut pas mettre fin à son état À terre. \nÀ la fin de chacun de ses tours et à chaque fois qu'elle subit des dégâts, elle effectue un nouveau jet de sauvegarde de Sagesse. La cible bénéficie d'un Avantage pour ce jet si celui-ci est déclenché par des dégâts. En cas de réussite, le sort prend fin. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Une créature de votre choix que vous pouvez voir à portée effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit les états À terre et Incapable d'agir pendant toute la durée du sort. Pendant ce temps, elle rit de manière incontrôlable si elle en est capable, et elle ne peut pas mettre fin à son état À terre. \nÀ la fin de chacun de ses tours et à chaque fois qu'elle subit des dégâts, elle effectue un nouveau jet de sauvegarde de Sagesse. La cible bénéficie d'un Avantage pour ce jet si celui-ci est déclenché par des dégâts. En cas de réussite, le sort prend fin.",
+      "emplacementNiveauSuperieur": "Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": false,
       "requiresSavingThrow": true,
       "savingThrowStat": "Sagesse",
@@ -715,7 +727,8 @@
          "Rôdeur"
       ],
       "concentration": true,
-      "descriptionSort": "Lorsque vous touchez la cible, des lianes avides apparaissent sur elle. Elle effectue alors un jet de sauvegarde de Force. Une créature de taille G ou supérieure bénéficie d'un Avantage pour ce jet de sauvegarde. En cas d'échec, la cible subit l'état Entravé jusqu'à la fin du sort. En cas de réussite, les lianes se dessèchent et le sort prend fin. Tant qu'elle est entravée, la cible subit 1d6 dégâts perforants au début de chacun de ses tours. La cible ou une créature à sa portée peut prendre une action pour effectuer un jet de Force (Athlétisme) contre le DD de sauvegarde de votre sort. En cas de réussite, le sort prend fin. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Lorsque vous touchez la cible, des lianes avides apparaissent sur elle. Elle effectue alors un jet de sauvegarde de Force. Une créature de taille G ou supérieure bénéficie d'un Avantage pour ce jet de sauvegarde. En cas d'échec, la cible subit l'état Entravé jusqu'à la fin du sort. En cas de réussite, les lianes se dessèchent et le sort prend fin. Tant qu'elle est entravée, la cible subit 1d6 dégâts perforants au début de chacun de ses tours. La cible ou une créature à sa portée peut prendre une action pour effectuer un jet de Force (Athlétisme) contre le DD de sauvegarde de votre sort. En cas de réussite, le sort prend fin.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Force",
@@ -763,7 +776,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Vous touchez une créature. La Vitesse de la cible augmente de 3 mètres jusqu'à la fin du sort. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Vous touchez une créature. La Vitesse de la cible augmente de 3 mètres jusqu'à la fin du sort.",
+      "emplacementNiveauSuperieur": "Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": false,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -785,7 +799,8 @@
          "Rôdeur"
       ],
       "concentration": false,
-      "descriptionSort": "Lorsque vous touchez la créature, ce sort crée une pluie d'épines qui jaillit de votre arme à distance ou de vos munitions. La cible de l'attaque et toute créature dans un rayon de 1,50 mètre autour d'elle effectuent un jet de sauvegarde de Dextérité, subissant 1d10 dégâts perforants en cas d'échec ou la moitié de ces dégâts en cas de réussite. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Lorsque vous touchez la créature, ce sort crée une pluie d'épines qui jaillit de votre arme à distance ou de vos munitions. La cible de l'attaque et toute créature dans un rayon de 1,50 mètre autour d'elle effectuent un jet de sauvegarde de Dextérité, subissant 1d10 dégâts perforants en cas d'échec ou la moitié de ces dégâts en cas de réussite.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Dextérité",
@@ -808,7 +823,8 @@
          "Paladin"
       ],
       "concentration": true,
-      "descriptionSort": "Une créature consentante que vous touchez est imprégnée de bravoure. Jusqu'à la fin du sort, elle est immunisée contre l'état Effrayé et gagne des points de vie temporaires égaux au modificateur de votre caractéristique d'incantation au début de chacun de ses tours. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Une créature consentante que vous touchez est imprégnée de bravoure. Jusqu'à la fin du sort, elle est immunisée contre l'état Effrayé et gagne des points de vie temporaires égaux au modificateur de votre caractéristique d'incantation au début de chacun de ses tours.",
+      "emplacementNiveauSuperieur": "Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": false,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -884,7 +900,8 @@
       "savingThrowStat": "",
       "damageAmount": "",
       "alternateDamageAmount": "",
-      "descriptionSort": "Jusqu'à trois créatures de votre choix que vous pouvez voir à portée doivent chacune effectuer un jet de sauvegarde de Charisme. Lorsqu'une cible qui rate ce jet de sauvegarde effectue un jet d'attaque ou de sauvegarde avant la fin du sort, elle doit soustraire 1d4 à son jet d'attaque ou de sauvegarde. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1."
+      "descriptionSort": "Jusqu'à trois créatures de votre choix que vous pouvez voir à portée doivent chacune effectuer un jet de sauvegarde de Charisme. Lorsqu'une cible qui rate ce jet de sauvegarde effectue un jet d'attaque ou de sauvegarde avant la fin du sort, elle doit soustraire 1d4 à son jet d'attaque ou de sauvegarde.",
+      "emplacementNiveauSuperieur": "Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1."
    },
    {
       "name": "Injonction",
@@ -908,7 +925,8 @@
       "savingThrowStat": "",
       "damageAmount": "",
       "alternateDamageAmount": "",
-      "descriptionSort": "Vous donnez un ordre d'un seul mot à une créature que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou suivre l'ordre à son prochain tour. Choisissez l'ordre parmi ces options : \n**Approche.** La cible se dirige vers vous par le chemin le plus court et le plus direct, mettant fin à son tour si elle se trouve à 1,50 mètre ou moins de vous. \n**Lâche.** La cible laisse tomber ce qu'elle tient et termine son tour. \n**Fuis.** La cible passe son tour à s'éloigner de vous par le moyen le plus rapide. \n**Rampe.** La cible a l'état À terre et termine son tour. \n**Halte.** À son tour, la cible ne bouge pas et n'effectue aucune action ni action Bonus. \n**Emplacement de niveau supérieur.** Vous pouvez affecter une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1."
+      "descriptionSort": "Vous donnez un ordre d'un seul mot à une créature que vous pouvez voir à portée. La cible doit réussir un jet de sauvegarde de Sagesse ou suivre l'ordre à son prochain tour. Choisissez l'ordre parmi ces options : \n**Approche.** La cible se dirige vers vous par le chemin le plus court et le plus direct, mettant fin à son tour si elle se trouve à 1,50 mètre ou moins de vous. \n**Lâche.** La cible laisse tomber ce qu'elle tient et termine son tour. \n**Fuis.** La cible passe son tour à s'éloigner de vous par le moyen le plus rapide. \n**Rampe.** La cible a l'état À terre et termine son tour. \n**Halte.** À son tour, la cible ne bouge pas et n'effectue aucune action ni action Bonus.",
+      "emplacementNiveauSuperieur": "Vous pouvez affecter une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1."
    },
    {
       "name": "Lueurs féeriques",
@@ -949,7 +967,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Une fine nappe de flammes jaillit de vous. Toute créature dans un Cône de 4,50 mètres effectue un jet de sauvegarde de Dextérité, subissant 3d6 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. \nLes objets inflammables dans le Cône qui ne sont pas portés commencent à brûler. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Une fine nappe de flammes jaillit de vous. Toute créature dans un Cône de 4,50 mètres effectue un jet de sauvegarde de Dextérité, subissant 3d6 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. \nLes objets inflammables dans le Cône qui ne sont pas portés commencent à brûler.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Dextérité",
@@ -971,7 +990,8 @@
          "Occultiste"
       ],
       "concentration": true,
-      "descriptionSort": "Vous jetez une malédiction sur une créature que vous pouvez voir à portée. Jusqu'à la fin du sort, vous infligez 1d6 dégâts nécrotiques supplémentaires à la cible à chaque jet d'attaque. Choisissez également une caractéristique lorsque vous lancez le sort. La cible subit un désavantage aux jets de caractéristique effectués avec la caractéristique choisie. \nSi la cible tombe à 0 point de vie avant la fin du sort, vous pouvez utiliser une action Bonus lors d'un tour ultérieur pour maudire une nouvelle créature. \n**Emplacement de niveau supérieur.** Votre concentration peut durer plus longtemps avec un emplacement de sort de niveau 2 (jusqu'à 4 heures), 3 ou 4 (jusqu'à 8 heures) ou 5 ou supérieur (jusqu'à 24 heures).",
+      "descriptionSort": "Vous jetez une malédiction sur une créature que vous pouvez voir à portée. Jusqu'à la fin du sort, vous infligez 1d6 dégâts nécrotiques supplémentaires à la cible à chaque jet d'attaque. Choisissez également une caractéristique lorsque vous lancez le sort. La cible subit un désavantage aux jets de caractéristique effectués avec la caractéristique choisie. \nSi la cible tombe à 0 point de vie avant la fin du sort, vous pouvez utiliser une action Bonus lors d'un tour ultérieur pour maudire une nouvelle créature.",
+      "emplacementNiveauSuperieur": "Votre concentration peut durer plus longtemps avec un emplacement de sort de niveau 2 (jusqu'à 4 heures), 3 ou 4 (jusqu'à 8 heures) ou 5 ou supérieur (jusqu'à 24 heures).",
       "isOffensive": true,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -993,7 +1013,8 @@
          "Rôdeur"
       ],
       "concentration": true,
-      "descriptionSort": "Vous marquez magiquement une créature que vous pouvez voir à portée comme votre proie. Jusqu'à la fin du sort, vous infligez 1d6 points de dégâts de force supplémentaires à la cible pour chaque jet d'attaque réussi. Vous bénéficiez également d'un Avantage à tout jet de Sagesse (Perception ou Survie) effectué pour la trouver. \nSi la cible tombe à 0 point de vie avant la fin du sort, vous pouvez utiliser une action Bonus pour marquer une nouvelle créature que vous pouvez voir à portée. \n**Emplacement de niveau supérieur.** Votre concentration peut durer plus longtemps avec un emplacement de sort de niveau 3 ou 4 (jusqu'à 8 heures) ou 5 ou supérieur (jusqu'à 24 heures).",
+      "descriptionSort": "Vous marquez magiquement une créature que vous pouvez voir à portée comme votre proie. Jusqu'à la fin du sort, vous infligez 1d6 points de dégâts de force supplémentaires à la cible pour chaque jet d'attaque réussi. Vous bénéficiez également d'un Avantage à tout jet de Sagesse (Perception ou Survie) effectué pour la trouver. \nSi la cible tombe à 0 point de vie avant la fin du sort, vous pouvez utiliser une action Bonus pour marquer une nouvelle créature que vous pouvez voir à portée.",
+      "emplacementNiveauSuperieur": "Votre concentration peut durer plus longtemps avec un emplacement de sort de niveau 3 ou 4 (jusqu'à 8 heures) ou 5 ou supérieur (jusqu'à 24 heures).",
       "isOffensive": true,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -1022,7 +1043,8 @@
       "savingThrowStat": "",
       "damageAmount": "",
       "alternateDamageAmount": "",
-      "descriptionSort": "Une créature de votre choix que vous pouvez voir à portée récupère 2d4 points de vie plus le modificateur de votre caractéristique d'incantation. \n**Emplacement de niveau supérieur.** Les soins augmentent de 2d4 pour chaque niveau d'emplacement de sort supérieur à 1."
+      "descriptionSort": "Une créature de votre choix que vous pouvez voir à portée récupère 2d4 points de vie plus le modificateur de votre caractéristique d'incantation.",
+      "emplacementNiveauSuperieur": "Les soins augmentent de 2d4 pour chaque niveau d'emplacement de sort supérieur à 1."
    },
    {
       "name": "Murmures dissonants",
@@ -1039,7 +1061,8 @@
          "Barde"
       ],
       "concentration": false,
-      "descriptionSort": "Une créature de votre choix que vous pouvez voir portée entend une mélodie discordante dans son esprit. La cible effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit 3d6 dégâts psychiques et doit immédiatement utiliser sa Réaction, si elle en a une, pour s'éloigner le plus loin possible de vous, en empruntant le chemin le plus sûr. En cas de réussite, la cible subit seulement la moitié des dégâts. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Une créature de votre choix que vous pouvez voir portée entend une mélodie discordante dans son esprit. La cible effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit 3d6 dégâts psychiques et doit immédiatement utiliser sa Réaction, si elle en a une, pour s'éloigner le plus loin possible de vous, en empruntant le chemin le plus sûr. En cas de réussite, la cible subit seulement la moitié des dégâts.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Sagesse",
@@ -1064,7 +1087,8 @@
          "Magicien"
       ],
       "concentration": true,
-      "descriptionSort": "Vous créez une Sphère de brouillard de 6 mètres de rayon centrée sur un point à portée. La Sphère est une zone de Visibilité nulle. Elle se maintient pendant toute la durée du sort ou jusqu'à ce qu'un vent fort (comme celui créé par bourrasque) la disperse. \n**Emplacement de niveau supérieur.** Le rayon du brouillard augmente de 6 mètres pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Vous créez une Sphère de brouillard de 6 mètres de rayon centrée sur un point à portée. La Sphère est une zone de Visibilité nulle. Elle se maintient pendant toute la durée du sort ou jusqu'à ce qu'un vent fort (comme celui créé par bourrasque) la disperse.",
+      "emplacementNiveauSuperieur": "Le rayon du brouillard augmente de 6 mètres pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": false,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -1087,7 +1111,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Vous lancez un orbe d'énergie sur une cible à portée. Choisissez acide, froid, feu, foudre, poison ou tonnerre comme type d'orbe, puis effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, la cible subit 3d8 dégâts du type choisi. \nSi vous obtenez le même résultat sur deux d8 ou plus, l'orbe bondit vers une autre cible de votre choix dans un rayon de 9 mètres de la cible. Effectuez un jet d'attaque contre la nouvelle cible, puis un nouveau jet de dégâts. L'orbe ne peut pas bondir à nouveau, sauf si vous lancez le sort avec un emplacement de sort de niveau 2 ou supérieur. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1. L'orbe peut bondir un nombre maximal de fois égal au niveau de l'emplacement dépensé, et une créature ne peut être ciblée qu'une seule fois par lancement de ce sort.",
+      "descriptionSort": "Vous lancez un orbe d'énergie sur une cible à portée. Choisissez acide, froid, feu, foudre, poison ou tonnerre comme type d'orbe, puis effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, la cible subit 3d8 dégâts du type choisi. \nSi vous obtenez le même résultat sur deux d8 ou plus, l'orbe bondit vers une autre cible de votre choix dans un rayon de 9 mètres de la cible. Effectuez un jet d'attaque contre la nouvelle cible, puis un nouveau jet de dégâts. L'orbe ne peut pas bondir à nouveau, sauf si vous lancez le sort avec un emplacement de sort de niveau 2 ou supérieur.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1. L'orbe peut bondir un nombre maximal de fois égal au niveau de l'emplacement dépensé, et une créature ne peut être ciblée qu'une seule fois par lancement de ce sort.",
       "isOffensive": true,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -1110,7 +1135,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Vous créez trois fléchettes lumineuses de force magique. Chaque fléchette touche une créature de votre choix que vous pouvez voir et à portée. Une fléchette inflige 1d4 + 1 point de dégâts de force à sa cible. Les fléchettes frappent toutes simultanément, et vous pouvez les diriger pour toucher une ou plusieurs créatures. \n**Emplacement de niveau supérieur.** Le sort crée une fléchette supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Vous créez trois fléchettes lumineuses de force magique. Chaque fléchette touche une créature de votre choix que vous pouvez voir et à portée. Une fléchette inflige 1d4 + 1 point de dégâts de force à sa cible. Les fléchettes frappent toutes simultanément, et vous pouvez les diriger pour toucher une ou plusieurs créatures.",
+      "emplacementNiveauSuperieur": "Le sort crée une fléchette supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -1183,7 +1209,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Vous tirez un rayon verdâtre sur une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, la cible subit 2d8 dégâts de poison et l'état Empoisonné jusqu'à la fin de votre prochain tour. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Vous tirez un rayon verdâtre sur une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, la cible subit 2d8 dégâts de poison et l'état Empoisonné jusqu'à la fin de votre prochain tour.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -1210,7 +1237,8 @@
       "savingThrowStat": "",
       "damageAmount": "4d6",
       "alternateDamageAmount": "",
-      "descriptionSort": "Vous lancez un éclair de lumière vers une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, elle subit 4d6 dégâts radiants et le prochain jet d'attaque effectué contre elle avant la fin de votre prochain tour bénéficie d'un Avantage. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1."
+      "descriptionSort": "Vous lancez un éclair de lumière vers une créature à portée. Effectuez une attaque de sort à distance contre la cible. Si l'attaque touche, elle subit 4d6 dégâts radiants et le prochain jet d'attaque effectué contre elle avant la fin de votre prochain tour bénéficie d'un Avantage.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1."
    },
    {
       "name": "Repli expéditif",
@@ -1251,7 +1279,8 @@
          "Occultiste"
       ],
       "concentration": false,
-      "descriptionSort": "La créature qui vous a blessé est momentanément entourée de flammes vertes. Elle effectue un jet de sauvegarde de Dextérité et subit 2d10 dégâts de feu en cas d'échec, ou la moitié en cas de réussite. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "La créature qui vous a blessé est momentanément entourée de flammes vertes. Elle effectue un jet de sauvegarde de Dextérité et subit 2d10 dégâts de feu en cas d'échec, ou la moitié en cas de réussite.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Dextérité",
@@ -1298,7 +1327,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Vous touchez une créature consentante. Une fois à chacun de ses tours jusqu'à la fin du sort, cette créature peut sauter jusqu'à 9 mètres en dépensant 3 mètres de mouvement. \n**Emplacement de niveau supérieur.** Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Vous touchez une créature consentante. Une fois à chacun de ses tours jusqu'à la fin du sort, cette créature peut sauter jusqu'à 9 mètres en dépensant 3 mètres de mouvement.",
+      "emplacementNiveauSuperieur": "Vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": false,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -1345,7 +1375,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Vous gagnez 2d4 + 4 points de vie temporaires. \n**Emplacement de niveau supérieur.** Vous gagnez 5 points de vie temporaires supplémentaires pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Vous gagnez 2d4 + 4 points de vie temporaires.",
+      "emplacementNiveauSuperieur": "Vous gagnez 5 points de vie temporaires supplémentaires pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": false,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -1376,7 +1407,8 @@
       "savingThrowStat": "",
       "damageAmount": "",
       "alternateDamageAmount": "",
-      "descriptionSort": "Une créature que vous touchez récupère un nombre de points de vie égal à 2d8 plus le modificateur de votre caractéristique d'incantation. \n**Emplacement de niveau supérieur.** Les soins augmentent de 2d8 pour chaque niveau d'emplacement de sort supérieur à 1."
+      "descriptionSort": "Une créature que vous touchez récupère un nombre de points de vie égal à 2d8 plus le modificateur de votre caractéristique d'incantation.",
+      "emplacementNiveauSuperieur": "Les soins augmentent de 2d8 pour chaque niveau d'emplacement de sort supérieur à 1."
    },
    {
       "name": "Sommeil",
@@ -1417,7 +1449,8 @@
          "Occultiste"
       ],
       "concentration": false,
-      "descriptionSort": "En invoquant Hadar, vous faites jaillir des vrilles de votre corps. Chaque créature dans une Émanation de 3 mètres provenant de vous effectue un jet de sauvegarde de Force. En cas d'échec, la cible subit 2d6 dégâts nécrotiques et ne peut plus prendre de Réactions avant le début de son prochain tour. En cas de réussite, la cible subit seulement la moitié des dégâts. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "En invoquant Hadar, vous faites jaillir des vrilles de votre corps. Chaque créature dans une Émanation de 3 mètres provenant de vous effectue un jet de sauvegarde de Force. En cas d'échec, la cible subit 2d6 dégâts nécrotiques et ne peut plus prendre de Réactions avant le début de son prochain tour. En cas de réussite, la cible subit seulement la moitié des dégâts.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Force",
@@ -1465,7 +1498,8 @@
          "Magicien"
       ],
       "concentration": true,
-      "descriptionSort": "Un rayon d'énergie crépitante se dirige vers une créature à portée, formant un arc de foudre entre vous et la cible. Effectuez une attaque de sort à distance contre elle. Si l'attaque touche, la cible subit 2d12 dégâts de foudre. \nÀ chacun de vos tours suivants, vous pouvez prendre une action Bonus pour infliger automatiquement 1d12 dégâts de foudre à la cible, même si la première attaque a échoué. Le sort prend fin si la cible se trouve hors de portée du sort ou si elle bénéficie d'un Abri total contre vous. \n**Emplacement de niveau supérieur.** Les dégâts initiaux augmentent de 1d12 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Un rayon d'énergie crépitante se dirige vers une créature à portée, formant un arc de foudre entre vous et la cible. Effectuez une attaque de sort à distance contre elle. Si l'attaque touche, la cible subit 2d12 dégâts de foudre. \nÀ chacun de vos tours suivants, vous pouvez prendre une action Bonus pour infliger automatiquement 1d12 dégâts de foudre à la cible, même si la première attaque a échoué. Le sort prend fin si la cible se trouve hors de portée du sort ou si elle bénéficie d'un Abri total contre vous.",
+      "emplacementNiveauSuperieur": "Les dégâts initiaux augmentent de 1d12 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": false,
       "savingThrowStat": "",
@@ -1490,7 +1524,8 @@
          "Magicien"
       ],
       "concentration": false,
-      "descriptionSort": "Vous déchaînez une vague d'énergie tonitruante. Toute créature dans un Cube de 4,50 mètres de côté provenant de vous effectue un jet de sauvegarde de Constitution. En cas d'échec, une créature subit 2d8 dégâts de tonnerre et est repoussée de 3 mètres. En cas de réussite, elle subit seulement la moitié des dégâts. \nDe plus, les objets non sécurisés entièrement à l'intérieur du Cube sont repoussés de 3 mètres, et un grondement tonitruant retentit dans un rayon de 90 mètres. \n**Emplacement de niveau supérieur.** Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1.",
+      "descriptionSort": "Vous déchaînez une vague d'énergie tonitruante. Toute créature dans un Cube de 4,50 mètres de côté provenant de vous effectue un jet de sauvegarde de Constitution. En cas d'échec, une créature subit 2d8 dégâts de tonnerre et est repoussée de 3 mètres. En cas de réussite, elle subit seulement la moitié des dégâts. \nDe plus, les objets non sécurisés entièrement à l'intérieur du Cube sont repoussés de 3 mètres, et un grondement tonitruant retentit dans un rayon de 90 mètres.",
+      "emplacementNiveauSuperieur": "Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 1.",
       "isOffensive": true,
       "requiresSavingThrow": true,
       "savingThrowStat": "Constitution",
