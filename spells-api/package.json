@@ -12,7 +12,9 @@
   "scripts": {
     "test": "mocha",
     "typecheck": "tsc",
-    "seed:spells": "tsx scripts/seed-spells.ts"
+    "seed:spells": "tsx scripts/seed-spells.ts",
+    "seed:local": "DYNAMODB_ENDPOINT=http://localhost:8000 tsx scripts/seed-spells.ts",
+    "seed:remote": "DYNAMODB_ENDPOINT= tsx scripts/seed-spells.ts"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.145",

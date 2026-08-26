@@ -3,9 +3,11 @@
       "name":"Boule de feu à retardement",
       "portee":"45 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une boulette de guano de chauve-souris et du soufre",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -26,9 +28,11 @@
       "name":"Cage de force",
       "portee":"30 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"poudre de rubis d'une valeur minimale de 1500 po, que le sort consomme",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 heure",
@@ -49,9 +53,11 @@
       "name":"Changement de plan",
       "portee":"Contact",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une badine métallique fourchue d'une valeur minimale de 250 po, lié avec un plan d'existence",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -74,9 +80,11 @@
       "name":"Dissimulation suprême",
       "portee":"Contact",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"poudre de gemme d'une valeur minimale de 5000 po, que le sort consomme",
       "dureeIncantation":"Action",
       "duree":"Jusqu'à dissipation",
@@ -95,9 +103,10 @@
       "name":"Doigt de mort",
       "portee":"18 mètres",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -121,9 +130,10 @@
       "name":"Embruns prismatiques",
       "portee":"Personnelle",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -147,9 +157,11 @@
       "name":"Épée de Mordenkainen",
       "portee":"27 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une épée miniature d'une valeur minimale de 250 po",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -169,9 +181,10 @@
       "name":"Forme éthérée",
       "portee":"Personnelle",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Jusqu'à 8 heures",
@@ -195,9 +208,11 @@
       "name":"Image projetée",
       "portee":"750 kilomètres",
       "ecole":"Illusion",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une statuette à votre effigie d'une valeur minimale de 5 po",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 jour",
@@ -217,9 +232,11 @@
       "name":"Inversion de la gravité",
       "portee":"30 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une magnétite et de la limaille de fer",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -240,9 +257,10 @@
       "name":"Invocation de céleste",
       "portee":"27 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 10 minutes",
@@ -265,9 +283,11 @@
       "name":"Manoir somptueux de Mordenkainen",
       "portee":"45 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une porte miniature d'une valeur minimale de 15 po",
       "dureeIncantation":"1 minute",
       "duree":"24 heures",
@@ -287,9 +307,10 @@
       "name":"Mirage",
       "portee":"Vue",
       "ecole":"Illusion",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"10 minutes",
       "duree":"10 jours",
@@ -310,9 +331,9 @@
       "name":"Mot de pouvoir fortifiant",
       "portee":"18 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -332,9 +353,9 @@
       "name":"Parole divine",
       "portee":"9 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action bonus",
       "duree":"Instantanée",
@@ -353,9 +374,11 @@
       "name":"Régénération",
       "portee":"Contact",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un moulin à prières",
       "dureeIncantation":"1 minute",
       "duree":"1 heure",
@@ -376,9 +399,11 @@
       "name":"Résurrection",
       "portee":"Contact",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un diamant d'une valeur minimale de 1000 po, que le sort consomme",
       "dureeIncantation":"1 heure",
       "duree":"Instantanée",
@@ -398,9 +423,11 @@
       "name":"Simulacre",
       "portee":"Contact",
       "ecole":"Illusion",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"poudre de rubis d'une valeur minimale de 1500 po, que le sort consomme",
       "dureeIncantation":"12 heures",
       "duree":"Jusqu'à dissipation",
@@ -419,9 +446,11 @@
       "name":"Symbole",
       "portee":"Contact",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"poudre de diamant d'une valeur minimale de 1000 po, que le sort consomme",
       "dureeIncantation":"1 minute",
       "duree":"Jusqu'à dissipation ou déclenchement",
@@ -446,9 +475,9 @@
       "name":"Téléportation",
       "portee":"3 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -472,9 +501,10 @@
       "name":"Tempête de feu",
       "portee":"45 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",

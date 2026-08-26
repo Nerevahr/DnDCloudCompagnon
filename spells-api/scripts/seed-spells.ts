@@ -4,13 +4,13 @@ import path from "node:path";
 import { DynamoDBClient, type DynamoDBClientConfig } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, BatchWriteCommand } from "@aws-sdk/lib-dynamodb";
 
+type SpellComponent = "V" | "S" | "M";
+
 interface Spell {
     name: string;
     portee: string;
     ecole: string;
-    componentV: boolean;
-    componentS: boolean;
-    componentM: boolean;
+    components: SpellComponent[];
     materialDescription?: string;
     dureeIncantation: string;
     duree: string;
@@ -39,9 +39,7 @@ interface SpellItem {
     Classes: string[];
     Tags: string[];
     Concentration: boolean;
-    ComponentV: boolean;
-    ComponentS: boolean;
-    ComponentM: boolean;
+    Components: SpellComponent[];
     MaterialDescription: string;
     Description: string;
     HigherLevelSlot: string;
@@ -95,9 +93,7 @@ function toItem(spell: Spell): SpellItem {
         Classes: spell.classes,
         Tags: spell.tags ?? [],
         Concentration: spell.concentration,
-        ComponentV: spell.componentV,
-        ComponentS: spell.componentS,
-        ComponentM: spell.componentM,
+        Components: spell.components,
         MaterialDescription: spell.materialDescription ?? "",
         Description: spell.descriptionSort,
         HigherLevelSlot: spell.emplacementNiveauSuperieur ?? "",

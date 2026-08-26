@@ -3,9 +3,11 @@
       "name":"Aide",
       "portee":"9 mètres",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une bandelette de tissu blanc",
       "dureeIncantation":"Action",
       "duree":"8 heures",
@@ -29,9 +31,11 @@
       "name":"Amélioration de caractéristique",
       "portee":"Contact",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"touffe de fourrure ou plume",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 heure",
@@ -56,9 +60,10 @@
       "name":"Apaisement des émotions",
       "portee":"18 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Jusqu'à 1 minute",
@@ -78,9 +83,10 @@
       "name":"Arme spirituelle",
       "portee":"18 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action bonus",
       "duree":"Jusqu'à 1 minute",
@@ -100,9 +106,11 @@
       "name":"Augure",
       "portee":"Personnelle",
       "ecole":"Divination",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"cartes, os ou bâtonnets gravés spécialement, ou autres objets divinatoires comparables, d'une valeur minimale de 25 po",
       "dureeIncantation":"1 minute ou Rituel",
       "duree":"Instantanée",
@@ -123,9 +131,9 @@
       "name":"Cécité/surdité",
       "portee":"36 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"1 minute",
@@ -148,9 +156,10 @@
       "name":"Détection des pièges",
       "portee":"36 mètres",
       "ecole":"Divination",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -171,9 +180,11 @@
       "name":"Doux repos",
       "portee":"Contact",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"2 pièces de cuivre, que le sort consomme",
       "dureeIncantation":"Action ou Rituel",
       "duree":"10 jours",
@@ -194,9 +205,11 @@
       "name":"Flamme éternelle",
       "portee":"Contact",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"poudre de rubis d'une valeur minimale de 50 po, que le sort consomme",
       "dureeIncantation":"Action",
       "duree":"Jusqu'à dissipation",
@@ -217,9 +230,11 @@
       "name":"Immobilisation de personne",
       "portee":"18 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un brin de fer",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 minute",
@@ -244,9 +259,11 @@
       "name":"Lien de protection",
       "portee":"Contact",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"deux bagues de platine d'une valeur minimale de 50 po chacune, que la cible et vous devez porter pour toute la durée",
       "dureeIncantation":"Action",
       "duree":"1 heure",
@@ -266,9 +283,11 @@
       "name":"Localisation d'objet",
       "portee":"Personnelle",
       "ecole":"Personnelle",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une brindille fourchue",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 10 minutes",
@@ -292,9 +311,9 @@
       "name":"Prière de guérison",
       "portee":"9 mètres",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"10 minutes",
       "duree":"Instantanée",
@@ -315,9 +334,10 @@
       "name":"Protection contre le poison",
       "portee":"Contact",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"1 heure",
@@ -339,9 +359,10 @@
       "name":"Restauration Partielle",
       "portee":"Contact",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action bonus",
       "duree":"Instantanée",
@@ -364,9 +385,10 @@
       "name":"Silence",
       "portee":"36 mètres",
       "ecole":"Illusion",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action ou Rituel",
       "duree":"jusqu'à 10 minutes",
@@ -387,9 +409,10 @@
       "name":"Zone de vérité",
       "portee":"18 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"10 minutes",

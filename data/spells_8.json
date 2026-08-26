@@ -3,9 +3,11 @@
       "name":"Aliénation",
       "portee":"45 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un trousseau de clefs sans clefs",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -30,9 +32,11 @@
       "name":"Aura sacrée",
       "portee":"Personnelle",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un reliquaire d'une valeur minimale de 1000 po",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 minute",
@@ -51,9 +55,11 @@
       "name":"Aversion/attirance",
       "portee":"18 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un mélange de vinaigre et de miel",
       "dureeIncantation":"1 heure",
       "duree":"10 jours",
@@ -74,9 +80,9 @@
       "name":"Bagou",
       "portee":"Personnelle",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"1 heure",
@@ -96,9 +102,11 @@
       "name":"Champ antimagie",
       "portee":"Personelle",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"limaille de fer",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 heure",
@@ -118,9 +126,11 @@
       "name":"Clone",
       "portee":"Contact",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un diamant d'une valeur minimale de 1000 po, que le sort consomme, et un récipient d'une valeur minimale de 2000 po, assez grand pour contenir la créature à cloner",
       "dureeIncantation":"1 heure",
       "duree":"Instantanée",
@@ -139,9 +149,11 @@
       "name":"Contrôle du climat",
       "portee":"Personnelle",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"de l'encens qui brûle",
       "dureeIncantation":"10 minutes",
       "duree":"jusqu'à 8 heures",
@@ -162,9 +174,10 @@
       "name":"Dédale",
       "portee":"18 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 10 minutes",
@@ -183,9 +196,9 @@
       "name":"Demi-plan",
       "portee":"18 mètres",
       "ecole":"Invocation",
-      "componentV":false,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"1 heure",
@@ -206,9 +219,10 @@
       "name":"Domination de monstre",
       "portee":"18 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 heure",
@@ -231,9 +245,11 @@
       "name":"Éclat du soleil",
       "portee":"45 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un morceau d'héliolite",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -258,9 +274,10 @@
       "name":"Esprit impénétrable",
       "portee":"Contact",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"24 heures",
@@ -280,9 +297,10 @@
       "name":"Métamorphose animale",
       "portee":"9 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"24 heures",
@@ -301,9 +319,9 @@
       "name":"Mot de pouvoir étourdissant",
       "portee":"18 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -325,9 +343,10 @@
       "name":"Nuage incendiaire",
       "portee":"45 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -351,9 +370,11 @@
       "name":"Télépathie",
       "portee":"Illimitée",
       "ecole":"Divination",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"deux bagues jointes en argent",
       "dureeIncantation":"Action",
       "duree":"24 heures",
@@ -372,9 +393,11 @@
       "name":"Tremblement de terre",
       "portee":"150 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une pierre brisée",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 minute",
@@ -395,9 +418,10 @@
       "name":"Tsunami",
       "portee":"1,5 kilomètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"1 minute",
       "duree":"Concentration, jusqu'à 6 rounds",

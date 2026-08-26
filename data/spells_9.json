@@ -3,9 +3,9 @@
       "name":"Arrêt du temps",
       "portee":"Personnelle",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -25,9 +25,11 @@
       "name":"Changement de forme",
       "portee":"Personnelle",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"diadème de jade d'une valeur minimale de 1500 po",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 heure",
@@ -47,9 +49,11 @@
       "name":"Emprisonnement",
       "portee":"9 mètres",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une statuette à l'effigie de la cible d'une valeur minimale de 5000 po",
       "dureeIncantation":"1 minute",
       "duree":"Jusqu'à dissipation",
@@ -69,9 +73,10 @@
       "name":"Ennemi subconscient",
       "portee":"36 mètres",
       "ecole":"Illusion",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 minute",
@@ -94,9 +99,10 @@
       "name":"Guérison de groupe",
       "portee":"18 mètres",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -115,9 +121,11 @@
       "name":"Métamorphose suprême",
       "portee":"9 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une goutte de mercure, un bon morceau de gomme arabique et une volute de fumée",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 heure",
@@ -138,9 +146,9 @@
       "name":"Mot de pouvoir guérisseur",
       "portee":"18 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -160,9 +168,9 @@
       "name":"Mot de pouvoir mortel",
       "portee":"18 mètres",
       "ecole":"Enchantement",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -187,9 +195,10 @@
       "name":"Mur prismatique",
       "portee":"18 mètres",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"10 minutes",
@@ -212,9 +221,10 @@
       "name":"Nuée de météores",
       "portee":"1,5 km",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -237,9 +247,11 @@
       "name":"Portail",
       "portee":"18 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un diamant d'une valeur minimale de 5000 po",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 minute",
@@ -261,9 +273,11 @@
       "name":"Prémonition",
       "portee":"Contact",
       "ecole":"Divination",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une plume de colibri",
       "dureeIncantation":"1 minute",
       "duree":"8 heures",
@@ -285,9 +299,11 @@
       "name":"Projection astrale",
       "portee":"3 mètres",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"pour chaque cible du sort, une jacinthe d'une valeur minimale de 1000 po et un lingot d'argent ouvragé d'une valeur minimale de 100 po, que le sort consomme",
       "dureeIncantation":"1 heure",
       "duree":"Jusqu'à dissipation",
@@ -308,9 +324,11 @@
       "name":"Résurrection suprême",
       "portee":"Contact",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"des diamants d'une valeur minimale de 25000 po, que le sort consomme",
       "dureeIncantation":"1 heure",
       "duree":"Instantanée",
@@ -330,9 +348,9 @@
       "name":"Souhait",
       "portee":"Personnelle",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -352,9 +370,10 @@
       "name":"Tempête vengeresse",
       "portee":"1,5 km",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"jusqu'à 1 minute",

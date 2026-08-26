@@ -3,9 +3,11 @@
       "name":"Animation des morts",
       "portee":"3 mètres",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une goutte de sang, un morceau de chair et une pincée de poudre d'os",
       "dureeIncantation":"1 minute",
       "duree":"Instantanée",
@@ -26,9 +28,11 @@
       "name":"Antidétection",
       "portee":"Contact",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une pincée de poudre de diamant d'une valeur minimale de 25 po, que le sort consomme",
       "dureeIncantation":"Action",
       "duree":"8 heures",
@@ -49,9 +53,10 @@
       "name":"Appel de la foudre",
       "portee":"36 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 10 minutes",
@@ -74,9 +79,10 @@
       "name":"Arme élémentaire",
       "portee":"Contact",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 heure",
@@ -101,9 +107,9 @@
       "name":"Aura de vitalité",
       "portee":"Personnelle",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -124,9 +130,9 @@
       "name":"Aura du croisé",
       "portee":"Personnelle",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -145,9 +151,11 @@
       "name":"Boule de feu",
       "portee":"45 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une boulette de guano de chauve-souris et du soufre",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -171,9 +179,10 @@
       "name":"Caresse du vampire",
       "portee":"Personnelle",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -198,9 +207,11 @@
       "name":"Cercle magique",
       "portee":"3 mètres",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"poudre d'argent et de sel d'une valeur minimale de 100 po, que le sort consomme",
       "dureeIncantation":"1 minute",
       "duree":"1 heure",
@@ -223,9 +234,9 @@
       "name":"Châtiment de cécité",
       "portee":"Personnelle",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action bonus, que vous prenez immédiatement après avoir touché une créature avec une arme de corps au corps ou une frappe à mains nues",
       "duree":"1 minute",
@@ -248,9 +259,11 @@
       "name":"Clairvoyance",
       "portee":"1,5 km",
       "ecole":"Divination",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un focaliseur d'une valeur minimale de 100 po ; une corne ornée pour écouter ou un oeil de verre pour observer",
       "dureeIncantation":"10 minutes",
       "duree":"Concentration, jusqu'à 10 minutes",
@@ -272,9 +285,10 @@
       "name":"Clignotement",
       "portee":"Personnelle",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"1 minute",
@@ -294,9 +308,11 @@
       "name":"Communication à distance",
       "portee":"Illimitée",
       "ecole":"Divination",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"du fil de cuivre",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -317,9 +333,11 @@
       "name":"Communication avec les morts",
       "portee":"3 mètres",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"de l'encens qui brule",
       "dureeIncantation":"Action",
       "duree":"10 minutes",
@@ -340,9 +358,10 @@
       "name":"Communication avec les plantes",
       "portee":"Personnelle",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"10 minutes",
@@ -363,9 +382,9 @@
       "name":"Contresort",
       "portee":"18 mètres",
       "ecole":"Abjuration",
-      "componentV":false,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Réaction, que vous prenez lorsque vous voyez une créature dans un rayon de 18 mètres lancer un sort avec des composantes verbales, somatiques ou matérielles",
       "duree":"Instantanée",
@@ -386,9 +405,11 @@
       "name":"Convocation de fée",
       "portee":"27 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une fleur dorée d'une valeur minimale de 300 po",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 heure",
@@ -411,9 +432,11 @@
       "name":"Convocation de mort-vivant",
       "portee":"27 mètres",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un crâne doré d'une valeur minimale de 300 po",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 heure",
@@ -434,9 +457,10 @@
       "name":"Création de nourriture et d'eau",
       "portee":"9 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -456,9 +480,10 @@
       "name":"Croissance végétale",
       "portee":"45 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action (embroussaillement) ou 8 heures (fertilisation)",
       "duree":"Instantanée",
@@ -479,9 +504,10 @@
       "name":"Délivrance des malédictions",
       "portee":"Contact",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -503,9 +529,10 @@
       "name":"Dissipation de la magie",
       "portee":"36 mètres",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -532,9 +559,10 @@
       "name":"Don des langues",
       "portee":"Contact",
       "ecole":"Divination",
-      "componentV":true,
-      "componentS":false,
-      "componentM":true,
+      "components":[
+         "V",
+         "M"
+      ],
       "materialDescription":"une ziggourat miniature",
       "dureeIncantation":"Action",
       "duree":"1 heure",
@@ -557,9 +585,11 @@
       "name":"Éclair",
       "portee":"Personnelle",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une touffe de fourrure et une tige de cristal",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -583,9 +613,11 @@
       "name":"Esprits gardiens",
       "portee":"Personnelle",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un parchemin de prière",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 10 minutes",
@@ -608,9 +640,11 @@
       "name":"État cadavérique",
       "portee":"Contact",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une pincée de terre de cimetière",
       "dureeIncantation":"Action ou Rituel",
       "duree":"1 heure",
@@ -632,9 +666,10 @@
       "name":"Flèche de foudre",
       "portee":"Personnelle",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action bonus, que vous pouvez prendre immédiatement après avoir touché ou manqué une cible avec une attaque à distance en utilisant une arme",
       "duree":"Instantanée",
@@ -657,9 +692,11 @@
       "name":"Forme gazeuse",
       "portee":"Contact",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un peu de gaze",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 heure",
@@ -681,9 +718,10 @@
       "name":"Fusion dans la pierre",
       "portee":"Contact",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action ou Rituel",
       "duree":"8 heures",
@@ -704,9 +742,11 @@
       "name":"Glyphe de garde",
       "portee":"Contact",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"poudre de diamant d'une valeur minimale de 200 po, que le sort consomme",
       "dureeIncantation":"1 heure",
       "duree":"Jusqu'à dissipation ou déclenchement",
@@ -731,9 +771,11 @@
       "name":"Hâte",
       "portee":"9 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un copeau de racine de réglisse",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -753,9 +795,11 @@
       "name":"Image majeure",
       "portee":"36 mètres",
       "ecole":"Illusion",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un peu de laine brute",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 10 minutes",
@@ -778,9 +822,10 @@
       "name":"Invocation d'animaux",
       "portee":"18 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 10 minutes",
@@ -804,9 +849,11 @@
       "name":"Invocation de projectiles",
       "portee":"Personnelle",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une arme de corps à corps ou à distance d'une valeur minimale de 1 pc",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -829,9 +876,11 @@
       "name":"Lenteur",
       "portee":"36 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une goutte de mélasse",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -852,9 +901,10 @@
       "name":"Lueur d'espoir",
       "portee":"9 mètres",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -873,9 +923,10 @@
       "name":"Lumière du jour",
       "portee":"18 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"1 heure",
@@ -898,9 +949,10 @@
       "name":"Malédiction",
       "portee":"Contact",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -922,9 +974,11 @@
       "name":"Marche sur l'eau",
       "portee":"9 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un morceau de liège",
       "dureeIncantation":"Action ou Rituel",
       "duree":"1 heure",
@@ -946,9 +1000,10 @@
       "name":"Monture fantôme",
       "portee":"9 mètres",
       "ecole":"Illusion",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"1 minute ou Rituel",
       "duree":"1 heure",
@@ -967,9 +1022,9 @@
       "name":"Mot de guérison de groupe",
       "portee":"18 mètres",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":false,
-      "componentM":false,
+      "components":[
+         "V"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action bonus",
       "duree":"Instantanée",
@@ -990,9 +1045,10 @@
       "name":"Motif hypnotique",
       "portee":"36 mètres",
       "ecole":"Illusion",
-      "componentV":false,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "S",
+         "M"
+      ],
       "materialDescription":"une pincée de confettis",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -1014,9 +1070,11 @@
       "name":"Mur de vent",
       "portee":"36 mètres",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un éventail et une plume",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -1039,9 +1097,11 @@
       "name":"Nuage nauséabond",
       "portee":"27 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un oeuf pourri",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -1062,9 +1122,11 @@
       "name":"Petite hutte de Léomund",
       "portee":"Personnelle",
       "ecole":"Évocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une bille de cristal",
       "dureeIncantation":"1 minute ou Rituel",
       "duree":"8 heures",
@@ -1084,9 +1146,11 @@
       "name":"Peur",
       "portee":"Personnelle",
       "ecole":"Illusion",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une plume blanche",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -1108,9 +1172,10 @@
       "name":"Protection contre l'énergie",
       "portee":"Contact",
       "ecole":"Abjuration",
-      "componentV":true,
-      "componentS":true,
-      "componentM":false,
+      "components":[
+         "V",
+         "S"
+      ],
       "materialDescription":"",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 heure",
@@ -1133,9 +1198,11 @@
       "name":"Respiration aquatique",
       "portee":"9 mètres",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un court roseau",
       "dureeIncantation":"Action ou Rituel",
       "duree":"24 heures",
@@ -1157,9 +1224,11 @@
       "name":"Retour à la vie",
       "portee":"Contact",
       "ecole":"Nécromancie",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un diamant d'une valeur minimale de 300 po, que le sort consomme",
       "dureeIncantation":"Action",
       "duree":"Instantanée",
@@ -1181,9 +1250,11 @@
       "name":"Tempête de neige",
       "portee":"45 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un parapluie miniature",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
@@ -1204,9 +1275,11 @@
       "name":"Vol",
       "portee":"Contact",
       "ecole":"Transmutation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"une plume",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 10 minutes",
@@ -1228,9 +1301,11 @@
       "name":"Voracité de Hadar",
       "portee":"45 mètres",
       "ecole":"Invocation",
-      "componentV":true,
-      "componentS":true,
-      "componentM":true,
+      "components":[
+         "V",
+         "S",
+         "M"
+      ],
       "materialDescription":"un tentacule de poulpe mariné",
       "dureeIncantation":"Action",
       "duree":"Concentration, jusqu'à 1 minute",
