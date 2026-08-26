@@ -1,0 +1,13 @@
+services:
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    # -inMemory : pas de persistance sur disque, donc pas de souci de
+    # permissions avec l'utilisateur non-root de l'image sur un volume monté.
+    # Inconvénient : la table et les données sont reperdues à chaque
+    # redémarrage du container (il suffit de relancer npm run seed:local).
+    command: "-jar DynamoDBLocal.jar -sharedDb -inMemory"
+    ports:
+      # Publié sur l'hôte : les containers Lambda démarrés par
+      # "sam local start-api"/"sam local invoke" y accèdent via
+      # host.docker.internal:8000 (cf. spells-api/lib/dynamoClient.ts)
+      - "8000:8000"

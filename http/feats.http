@@ -1,6 +1,6 @@
 ###
-GET http://localhost:3000/spells
-    ?level=0&class=Clerc
+GET http://localhost:3000/feats
+    ?category=general
 
 
 > {%
@@ -8,15 +8,15 @@ GET http://localhost:3000/spells
         client.assert(response.status === 200, "Response status is not 200");
 
     });
-    client.test("All spells are level 0", function () {
-        client.assert(Array.isArray(response.body.spells), "spells is not an array");
-        const nonLevelZeroSpells = response.body.spells.filter(spell => spell.Level !== 0);
-        client.assert(nonLevelZeroSpells.length === 0, "Some spells are not level 0");
+    client.test("All feats are don général", function () {
+        client.assert(Array.isArray(response.body.feats), "feats is not an array");
+        const nonMatchingFeats = response.body.feats.filter(feat => feat.Category !== "don général");
+        client.assert(nonMatchingFeats.length === 0, "Some feats are not don général");
     });
 %}
 ###
 
-GET http://localhost:3000/spells/flamme-sacree
+GET http://localhost:3000/feats/chanceux
 
 > {%
     client.test("Request executed successfully", function () {

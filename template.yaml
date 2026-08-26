@@ -153,6 +153,52 @@ Resources:
       LogGroupName: !Sub "/aws/lambda/${SpellsApiFunction}"
       RetentionInDays: 7
 
+  FeatsApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: feats-api/
+      Handler: app.lambdaHandler
+      Runtime: nodejs24.x
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref SpellsTable
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref SpellsTable
+      Events:
+        ListFeats:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /feats
+            Method: get
+            Auth:
+              Authorizer: NONE
+        GetFeat:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /feats/{id}
+            Method: get
+            Auth:
+              Authorizer: NONE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: "es2022"
+        Sourcemap: true
+        EntryPoints:
+          - app.ts
+
+  FeatsApiFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${FeatsApiFunction}"
+      RetentionInDays: 7
+
   # Copie le Host du visiteur (le domaine CloudFront) dans un header custom X-Forwarded-Host.
   # On ne peut pas forwarder le header Host lui-même jusqu'à API Gateway : le endpoint execute-api
   # par défaut exige que Host corresponde exactement à son propre domaine et répond 403 Forbidden
@@ -173,15 +219,17 @@ Resources:
         }
 
   # Policy CachingOptimized géré par AWS (658327ea-f89d-4fab-a63d-7e88639e58f6) exclut les query
-  # strings de la clé de cache : les filtres ?school=/?level=/?class=/?tag=/?sort= étaient bien
-  # transmis à l'origine (via OriginRequestPolicy) mais CloudFront servait la même réponse en cache
-  # pour toutes les combinaisons. On whitelist donc explicitement ces paramètres dans la clé de cache.
+  # strings de la clé de cache : les filtres ?school=/?level=/?class=/?tag=/?category=/?sort=
+  # étaient bien transmis à l'origine (via OriginRequestPolicy) mais CloudFront servait la même
+  # réponse en cache pour toutes les combinaisons. On whitelist donc explicitement ces paramètres
+  # dans la clé de cache. Cette policy est partagée par toutes les routes de la distribution
+  # (spells et feats), d'où la liste combinée des deux API.
   SpellsCachePolicy:
     Type: AWS::CloudFront::CachePolicy
     Properties:
       CachePolicyConfig:
         Name: !Sub "${AWS::StackName}-spells-cache-policy"
-        Comment: "Cache spells responses par combinaison de filtres (school/level/class/tag/sort)"
+        Comment: "Cache spells/feats responses par combinaison de filtres (school/level/class/tag/category/sort)"
         DefaultTTL: 86400
         MinTTL: 1
         MaxTTL: 31536000
@@ -195,6 +243,7 @@ Resources:
               - level
               - class
               - tag
+              - category
               - sort
           HeadersConfig:
             HeaderBehavior: none
@@ -307,3 +356,18 @@ Outputs:
   SpellsApiFunctionIamRole:
     Description: "Implicit IAM Role created for the Spells API function"
     Value: !GetAtt SpellsApiFunctionRole.Arn
+  FeatsCloudFrontEndpoint:
+    Description: "Full CloudFront URL for accessing the Feats API"
+    Value: !Sub "https://${SpellsDistribution.DomainName}/feats"
+  FeatsCustomDomainEndpoint:
+    Description: "Full custom domain URL for accessing the Feats API"
+    Value: !Sub "https://${SpellsDomainName}/feats"
+  FeatsApiGatewayEndpoint:
+    Description: "Direct API Gateway endpoint (for admin use only, client requests should use CloudFront)"
+    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/feats"
+  FeatsApiFunction:
+    Description: "Feats API Lambda Function ARN"
+    Value: !GetAtt FeatsApiFunction.Arn
+  FeatsApiFunctionIamRole:
+    Description: "Implicit IAM Role created for the Feats API function"
+    Value: !GetAtt FeatsApiFunctionRole.Arn

@@ -78,7 +78,7 @@ const listSpells = async (event: APIGatewayProxyEventV2): Promise<APIGatewayProx
             spells: sortSpells(spells, sort).map(({ id, ...spell }) => ({
                 id,
                 ...spell,
-                self: buildSpellSelfLink(event, id)
+                _self: buildSpellSelfLink(event, id)
             }))
         });
 
@@ -98,7 +98,7 @@ const getSpell = async (event: APIGatewayProxyEventV2, spellId: string): Promise
 
         return successResponse({
             ...spell,
-            self: buildSpellSelfLink(event, spellId)
+            _self: buildSpellSelfLink(event, spellId)
         });
 
     } catch (error) {
