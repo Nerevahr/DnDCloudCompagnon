@@ -11,10 +11,10 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":7,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"",
@@ -34,10 +34,11 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":7,
       "classes":[
-         "Barde", "Occultiste", "Magicien"
+         "Barde",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",
@@ -56,10 +57,13 @@
       "duree":"Instantanée",
       "niveau":7,
       "classes":[
-         "Clerc", "Druide", "Ensorceleur", "Occultiste", "Magicien"
+         "Clerc",
+         "Druide",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -81,7 +85,6 @@
          "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -100,15 +103,19 @@
       "duree":"Instantanée",
       "niveau":7,
       "classes":[
-         "Ensorceleur", "Occultiste", "Magicien"
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"7d8 + 30",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous libérez des énergies négatives vers une créature que vous voyez à portée. La cible effectue un jet de sauvegarde de Constitution et subit 7d8 + 30 dégâts nécrotiques en cas d'échec, la moitié en cas de réussite. Un Humanoïde tué par ce sort se relève au début de votre tour suivant comme zombi obéissant à vos instructions verbales."
+      "descriptionSort":"Vous libérez des énergies négatives vers une créature que vous voyez à portée. La cible effectue un jet de sauvegarde de Constitution et subit 7d8 + 30 dégâts nécrotiques en cas d'échec, la moitié en cas de réussite. Un Humanoïde tué par ce sort se relève au début de votre tour suivant comme zombi obéissant à vos instructions verbales.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Embruns prismatiques",
@@ -122,15 +129,19 @@
       "duree":"Instantanée",
       "niveau":7,
       "classes":[
-         "Barde", "Ensorceleur", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"12d6",
       "alternateDamageAmount":"",
-      "descriptionSort":"Huit rayons de lumière jaillissent de vous dans un Cône de 18 m. Chaque créature prise dans le Cône effectue un jet de sauvegarde de Dextérité. Pour chaque cible, lancez 1d8 pour déterminer le rayon de couleur qui l'affecte selon la table ci-dessous. 1d8Rayon 1Rouge. Échec au JdS : 12d6 dégâts de feu. JdS réussi : 1/2 dégâts. 2Orange. Échec au JdS : 12d6 dégâts d'acide. JdS réussi : 1/2 dégâts. 3Jaune. Échec au JdS : 12d6 dégâts de foudre. JdS réussi : 1/2 dégâts. 4Vert. Échec au JdS : 12d6 dégâts de poison. JdS réussi : 1/2 dégâts. 5Bleu. Échec au JdS : 12d6 dégâts de froid. JdS réussi : 1/2 dégâts. 6Indigo. Échec au JdS : La cible subit l'état Entravé et effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle se sauvegarde trois fois, l'état prend fin. Si elle rate trois fois le JdS, elle subit l'état Pétrifié jusqu'à en être libérée par un effet tel que restauration suprême. Ces réussites et échecs n'ont pas besoin d'être consécutifs ; notez-les quelque part, jusqu'à ce que la cible atteigne un total de trois pour l'un ou l'autre. 7Violet. Échec au JdS : La cible subit l'état Aveuglé et effectue un jet de sauvegarde de Sagesse au début de votre tour suivant. En cas de réussite, l'état prend fin. En cas d'échec, l'état prend fin, et la créature est téléportée dans un autre plan d'existence (choisi par le MD). 8Spécial. La cible est frappée par deux rayons. Lancez deux fois le dé, en rejouant tout 8."
+      "descriptionSort":"Huit rayons de lumière jaillissent de vous dans un Cône de 18 m. Chaque créature prise dans le Cône effectue un jet de sauvegarde de Dextérité. Pour chaque cible, lancez 1d8 pour déterminer le rayon de couleur qui l'affecte selon la table ci-dessous. 1d8Rayon 1Rouge. Échec au JdS : 12d6 dégâts de feu. JdS réussi : 1/2 dégâts. 2Orange. Échec au JdS : 12d6 dégâts d'acide. JdS réussi : 1/2 dégâts. 3Jaune. Échec au JdS : 12d6 dégâts de foudre. JdS réussi : 1/2 dégâts. 4Vert. Échec au JdS : 12d6 dégâts de poison. JdS réussi : 1/2 dégâts. 5Bleu. Échec au JdS : 12d6 dégâts de froid. JdS réussi : 1/2 dégâts. 6Indigo. Échec au JdS : La cible subit l'état Entravé et effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle se sauvegarde trois fois, l'état prend fin. Si elle rate trois fois le JdS, elle subit l'état Pétrifié jusqu'à en être libérée par un effet tel que restauration suprême. Ces réussites et échecs n'ont pas besoin d'être consécutifs ; notez-les quelque part, jusqu'à ce que la cible atteigne un total de trois pour l'un ou l'autre. 7Violet. Échec au JdS : La cible subit l'état Aveuglé et effectue un jet de sauvegarde de Sagesse au début de votre tour suivant. En cas de réussite, l'état prend fin. En cas d'échec, l'état prend fin, et la créature est téléportée dans un autre plan d'existence (choisi par le MD). 8Spécial. La cible est frappée par deux rayons. Lancez deux fois le dé, en rejouant tout 8.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Épée de Mordenkainen",
@@ -144,10 +155,10 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":7,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -166,10 +177,13 @@
       "duree":"Jusqu'à 8 heures",
       "niveau":7,
       "classes":[
-         "Barde", "Clerc", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Clerc",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -189,10 +203,10 @@
       "duree":"Concentration, jusqu'à 1 jour",
       "niveau":7,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -211,10 +225,11 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":7,
       "classes":[
-         "Druide", "Ensorceleur", "Magicien"
+         "Druide",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"",
@@ -236,12 +251,14 @@
          "Clerc"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"6d12",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Vous invoquez un esprit des Plans Supérieurs, qui se manifeste telle une colonne de lumière ; un Cylindre de 3 m de rayon et 12 m de haut, centré sur un point à portée. Pour chaque créature que vous voyez dans le Cylindre, choisissez par laquelle des lumières suivantes elle est baignée :\n**Lumière calcinante.** La cible effectue un jet de sauvegarde de Dextérité, et subit 6d12 dégâts radiants en cas d'échec, la moitié en cas de réussite.\n**Lumière guérisseuse.** La cible récupère autant de points de vie que 4d12 + votre modificateur de caractéristique d'incantation. Jusqu'à la fin du sort, le Cylindre est empli d'une Lumière vive et, quand vous vous déplacez à votre tour, vous pouvez également déplacer le Cylindre d'un maximum de 9 m. Chaque fois que le Cylindre se déplace dans l'espace d'une créature que vous voyez, ainsi que chaque fois qu'une créature que vous voyez pénètre dans le Cylindre ou y termine son tour, vous pouvez la baigner de l'une des lumières. Une même créature ne peut être affectée par ce sort plus d'une fois par tour.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les soins et les dégâts augmentent de 1d12 pour chaque niveau d'emplacement de sort supérieur à 7."
    },
    {
@@ -256,10 +273,10 @@
       "duree":"24 heures",
       "niveau":7,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -278,10 +295,11 @@
       "duree":"10 jours",
       "niveau":7,
       "classes":[
-         "Barde", "Druide", "Magicien"
+         "Barde",
+         "Druide",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -300,10 +318,10 @@
       "duree":"Instantanée",
       "niveau":7,
       "classes":[
-         "Barde", "Clerc"
+         "Barde",
+         "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -325,7 +343,6 @@
          "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",
@@ -344,10 +361,11 @@
       "duree":"1 heure",
       "niveau":7,
       "classes":[
-         "Barde", "Clerc", "Druide"
+         "Barde",
+         "Clerc",
+         "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -366,10 +384,10 @@
       "duree":"Instantanée",
       "niveau":7,
       "classes":[
-         "Barde", "Clerc"
+         "Barde",
+         "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -391,7 +409,6 @@
          "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -410,15 +427,20 @@
       "duree":"Jusqu'à dissipation ou déclenchement",
       "niveau":7,
       "classes":[
-         "Barde", "Clerc", "Druide", "Magicien"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"10d10",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous inscrivez un glyphe nuisible à d'autres créatures, soit sur une surface (comme un pan de mur ou de sol), soit à l'intérieur d'un objet que l'on peut fermer (comme un livre ou un coffre). Le glyphe peut recouvrir une zone dont le diamètre ne dépasse pas 3 m. Si vous optez pour un objet, celui-ci doit rester à sa place ; si on le déplace de plus de 3 m de l'endroit où vous avez lancé le sort, le glyphe est rompu et le sort prend fin sans avoir été activé. Le glyphe est pratiquement imperceptible, au point qu'il faut réussir un jet de Sagesse (Perception) contre le DD de sauvegarde de votre sort pour le remarquer. Lors de l'inscription du glyphe, vous décidez de son déclencheur et de l'effet porté par le symbole : discorde, douleur, étourdissement, mort, sommeil ou terreur. Chaque effet est expliqué ci-après.\n**Déclencheur.** Vous décidez ce qui le déclenche à l'incantation du sort. Dans le cas des glyphes de surface, les déclencheurs courants sont les suivants : toucher le glyphe, le fouler, retirer un objet qui le recouvre ou s'approcher dans un certain rayon. Pour les glyphes inscrits dans un objet, les déclencheurs courants sont l'ouverture de l'objet et la vue du glyphe. Vous pouvez préciser le déclencheur afin que seules les créatures d'un type donné l'activent (le glyphe ne pourrait ainsi affecter que les Aberrations). Vous pouvez aussi définir les critères de créatures qui ne déclenchent pas le glyphe, comme le fait de prononcer un certain mot de passe. Quand il s'active, le glyphe se met à luire en emplissant une Sphère de 18 m de rayon de Lumière faible pendant 10 minutes, après quoi le sort prend fin. Chaque créature prise dans la Sphère au moment de l'activation du glyphe est ciblée par son effet, de même que toute créature qui pénètre dans la Sphère pour la première fois d'un tour ou y termine son tour. Une même créature ne peut être ciblée qu'une fois par tour.\n**Discorde.** Chaque cible effectue un jet de sauvegarde de Sagesse. En cas d'échec, la cible se chamaille verbalement avec une autre créature pendant 1 minute. Tout ce temps, elle est incapable de communiquer de manière cohérente et ses jets d'attaque et jets de caractéristique s'effectuent avec un Désavantage.\n**Douleur.** Chaque cible doit réussir un jet de sauvegarde de Constitution sous peine de subir l'état Incapable d'agir pendant 1 minute.\n**Étourdissement.** Chaque cible doit réussir un jet de sauvegarde de Sagesse sous peine de subir l'état Étourdi pendant 1 minute.\n**Mort.** Chaque cible effectue un jet de sauvegarde de Constitution et subit 10d10 dégâts nécrotiques en cas d'échec, la moitié en cas de réussite.\n**Sommeil.** Chaque cible doit réussir un jet de sauvegarde de Sagesse sous peine de subir l'état Inconscient pendant 10 minutes. Une telle créature reprend connaissance si elle subit des dégâts ou si quelqu'un consacre une action à la secouer.\n**Terreur.** Chaque cible doit réussir un jet de sauvegarde de Sagesse sous peine de subir l'état Effrayé pendant 1 minute. Tant qu'une cible est ainsi Effrayée, elle doit s'éloigner au minimum de 9 m du glyphe à chacun de ses tours si elle en a la possibilité."
+      "descriptionSort":"Vous inscrivez un glyphe nuisible à d'autres créatures, soit sur une surface (comme un pan de mur ou de sol), soit à l'intérieur d'un objet que l'on peut fermer (comme un livre ou un coffre). Le glyphe peut recouvrir une zone dont le diamètre ne dépasse pas 3 m. Si vous optez pour un objet, celui-ci doit rester à sa place ; si on le déplace de plus de 3 m de l'endroit où vous avez lancé le sort, le glyphe est rompu et le sort prend fin sans avoir été activé. Le glyphe est pratiquement imperceptible, au point qu'il faut réussir un jet de Sagesse (Perception) contre le DD de sauvegarde de votre sort pour le remarquer. Lors de l'inscription du glyphe, vous décidez de son déclencheur et de l'effet porté par le symbole : discorde, douleur, étourdissement, mort, sommeil ou terreur. Chaque effet est expliqué ci-après.\n**Déclencheur.** Vous décidez ce qui le déclenche à l'incantation du sort. Dans le cas des glyphes de surface, les déclencheurs courants sont les suivants : toucher le glyphe, le fouler, retirer un objet qui le recouvre ou s'approcher dans un certain rayon. Pour les glyphes inscrits dans un objet, les déclencheurs courants sont l'ouverture de l'objet et la vue du glyphe. Vous pouvez préciser le déclencheur afin que seules les créatures d'un type donné l'activent (le glyphe ne pourrait ainsi affecter que les Aberrations). Vous pouvez aussi définir les critères de créatures qui ne déclenchent pas le glyphe, comme le fait de prononcer un certain mot de passe. Quand il s'active, le glyphe se met à luire en emplissant une Sphère de 18 m de rayon de Lumière faible pendant 10 minutes, après quoi le sort prend fin. Chaque créature prise dans la Sphère au moment de l'activation du glyphe est ciblée par son effet, de même que toute créature qui pénètre dans la Sphère pour la première fois d'un tour ou y termine son tour. Une même créature ne peut être ciblée qu'une fois par tour.\n**Discorde.** Chaque cible effectue un jet de sauvegarde de Sagesse. En cas d'échec, la cible se chamaille verbalement avec une autre créature pendant 1 minute. Tout ce temps, elle est incapable de communiquer de manière cohérente et ses jets d'attaque et jets de caractéristique s'effectuent avec un Désavantage.\n**Douleur.** Chaque cible doit réussir un jet de sauvegarde de Constitution sous peine de subir l'état Incapable d'agir pendant 1 minute.\n**Étourdissement.** Chaque cible doit réussir un jet de sauvegarde de Sagesse sous peine de subir l'état Étourdi pendant 1 minute.\n**Mort.** Chaque cible effectue un jet de sauvegarde de Constitution et subit 10d10 dégâts nécrotiques en cas d'échec, la moitié en cas de réussite.\n**Sommeil.** Chaque cible doit réussir un jet de sauvegarde de Sagesse sous peine de subir l'état Inconscient pendant 10 minutes. Une telle créature reprend connaissance si elle subit des dégâts ou si quelqu'un consacre une action à la secouer.\n**Terreur.** Chaque cible doit réussir un jet de sauvegarde de Sagesse sous peine de subir l'état Effrayé pendant 1 minute. Tant qu'une cible est ainsi Effrayée, elle doit s'éloigner au minimum de 9 m du glyphe à chacun de ses tours si elle en a la possibilité.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Téléportation",
@@ -432,15 +454,19 @@
       "duree":"Instantanée",
       "niveau":7,
       "classes":[
-         "Barde", "Ensorceleur", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"3d10",
       "alternateDamageAmount":"",
-      "descriptionSort":"Ce sort vous transporte instantanément, ainsi que huit créatures consentantes que vous voyez à portée, ou bien un seul objet que vous voyez à portée, vers la destination sélectionnée. Si vous ciblez un objet, il doit être de taille G ou inférieure et ne doit pas être porté par une créature non consentante. Vous devez connaître la destination que vous choisissez et elle doit se trouver sur le même plan d'existence que vous. Votre niveau de familiarité avec la destination détermine si vous y parvenez effectivement. Le MD lance 1d100 en consultant la table ci-dessous et l'explication correspondante. FamiliaritéIncident Zone comparable Déviation Sur place Cercle permanent———01–00 Objet lié———01–00 Grande familiarité01–0506–1314–2425–00 Vu plusieurs fois01–3334–4344–5354–00 Vu une fois ou décrit01–4344–5354–7374–00 Destination factice01–5051–00——\n**Familiarité.** Les termes de la colonne Familiarité de la table se comprennent comme suit :\n• « Cercle permanent » fait référence à un cercle de téléportation permanent dont vous connaissez la séquence de runes.\n• « Objet lié » indique que vous détenez un objet rapporté de la destination souhaitée au cours des six derniers mois, comme un livre issu de la bibliothèque d'un Magicien.\n• « Grande familiarité » correspond à un endroit où vous avez passé du temps, un lieu que vous avez étudié en profondeur ou un site que vous voyez à l'incantation du sort.\n• « Vu plusieurs fois » représente un lieu que vous avez vu plus d'une fois, mais que vous connaissez finalement assez peu.\n• « Vu une fois ou décrit » correspond à un site que vous n'avez vu qu'une fois, éventuellement par magie, ou un endroit qu'on vous a décrit avec un certain détail, éventuellement par le biais d'une carte.\n• « Destination factice » correspond à un lieu qui n'existe pas. Vous avez par exemple tenté de scruter le sanctuaire de l'ennemi, mais avez été dupé par une illusion, à moins que vous cherchiez à atteindre un lieu qui n'existe plus.\n**Incident.** La magie imprévisible de ce sort se traduit par une mésaventure. Chaque créature téléportée (ou l'objet ciblé) subit 3d10 dégâts de force et le MD rejoue sur la table pour voir où vous terminez (plusieurs incidents consécutifs sont possibles, entraînant chaque fois des dégâts).\n**Zone comparable.** Vous et votre groupe (ou l'objet ciblé) terminez dans une zone différente dont l'ambiance et l'aspect se rapprochent de la destination souhaitée. Vous apparaissez à l'endroit comparable le plus proche. Si vous souhaitiez rejoindre votre laboratoire, par exemple, vous pourriez aboutir dans celui d'une autre personne de la même ville.\n**Déviation.** Vous et votre groupe (ou l'objet ciblé) arrivez à 2d12 x 1,5 km et dans une direction aléatoire de la destination souhaitée. Lancez 1d8 pour la direction : 1, est ; 2, sud-est ; 3, sud ; 4, sud-ouest ; 5, ouest ; 6, nord-ouest ; 7, nord ; 8, nord-est.\n**Sur place.** Vous et votre groupe (ou l'objet ciblé) arrivez à l'endroit souhaité."
+      "descriptionSort":"Ce sort vous transporte instantanément, ainsi que huit créatures consentantes que vous voyez à portée, ou bien un seul objet que vous voyez à portée, vers la destination sélectionnée. Si vous ciblez un objet, il doit être de taille G ou inférieure et ne doit pas être porté par une créature non consentante. Vous devez connaître la destination que vous choisissez et elle doit se trouver sur le même plan d'existence que vous. Votre niveau de familiarité avec la destination détermine si vous y parvenez effectivement. Le MD lance 1d100 en consultant la table ci-dessous et l'explication correspondante. FamiliaritéIncident Zone comparable Déviation Sur place Cercle permanent———01–00 Objet lié———01–00 Grande familiarité01–0506–1314–2425–00 Vu plusieurs fois01–3334–4344–5354–00 Vu une fois ou décrit01–4344–5354–7374–00 Destination factice01–5051–00——\n**Familiarité.** Les termes de la colonne Familiarité de la table se comprennent comme suit :\n• « Cercle permanent » fait référence à un cercle de téléportation permanent dont vous connaissez la séquence de runes.\n• « Objet lié » indique que vous détenez un objet rapporté de la destination souhaitée au cours des six derniers mois, comme un livre issu de la bibliothèque d'un Magicien.\n• « Grande familiarité » correspond à un endroit où vous avez passé du temps, un lieu que vous avez étudié en profondeur ou un site que vous voyez à l'incantation du sort.\n• « Vu plusieurs fois » représente un lieu que vous avez vu plus d'une fois, mais que vous connaissez finalement assez peu.\n• « Vu une fois ou décrit » correspond à un site que vous n'avez vu qu'une fois, éventuellement par magie, ou un endroit qu'on vous a décrit avec un certain détail, éventuellement par le biais d'une carte.\n• « Destination factice » correspond à un lieu qui n'existe pas. Vous avez par exemple tenté de scruter le sanctuaire de l'ennemi, mais avez été dupé par une illusion, à moins que vous cherchiez à atteindre un lieu qui n'existe plus.\n**Incident.** La magie imprévisible de ce sort se traduit par une mésaventure. Chaque créature téléportée (ou l'objet ciblé) subit 3d10 dégâts de force et le MD rejoue sur la table pour voir où vous terminez (plusieurs incidents consécutifs sont possibles, entraînant chaque fois des dégâts).\n**Zone comparable.** Vous et votre groupe (ou l'objet ciblé) terminez dans une zone différente dont l'ambiance et l'aspect se rapprochent de la destination souhaitée. Vous apparaissez à l'endroit comparable le plus proche. Si vous souhaitiez rejoindre votre laboratoire, par exemple, vous pourriez aboutir dans celui d'une autre personne de la même ville.\n**Déviation.** Vous et votre groupe (ou l'objet ciblé) arrivez à 2d12 x 1,5 km et dans une direction aléatoire de la destination souhaitée. Lancez 1d8 pour la direction : 1, est ; 2, sud-est ; 3, sud ; 4, sud-ouest ; 5, ouest ; 6, nord-ouest ; 7, nord ; 8, nord-est.\n**Sur place.** Vous et votre groupe (ou l'objet ciblé) arrivez à l'endroit souhaité.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Tempête de feu",
@@ -454,14 +480,18 @@
       "duree":"Instantanée",
       "niveau":7,
       "classes":[
-         "Clerc", "Druide", "Ensorceleur"
+         "Clerc",
+         "Druide",
+         "Ensorceleur"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"7d10",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Une tempête de flammes éclate à portée. La zone de la tempête consiste en un maximum de 10 Cubes de 3 m, que vous disposez à votre guise. Chaque Cube doit être contigu à au moins un autre Cube. Chaque créature prise dans la zone effectue un jet de sauvegarde de Dextérité et subit 7d10 dégâts de feu en cas d'échec, la moitié en cas de réussite. L'explosion embrase les objets inflammables de la zone qui ne sont portés par personne."
+      "descriptionSort":"Une tempête de flammes éclate à portée. La zone de la tempête consiste en un maximum de 10 Cubes de 3 m, que vous disposez à votre guise. Chaque Cube doit être contigu à au moins un autre Cube. Chaque créature prise dans la zone effectue un jet de sauvegarde de Dextérité et subit 7d10 dégâts de feu en cas d'échec, la moitié en cas de réussite. L'explosion embrase les objets inflammables de la zone qui ne sont portés par personne.",
+      "tags":[
+         "damage"
+      ]
    }
 ]

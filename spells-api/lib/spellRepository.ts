@@ -58,7 +58,7 @@ function appendContainsAnyClause(
 // Récupère la liste des sorts (SPELL#), éventuellement filtrés par écoles de magie, niveaux et/ou classes.
 // Ne remonte que les informations minimales (nom, niveau, école, classes) afin de garder le body léger :
 // le détail complet d'un sort est disponible via getSpellById.
-export const scanSpells = async (schoolFilters: string[], levelFilters: number[], classFilters: string[]) => {
+export const scanSpells = async (schoolFilters: string[], levelFilters: number[], classFilters: string[], tagFilters: string[]) => {
     let filterExpression = "begins_with(PK, :prefix) AND SK = :metadata";
     const expressionAttributeValues: Record<string, unknown> = {
         ":prefix": "SPELL#",
@@ -69,17 +69,19 @@ export const scanSpells = async (schoolFilters: string[], levelFilters: number[]
         "#pName": "Name",
         "#pLevel": "Level",
         "#pSchool": "School",
-        "#pClasses": "Classes"
+        "#pClasses": "Classes",
+        "#pTags": "Tags"
     };
 
     filterExpression = appendInClause(filterExpression, expressionAttributeValues, expressionAttributeNames, "School", "school", schoolFilters);
     filterExpression = appendInClause(filterExpression, expressionAttributeValues, expressionAttributeNames, "Level", "level", levelFilters);
     filterExpression = appendContainsAnyClause(filterExpression, expressionAttributeValues, expressionAttributeNames, "Classes", "class", classFilters);
+    filterExpression = appendContainsAnyClause(filterExpression, expressionAttributeValues, expressionAttributeNames, "Tags", "tag", tagFilters);
 
     const command = new ScanCommand({
         TableName: tableName,
         FilterExpression: filterExpression,
-        ProjectionExpression: "PK, #pName, #pLevel, #pSchool, #pClasses",
+        ProjectionExpression: "PK, #pName, #pLevel, #pSchool, #pClasses, #pTags",
         ExpressionAttributeValues: expressionAttributeValues,
         ExpressionAttributeNames: expressionAttributeNames
     });

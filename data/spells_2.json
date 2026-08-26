@@ -11,10 +11,13 @@
       "duree":"8 heures",
       "niveau":2,
       "classes":[
-         "Barde", "Clerc", "Druide", "Paladin", "Rôdeur"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Paladin",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -34,10 +37,14 @@
       "duree":"jusqu'à 1 heure",
       "niveau":2,
       "classes":[
-         "Barde", "Clerc", "Druide", "Rôdeur", "Ensorceleur", "Magicien"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Rôdeur",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -57,10 +64,10 @@
       "duree":"Jusqu'à 1 minute",
       "niveau":2,
       "classes":[
-         "Barde", "Clerc"
+         "Barde",
+         "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",
@@ -82,7 +89,6 @@
          "Clerc"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -102,10 +108,11 @@
       "duree":"Instantanée",
       "niveau":2,
       "classes":[
-         "Clerc", "Druide", "Magicien"
+         "Clerc",
+         "Druide",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -124,10 +131,12 @@
       "duree":"1 minute",
       "niveau":2,
       "classes":[
-         "Barde", "Clerc", "Ensorceleur", "Magicien"
+         "Barde",
+         "Clerc",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"",
@@ -147,10 +156,11 @@
       "duree":"Instantanée",
       "niveau":2,
       "classes":[
-         "Clerc", "Druide", "Rôdeur"
+         "Clerc",
+         "Druide",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -169,10 +179,11 @@
       "duree":"10 jours",
       "niveau":2,
       "classes":[
-         "Clerc", "Paladin", "Magicien"
+         "Clerc",
+         "Paladin",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -191,10 +202,11 @@
       "duree":"Jusqu'à dissipation",
       "niveau":2,
       "classes":[
-         "Clerc", "Druide", "Magicien"
+         "Clerc",
+         "Druide",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -213,10 +225,14 @@
       "duree":"jusqu'à 1 minute",
       "niveau":2,
       "classes":[
-         "Barde", "Clerc", "Druide", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -236,10 +252,10 @@
       "duree":"1 heure",
       "niveau":2,
       "classes":[
-         "Clerc", "Paladin"
+         "Clerc",
+         "Paladin"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -258,10 +274,14 @@
       "duree":"jusqu'à 10 minutes",
       "niveau":2,
       "classes":[
-         "Barde", "Clerc", "Druide", "Paladin", "Rôdeur", "Magicien"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Paladin",
+         "Rôdeur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -280,10 +300,10 @@
       "duree":"Instantanée",
       "niveau":2,
       "classes":[
-         "Clerc", "Paladin"
+         "Clerc",
+         "Paladin"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -303,10 +323,12 @@
       "duree":"1 heure",
       "niveau":2,
       "classes":[
-         "Clerc", "Druide", "Paladin", "Rôdeur"
+         "Clerc",
+         "Druide",
+         "Paladin",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -325,10 +347,13 @@
       "duree":"Instantanée",
       "niveau":2,
       "classes":[
-         "Barde", "Clerc", "Druide", "Paladin", "Rôdeur"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Paladin",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -347,10 +372,11 @@
       "duree":"jusqu'à 10 minutes",
       "niveau":2,
       "classes":[
-         "Barde", "Clerc", "Rôdeur"
+         "Barde",
+         "Clerc",
+         "Rôdeur"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -369,10 +395,11 @@
       "duree":"10 minutes",
       "niveau":2,
       "classes":[
-         "Barde", "Clerc", "Paladin"
+         "Barde",
+         "Clerc",
+         "Paladin"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",

@@ -16,6 +16,7 @@ lint = true
 capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
+parameter_overrides = "SpellsDomainName=\"dnd.nerevahr.fr\" SpellsCertificateArn=\"arn:aws:acm:us-east-1:434935055522:certificate/7c2e02c7-c045-4691-9c1d-dbb8130992ed\""
 
 [default.package.parameters]
 resolve_s3 = true

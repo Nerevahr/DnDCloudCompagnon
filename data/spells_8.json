@@ -11,15 +11,20 @@
       "duree":"Instantanée",
       "niveau":8,
       "classes":[
-         "Barde", "Druide", "Occultiste", "Magicien"
+         "Barde",
+         "Druide",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"10d12",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous assaillez l'esprit d'une créature que vous voyez à portée. La cible effectue un jet de sauvegarde d'Intelligence. En cas d'échec, elle subit 10d12 dégâts psychiques et ne peut pas lancer de sort ni entreprendre l'action Magie. À l'issue de chaque tranche de 30 jours, la cible réitère le JdS et met un terme à l'effet en cas de réussite. Les sorts guérison, restauration suprême également chacun fin à l'effet. En cas de réussite, la cible subit uniquement la moitié de ces dégâts."
+      "descriptionSort":"Vous assaillez l'esprit d'une créature que vous voyez à portée. La cible effectue un jet de sauvegarde d'Intelligence. En cas d'échec, elle subit 10d12 dégâts psychiques et ne peut pas lancer de sort ni entreprendre l'action Magie. À l'issue de chaque tranche de 30 jours, la cible réitère le JdS et met un terme à l'effet en cas de réussite. Les sorts guérison, restauration suprême également chacun fin à l'effet. En cas de réussite, la cible subit uniquement la moitié de ces dégâts.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Aura sacrée",
@@ -36,7 +41,6 @@
          "Clerc"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -55,10 +59,11 @@
       "duree":"10 jours",
       "niveau":8,
       "classes":[
-         "Barde", "Druide", "Magicien"
+         "Barde",
+         "Druide",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -77,10 +82,10 @@
       "duree":"1 heure",
       "niveau":8,
       "classes":[
-         "Barde", "Occultiste"
+         "Barde",
+         "Occultiste"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -99,10 +104,10 @@
       "duree":"jusqu'à 1 heure",
       "niveau":8,
       "classes":[
-         "Clerc", "Magicien"
+         "Clerc",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -124,7 +129,6 @@
          "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -143,10 +147,11 @@
       "duree":"jusqu'à 8 heures",
       "niveau":8,
       "classes":[
-         "Clerc", "Druide", "Magicien"
+         "Clerc",
+         "Druide",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -168,7 +173,6 @@
          "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -187,10 +191,11 @@
       "duree":"1 heure",
       "niveau":8,
       "classes":[
-         "Ensorceleur", "Occultiste", "Magicien"
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -209,10 +214,12 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":8,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -232,15 +239,20 @@
       "duree":"Instantanée",
       "niveau":8,
       "classes":[
-         "Clerc", "Druide", "Ensorceleur", "Magicien"
+         "Clerc",
+         "Druide",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"12d6",
       "alternateDamageAmount":"moitiée",
-      "descriptionSort":"La lumière du soleil brille soudain dans une Sphère de 18 m de rayon, centrée sur un point que vous choisissez à portée. Chaque créature prise dans la Sphère effectue un jet de sauvegarde de Constitution. En cas d'échec, elle subit 12d6 dégâts radiants, ainsi que l'état Aveuglé pendant 1 minute. En cas de réussite, elle subit uniquement la moitié de ces dégâts. \nUne créature Aveuglée par ce sort réitère le jet de sauvegarde de Constitution à la fin de chacun de ses tours et met un terme à l'effet sur elle-même en cas de réussite. \nLe sort dissipe dans la zone toutes les Ténèbres qui résultent d'un sort."
+      "descriptionSort":"La lumière du soleil brille soudain dans une Sphère de 18 m de rayon, centrée sur un point que vous choisissez à portée. Chaque créature prise dans la Sphère effectue un jet de sauvegarde de Constitution. En cas d'échec, elle subit 12d6 dégâts radiants, ainsi que l'état Aveuglé pendant 1 minute. En cas de réussite, elle subit uniquement la moitié de ces dégâts. \nUne créature Aveuglée par ce sort réitère le jet de sauvegarde de Constitution à la fin de chacun de ses tours et met un terme à l'effet sur elle-même en cas de réussite. \nLe sort dissipe dans la zone toutes les Ténèbres qui résultent d'un sort.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Esprit impénétrable",
@@ -254,10 +266,10 @@
       "duree":"24 heures",
       "niveau":8,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -279,7 +291,6 @@
          "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -298,10 +309,12 @@
       "duree":"Instantanée",
       "niveau":8,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"",
@@ -320,15 +333,19 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":8,
       "classes":[
-         "Druide", "Ensorceleur", "Magicien"
+         "Druide",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"10d8",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Un nuage tourbillonnant de fumée se manifeste, chargé de flammèches, sous forme d'une Sphère de 6 m de rayon centrée sur un point à portée. La zone du nuage présente une Visibilité nulle. Elle persiste pour toute la durée, à moins qu'un vent fort (comme celui engendré par bourrasque) la disperse. Chaque créature prise dans le nuage à son apparition effectue un jet de sauvegarde de Dextérité et subit 10d8 dégâts de feu en cas d'échec, la moitié en cas de réussite. Toute créature qui voit la Sphère se déplacer dans son espace, ou qui pénètre dans la Sphère ou y termine son tour, est également soumise à ce JdS. Une même créature n'effectue en aucun cas ce JdS plus d'une fois par tour."
+      "descriptionSort":"Un nuage tourbillonnant de fumée se manifeste, chargé de flammèches, sous forme d'une Sphère de 6 m de rayon centrée sur un point à portée. La zone du nuage présente une Visibilité nulle. Elle persiste pour toute la durée, à moins qu'un vent fort (comme celui engendré par bourrasque) la disperse. Chaque créature prise dans le nuage à son apparition effectue un jet de sauvegarde de Dextérité et subit 10d8 dégâts de feu en cas d'échec, la moitié en cas de réussite. Toute créature qui voit la Sphère se déplacer dans son espace, ou qui pénètre dans la Sphère ou y termine son tour, est également soumise à ce JdS. Une même créature n'effectue en aucun cas ce JdS plus d'une fois par tour.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Télépathie",
@@ -345,7 +362,6 @@
          "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -364,10 +380,11 @@
       "duree":"jusqu'à 1 minute",
       "niveau":8,
       "classes":[
-         "Clerc", "Druide", "Ensorceleur"
+         "Clerc",
+         "Druide",
+         "Ensorceleur"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -389,11 +406,13 @@
          "Druide"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Force",
       "damageAmount":"6d10",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Une muraille d'eau se matérialise en un point que vous choisissez à portée. Ce mur peut atteindre jusqu'à 90 m de longueur, 90 m de hauteur et 15 m d'épaisseur. Le mur persiste pour toute la durée. Quand le mur apparaît, chaque créature prise dans sa zone effectue un jet de sauvegarde de Force et subit 6d10 dégâts contondants en cas d'échec, la moitié en cas de réussite. Au début de chacun de vos tours suivant son apparition, le mur et toutes les créatures qu'il englobe s'éloignent de 15 m de vous. Toutes les créatures de taille TG ou inférieure qui occupent un espace dans lequel le mur se déplace doivent réussir un jet de sauvegarde de Force sous peine de subir 5d10 dégâts contondants. Une même créature ne peut subir ces dégâts qu'une fois par round. À la fin du tour, la hauteur du mur diminue de 15 m et les dégâts qu'il peut infliger aux rounds suivants diminuent de 1d10. Une fois que la hauteur du mur est de 0 m, le sort prend fin. Une créature prise dans le mur ne peut se déplacer qu'en nageant. La force de la vague est toutefois telle que la créature doit pour ce faire réussir un jet de Force (Athlétisme) contre le DD de sauvegarde de votre sort. En cas d'échec, elle ne peut pas se déplacer. Une créature qui se déplace hors du mur tombe au sol."
+      "descriptionSort":"Une muraille d'eau se matérialise en un point que vous choisissez à portée. Ce mur peut atteindre jusqu'à 90 m de longueur, 90 m de hauteur et 15 m d'épaisseur. Le mur persiste pour toute la durée. Quand le mur apparaît, chaque créature prise dans sa zone effectue un jet de sauvegarde de Force et subit 6d10 dégâts contondants en cas d'échec, la moitié en cas de réussite. Au début de chacun de vos tours suivant son apparition, le mur et toutes les créatures qu'il englobe s'éloignent de 15 m de vous. Toutes les créatures de taille TG ou inférieure qui occupent un espace dans lequel le mur se déplace doivent réussir un jet de sauvegarde de Force sous peine de subir 5d10 dégâts contondants. Une même créature ne peut subir ces dégâts qu'une fois par round. À la fin du tour, la hauteur du mur diminue de 15 m et les dégâts qu'il peut infliger aux rounds suivants diminuent de 1d10. Une fois que la hauteur du mur est de 0 m, le sort prend fin. Une créature prise dans le mur ne peut se déplacer qu'en nageant. La force de la vague est toutefois telle que la créature doit pour ce faire réussir un jet de Force (Athlétisme) contre le DD de sauvegarde de votre sort. En cas d'échec, elle ne peut pas se déplacer. Une créature qui se déplace hors du mur tombe au sol.",
+      "tags":[
+         "damage"
+      ]
    }
 ]

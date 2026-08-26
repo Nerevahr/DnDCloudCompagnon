@@ -35,8 +35,8 @@ const sortSpells = (
 
 const listSpells = async (event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2> => {
     try {
-        // Récupération des paramètres "school", "level" et "class" depuis l'URL
-        // (ex: ?school=Illusion&school=Conjuration ou ?level=1&level=2 ou ?class=Clerc&class=Druide)
+        // Récupération des paramètres "school", "level", "class" et "tag" depuis l'URL
+        // (ex: ?school=Illusion&school=Conjuration ou ?level=1&level=2 ou ?class=Clerc&class=Druide ou ?tag=Soin&tag=Zone)
         // Les HTTP API d'API Gateway fusionnent les valeurs dupliquées dans une seule chaîne séparée par des virgules
         const rawSchoolFilter = event.queryStringParameters?.school;
         const schoolFilters = rawSchoolFilter
@@ -53,18 +53,24 @@ const listSpells = async (event: APIGatewayProxyEventV2): Promise<APIGatewayProx
             ? rawClassFilter.split(",").map((classe) => classe.trim()).filter(Boolean)
             : [];
 
+        const rawTagFilter = event.queryStringParameters?.tag;
+        const tagFilters = rawTagFilter
+            ? rawTagFilter.split(",").map((tag) => tag.trim()).filter(Boolean)
+            : [];
+
         // Tri optionnel du résultat : ?sort=level (par niveau) ou ?sort=name (alphabétique)
         const rawSort = event.queryStringParameters?.sort;
         const sort = SORT_OPTIONS.includes(rawSort as SortOption) ? (rawSort as SortOption) : undefined;
 
-        const { count, spells } = await scanSpells(schoolFilters, levelFilters, classFilters);
+        const { count, spells } = await scanSpells(schoolFilters, levelFilters, classFilters, tagFilters);
 
         return successResponse({
             count,
             filterApplied: {
                 school: schoolFilters.length > 0 ? schoolFilters : "none",
                 level: levelFilters.length > 0 ? levelFilters : "none",
-                class: classFilters.length > 0 ? classFilters : "none"
+                class: classFilters.length > 0 ? classFilters : "none",
+                tag: tagFilters.length > 0 ? tagFilters : "none"
             },
             sortApplied: sort ?? "none",
             // Informations minimales uniquement (nom, niveau, école, classes) pour garder le body léger ;

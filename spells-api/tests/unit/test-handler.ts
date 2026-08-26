@@ -10,8 +10,8 @@ import { docClient } from '../../lib/dynamoClient';
 const ddbMock = mockClient(docClient);
 
 const rawSpells = [
-    { PK: 'SPELL#boule-de-feu', SK: 'METADATA', Name: 'Boule de feu', School: 'Évocation', Level: 3, Classes: ['Magicien'] },
-    { PK: 'SPELL#lumiere', SK: 'METADATA', Name: 'Lumière', School: 'Évocation', Level: 0, Classes: ['Clerc', 'Magicien'] }
+    { PK: 'SPELL#boule-de-feu', SK: 'METADATA', Name: 'Boule de feu', School: 'Évocation', Level: 3, Classes: ['Magicien'], Tags: ['Dégâts', 'Zone'] },
+    { PK: 'SPELL#lumiere', SK: 'METADATA', Name: 'Lumière', School: 'Évocation', Level: 0, Classes: ['Clerc', 'Magicien'], Tags: ['Utilitaire'] }
 ];
 
 const baseEvent = {
@@ -44,7 +44,7 @@ describe('Tests index', function () {
         const response = JSON.parse(result.body as string);
 
         expect(response).to.be.an('object');
-        expect(response.filterApplied).to.deep.equal({ school: 'none', level: 'none', class: 'none' });
+        expect(response.filterApplied).to.deep.equal({ school: 'none', level: 'none', class: 'none', tag: 'none' });
         expect(response.count).to.equal(2);
         expect(response.spells).to.deep.equal([
             {
@@ -53,6 +53,7 @@ describe('Tests index', function () {
                 School: 'Évocation',
                 Level: 3,
                 Classes: ['Magicien'],
+                Tags: ['Dégâts', 'Zone'],
                 self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/boule-de-feu'
             },
             {
@@ -61,6 +62,7 @@ describe('Tests index', function () {
                 School: 'Évocation',
                 Level: 0,
                 Classes: ['Clerc', 'Magicien'],
+                Tags: ['Utilitaire'],
                 self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/lumiere'
             }
         ]);
@@ -74,12 +76,13 @@ describe('Tests index', function () {
         const scanCalls = ddbMock.commandCalls(ScanCommand);
         expect(scanCalls).to.have.lengthOf(1);
         const { input } = scanCalls[0].args[0];
-        expect(input.ProjectionExpression).to.equal('PK, #pName, #pLevel, #pSchool, #pClasses');
+        expect(input.ProjectionExpression).to.equal('PK, #pName, #pLevel, #pSchool, #pClasses, #pTags');
         expect(input.ExpressionAttributeNames).to.deep.include({
             '#pName': 'Name',
             '#pLevel': 'Level',
             '#pSchool': 'School',
-            '#pClasses': 'Classes'
+            '#pClasses': 'Classes',
+            '#pTags': 'Tags'
         });
     });
 
@@ -91,7 +94,7 @@ describe('Tests index', function () {
         expect(result.statusCode).to.equal(200);
 
         const response = JSON.parse(result.body as string);
-        expect(response.filterApplied).to.deep.equal({ school: ['Évocation'], level: 'none', class: 'none' });
+        expect(response.filterApplied).to.deep.equal({ school: ['Évocation'], level: 'none', class: 'none', tag: 'none' });
         expect(response.count).to.equal(1);
 
         const scanCalls = ddbMock.commandCalls(ScanCommand);
@@ -107,7 +110,7 @@ describe('Tests index', function () {
         expect(result.statusCode).to.equal(200);
 
         const response = JSON.parse(result.body as string);
-        expect(response.filterApplied).to.deep.equal({ school: ['Illusion', 'Conjuration'], level: 'none', class: 'none' });
+        expect(response.filterApplied).to.deep.equal({ school: ['Illusion', 'Conjuration'], level: 'none', class: 'none', tag: 'none' });
 
         const scanCalls = ddbMock.commandCalls(ScanCommand);
         expect(scanCalls).to.have.lengthOf(1);
@@ -126,7 +129,7 @@ describe('Tests index', function () {
         expect(result.statusCode).to.equal(200);
 
         const response = JSON.parse(result.body as string);
-        expect(response.filterApplied).to.deep.equal({ school: 'none', level: [3], class: 'none' });
+        expect(response.filterApplied).to.deep.equal({ school: 'none', level: [3], class: 'none', tag: 'none' });
         expect(response.count).to.equal(1);
 
         const scanCalls = ddbMock.commandCalls(ScanCommand);
@@ -145,7 +148,7 @@ describe('Tests index', function () {
         expect(result.statusCode).to.equal(200);
 
         const response = JSON.parse(result.body as string);
-        expect(response.filterApplied).to.deep.equal({ school: ['Évocation'], level: [0, 3], class: 'none' });
+        expect(response.filterApplied).to.deep.equal({ school: ['Évocation'], level: [0, 3], class: 'none', tag: 'none' });
 
         const scanCalls = ddbMock.commandCalls(ScanCommand);
         expect(scanCalls).to.have.lengthOf(1);
@@ -165,7 +168,7 @@ describe('Tests index', function () {
         expect(result.statusCode).to.equal(200);
 
         const response = JSON.parse(result.body as string);
-        expect(response.filterApplied).to.deep.equal({ school: 'none', level: 'none', class: ['Clerc'] });
+        expect(response.filterApplied).to.deep.equal({ school: 'none', level: 'none', class: ['Clerc'], tag: 'none' });
         expect(response.count).to.equal(1);
 
         const scanCalls = ddbMock.commandCalls(ScanCommand);
@@ -184,7 +187,7 @@ describe('Tests index', function () {
         expect(result.statusCode).to.equal(200);
 
         const response = JSON.parse(result.body as string);
-        expect(response.filterApplied).to.deep.equal({ school: 'none', level: 'none', class: ['Clerc', 'Druide'] });
+        expect(response.filterApplied).to.deep.equal({ school: 'none', level: 'none', class: ['Clerc', 'Druide'], tag: 'none' });
 
         const scanCalls = ddbMock.commandCalls(ScanCommand);
         expect(scanCalls).to.have.lengthOf(1);
@@ -192,6 +195,43 @@ describe('Tests index', function () {
         expect(input.ExpressionAttributeValues?.[':class0']).to.equal('Clerc');
         expect(input.ExpressionAttributeValues?.[':class1']).to.equal('Druide');
         expect(input.FilterExpression).to.include('(contains(#class, :class0) OR contains(#class, :class1))');
+    });
+
+    it('applies the tag filter to the DynamoDB scan when provided', async () => {
+        ddbMock.on(ScanCommand).resolves({ Count: 1, Items: [rawSpells[0]] });
+
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { tag: 'Zone' } }));
+
+        expect(result.statusCode).to.equal(200);
+
+        const response = JSON.parse(result.body as string);
+        expect(response.filterApplied).to.deep.equal({ school: 'none', level: 'none', class: 'none', tag: ['Zone'] });
+        expect(response.count).to.equal(1);
+
+        const scanCalls = ddbMock.commandCalls(ScanCommand);
+        expect(scanCalls).to.have.lengthOf(1);
+        const { input } = scanCalls[0].args[0];
+        expect(input.ExpressionAttributeValues?.[':tag0']).to.equal('Zone');
+        expect(input.ExpressionAttributeNames?.['#tag']).to.equal('Tags');
+        expect(input.FilterExpression).to.include('(contains(#tag, :tag0))');
+    });
+
+    it('applies multiple tag filters (comma-separated) combined with an OR on the scan', async () => {
+        ddbMock.on(ScanCommand).resolves({ Count: 2, Items: rawSpells });
+
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { tag: 'Zone,Utilitaire' } }));
+
+        expect(result.statusCode).to.equal(200);
+
+        const response = JSON.parse(result.body as string);
+        expect(response.filterApplied).to.deep.equal({ school: 'none', level: 'none', class: 'none', tag: ['Zone', 'Utilitaire'] });
+
+        const scanCalls = ddbMock.commandCalls(ScanCommand);
+        expect(scanCalls).to.have.lengthOf(1);
+        const { input } = scanCalls[0].args[0];
+        expect(input.ExpressionAttributeValues?.[':tag0']).to.equal('Zone');
+        expect(input.ExpressionAttributeValues?.[':tag1']).to.equal('Utilitaire');
+        expect(input.FilterExpression).to.include('(contains(#tag, :tag0) OR contains(#tag, :tag1))');
     });
 
     it('returns a 500 response when DynamoDB fails', async () => {

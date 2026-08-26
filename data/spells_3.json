@@ -11,10 +11,10 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Clerc", "Magicien"
+         "Clerc",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -34,10 +34,11 @@
       "duree":"8 heures",
       "niveau":3,
       "classes":[
-         "Barde", "Rôdeur", "Magicien"
+         "Barde",
+         "Rôdeur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -59,12 +60,14 @@
          "Druide"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"3d10",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Un nuage d'orage apparaît à un point visible au-dessus de vous. Il prend la forme d'un Cylindre de 3 mètres de haut et de 18 mètres de rayon. Lorsque vous lancez le sort, choisissez un point visible sous le nuage. Un éclair jaillit du nuage jusqu'à ce point. Toute créature dans un rayon de 1,50 mètre effectue un jet de sauvegarde de Dextérité, subissant 3d10 dégâts de foudre en cas d'échec ou la moitié de ces dégâts en cas de réussite. Jusqu'à la fin du sort, vous pouvez prendre une action Magie pour invoquer à nouveau la foudre de cette manière, en ciblant le même point ou un autre. Si vous êtes à l'extérieur sous un orage lorsque vous lancez ce sort, celui-ci vous donne le contrôle de cet orage au lieu d'en créer un nouveau. Dans ces conditions, les dégâts du sort augmentent de 1d10.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 3."
    },
    {
@@ -79,15 +82,19 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":3,
       "classes":[
-         "Druide", "Paladin", "Rôdeur"
+         "Druide",
+         "Paladin",
+         "Rôdeur"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"1d4",
       "alternateDamageAmount":"",
       "descriptionSort":"Une arme non magique que vous touchez devient une arme magique. Choisissez l'un des types de dégâts suivants : acide, froid, feu, foudre ou tonnerre. Pendant la durée du sort, l'arme bénéficie d'un bonus de +1 aux jets d'attaque et inflige 1d4 dégâts supplémentaires du type choisi lorsqu'elle touche.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Si vous utilisez un emplacement de sort de niveau 5 ou 6, le bonus aux jets d'attaque passe à +2 et les dégâts supplémentaires à 2d4. Si vous utilisez un emplacement de sort de niveau 7 ou supérieur, le bonus passe à +3 et les dégâts supplémentaires à 3d4."
    },
    {
@@ -102,10 +109,11 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Clerc", "Druide", "Paladin"
+         "Clerc",
+         "Druide",
+         "Paladin"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -127,7 +135,6 @@
          "Paladin"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -146,15 +153,18 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"8d6",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Une traînée lumineuse jaillit de vous jusqu'à un point que vous choisissez à portée, puis explose ardemment dans un grondement sourd. Toute créature dans une Sphère de 6 mètres de rayon centrée sur ce point effectue un jet de sauvegarde de Dextérité, subissant 8d6 dégâts de feu en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Les objets inflammables dans la zone qui ne sont pas portés commencent à brûler.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 3."
    },
    {
@@ -169,15 +179,19 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Ensorceleur", "Occultiste", "Magicien"
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"3d6",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Le contact de votre main enveloppée d'ombre peut siphonner la force vitale des autres pour soigner vos blessures. Effectuez une attaque de sort au corps à corps contre une créature à portée. Si l'attaque touche, la cible subit 3d6 dégâts nécrotiques et vous récupérez des points de vie égaux à la moitié des dégâts nécrotiques infligés. Jusqu'à la fin du sort, vous pouvez relancer l'attaque à chacun de vos tours par une action Magie, en ciblant la même créature ou une autre.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 3."
    },
    {
@@ -192,10 +206,12 @@
       "duree":"1 heure",
       "niveau":3,
       "classes":[
-         "Clerc", "Paladin", "Occultiste", "Magicien"
+         "Clerc",
+         "Paladin",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",
@@ -218,12 +234,14 @@
          "Paladin"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"3d8",
       "alternateDamageAmount":"",
       "descriptionSort":"La cible touchée subit 3d8 dégâts radiants supplémentaires et subit l'état Aveuglé jusqu'à la fin du sort. À la fin de chacun de ses tours, la cible aveuglée effectue un jet de sauvegarde de Constitution, mettant fin au sort en cas de réussite.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts supplémentaires augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 3."
    },
    {
@@ -238,10 +256,12 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":3,
       "classes":[
-         "Barde", "Clerc", "Ensorceleur", "Magicien"
+         "Barde",
+         "Clerc",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -260,10 +280,10 @@
       "duree":"1 minute",
       "niveau":3,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -282,10 +302,11 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Barde", "Clerc", "Magicien"
+         "Barde",
+         "Clerc",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -304,10 +325,11 @@
       "duree":"10 minutes",
       "niveau":3,
       "classes":[
-         "Barde", "Clerc", "Magicien"
+         "Barde",
+         "Clerc",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -326,10 +348,11 @@
       "duree":"10 minutes",
       "niveau":3,
       "classes":[
-         "Barde", "Druide", "Rôdeur"
+         "Barde",
+         "Druide",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -348,10 +371,11 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Ensorceleur", "Occultiste", "Magicien"
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"",
@@ -370,10 +394,12 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":3,
       "classes":[
-         "Druide", "Rôdeur", "Occultiste", "Magicien"
+         "Druide",
+         "Rôdeur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -393,10 +419,10 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":3,
       "classes":[
-         "Occultiste", "Magicien"
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -416,10 +442,10 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Clerc", "Paladin"
+         "Clerc",
+         "Paladin"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -438,10 +464,11 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Barde", "Druide", "Rôdeur"
+         "Barde",
+         "Druide",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -460,10 +487,12 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Clerc", "Paladin", "Occultiste", "Magicien"
+         "Clerc",
+         "Paladin",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -482,10 +511,16 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Barde", "Clerc", "Druide", "Paladin", "Rôdeur", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Paladin",
+         "Rôdeur",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -505,10 +540,13 @@
       "duree":"1 heure",
       "niveau":3,
       "classes":[
-         "Barde", "Clerc", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Clerc",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -527,15 +565,18 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"8d6",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Un éclair formant une Ligne de 30 mètres de long et 1,50 mètre de large jaillit de vous dans la direction de votre choix. Toute créature sur la Ligne effectue un jet de sauvegarde de Dextérité, subissant 8d6 dégâts de foudre en cas d'échec, ou la moitié de ces dégâts en cas de réussite.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 3."
    },
    {
@@ -553,12 +594,14 @@
          "Clerc"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"3d8",
       "alternateDamageAmount":"",
       "descriptionSort":"Des esprits protecteurs vous entourent dans une Émanation de 4,50 mètres pendant toute la durée du sort. Si vous êtes bon ou neutre, leur forme spectrale apparaît angélique ou féerique (selon votre choix). Si vous êtes mauvais, ils apparaissent comme des fiélons. \nLorsque vous lancez ce sort, vous pouvez désigner des créatures qui ne seront pas affectées. La Vitesse de toute autre créature est divisée par deux dans l'Émanation, et chaque fois que l'Émanation entre dans l'espace d'une créature ou qu'une créature y entre ou y termine son tour, elle doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la créature subit 3d8 dégâts radiants (si vous êtes bon ou neutre) ou 3d8 dégâts nécrotiques (si vous êtes mauvais). En cas de réussite, la créature subit seulement la moitié des dégâts. Une créature n'effectue ce jet qu'une seule fois par tour.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 3."
    },
    {
@@ -573,10 +616,12 @@
       "duree":"1 heure",
       "niveau":3,
       "classes":[
-         "Barde", "Clerc", "Druide", "Magicien"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -598,12 +643,14 @@
          "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"4d8",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Lorsque votre attaque touche ou rate la cible, l'arme ou la munition utilisée se transforme en éclair. Au lieu de subir les dégâts ou autres effets de l'attaque, la cible subit 4d8 dégâts de foudre si l'attaque touche ou la moitié de ces dégâts si elle rate. Chaque créature dans un rayon de 3 mètres autour de la cible effectue alors un jet de sauvegarde de Dextérité, subissant 2d8 dégâts de foudre en cas d'échec ou la moitié de ces dégâts en cas de réussite. L'arme ou la munition reprend alors sa forme normale.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts des deux effets du sort augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 3."
    },
    {
@@ -618,10 +665,11 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":3,
       "classes":[
-         "Ensorceleur", "Occultiste", "Magicien"
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Force",
       "damageAmount":"",
@@ -641,10 +689,11 @@
       "duree":"8 heures",
       "niveau":3,
       "classes":[
-         "Clerc", "Druide", "Rôdeur"
+         "Clerc",
+         "Druide",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -663,15 +712,19 @@
       "duree":"Jusqu'à dissipation ou déclenchement",
       "niveau":3,
       "classes":[
-         "Barde", "Clerc", "Magicien"
+         "Barde",
+         "Clerc",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"5d8",
       "alternateDamageAmount":"",
       "descriptionSort":"Vous inscrivez un glyphe qui déclenche ensuite un effet magique. Vous l'inscrivez soit sur une surface (comme une table ou un morceau de sol), soit dans un objet pouvant être fermé (comme un livre ou un coffre) pour le dissimuler. Le glyphe peut couvrir une zone ne dépassant pas 3 mètres de diamètre. Si la surface ou l'objet est déplacé à plus de 3 mètres de l'endroit où vous avez lancé le sort, le glyphe est brisé et le sort prend fin sans être déclenché. \nLe glyphe est presque imperceptible et nécessite un jet de Sagesse (Perception) réussi contre le DD de sauvegarde de votre sort pour le remarquer. \nLorsque vous inscrivez le glyphe, vous définissez son déclencheur et choisissez s'il s'agit d'une rune explosive ou d'un glyphe à sort, comme expliqué ci-dessous. \n**Déclencheur.** Vous décidez ce qui déclenche le glyphe lorsque vous lancez le sort. Pour les glyphes inscrits sur une surface, les déclencheurs courants incluent le fait de toucher ou de marcher dessus, de retirer un autre objet le recouvrant ou de s'en approcher à une certaine distance. Pour les glyphes inscrits dans un objet, les déclencheurs courants incluent l'ouverture de cet objet ou la vue du glyphe. Une fois le glyphe déclenché, le sort prend fin. \nVous pouvez affiner le déclencheur afin que seules les créatures de certains types l'activent (par exemple, le glyphe pourrait être configuré pour affecter les Aberrations). Vous pouvez également définir des conditions pour les créatures qui ne déclenchent pas le glyphe, comme celles qui prononcent un mot de passe particulier. \n**Rune explosive.** Lorsqu'il est déclenché, une énergie magique jaillit du glyphe en une Sphère de 6 mètres de rayon centrée sur le glyphe. Chaque créature dans la zone effectue un jet de sauvegarde de Dextérité. Une créature subit 5d8 dégâts d'acide, de froid, de feu, de foudre ou de tonnerre (au choix lors de la création du glyphe) en cas d'échec, ou la moitié de ces dégâts en cas de réussite. \n**Glyphe à sort.** Vous pouvez stocker un sort préparé de niveau 3 ou inférieur dans le glyphe en le lançant lors de la création du glyphe. Le sort doit cibler une seule créature ou une zone. Le sort stocké n'a pas d'effet immédiat lorsqu'il est lancé de cette manière. \nLorsque le glyphe est déclenché, le sort stocké prend effet. Si le sort a une cible, il cible la créature qui a déclenché le glyphe. Si le sort affecte une zone, la zone est centrée sur cette créature. Si le sort invoque des créatures hostiles ou crée des objets ou des pièges nuisibles, celles-ci apparaissent au plus près de l'intrus et l'attaquent. Si le sort requiert de la Concentration, il dure jusqu'à la fin de sa durée totale.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts d'une rune explosive augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 3. Si vous créez un glyphe de sort, vous pouvez stocker n'importe quel sort jusqu'à un niveau identique à celui de l'emplacement de sort utilisé pour le glyphe de garde."
    },
    {
@@ -686,10 +739,10 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"",
@@ -708,10 +761,12 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":3,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -731,15 +786,18 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":3,
       "classes":[
-         "Druide", "Rôdeur"
+         "Druide",
+         "Rôdeur"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Force",
       "damageAmount":"3d10",
       "alternateDamageAmount":"",
       "descriptionSort":"Vous invoquez des esprits de la nature qui apparaissent comme une grande meute d'animaux spectraux et intangibles dans un espace libre que vous pouvez voir à portée. La meute reste durant toute la durée du sort et vous choisissez la forme animale des esprits, comme un loup, un serpent ou un oiseau. Vous bénéficiez d'un Avantage aux jets de sauvegarde de Force tant que vous êtes à 1,50 mètre ou moins de la meute, et lorsque vous vous déplacez pendant votre tour, vous pouvez également déplacer la meute jusqu'à 9 mètres vers un espace libre que vous pouvez voir. Chaque fois que la meute se déplace à 3 mètres ou moins d'une créature que vous pouvez voir, ou qu'une créature que vous pouvez voir entre dans un rayon de 3 mètres autour de la meute ou y termine son tour, vous pouvez forcer cette créature à effectuer un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit 3d10 dégâts tranchants. Une créature n'effectue ce jet qu'une seule fois par tour.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 3."
    },
    {
@@ -757,12 +815,14 @@
          "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"5d8",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Vous brandissez l'arme utilisée pour lancer le sort et invoquez des armes spectrales similaires (ou des munitions adaptées à l'arme) qui se projettent vers l'avant puis disparaissent. Chaque créature de votre choix que vous pouvez voir dans un Cône de 18 mètres effectue un jet de sauvegarde de Dextérité, subissant 5d8 dégâts de Force en cas d'échec ou la moitié de ces dégâts en cas de réussite.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 3."
    },
    {
@@ -777,10 +837,11 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Barde", "Ensorceleur", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"",
@@ -802,7 +863,6 @@
          "Clerc"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -821,10 +881,13 @@
       "duree":"1 heure",
       "niveau":3,
       "classes":[
-         "Clerc", "Druide", "Paladin", "Rôdeur", "Ensorceleur"
+         "Clerc",
+         "Druide",
+         "Paladin",
+         "Rôdeur",
+         "Ensorceleur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -843,10 +906,11 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Barde", "Clerc", "Magicien"
+         "Barde",
+         "Clerc",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -866,10 +930,12 @@
       "duree":"1 heure",
       "niveau":3,
       "classes":[
-         "Clerc", "Druide", "Rôdeur", "Ensorceleur"
+         "Clerc",
+         "Druide",
+         "Rôdeur",
+         "Ensorceleur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -891,7 +957,6 @@
          "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -910,10 +975,10 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Barde", "Clerc"
+         "Barde",
+         "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -933,10 +998,12 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -955,15 +1022,18 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Druide", "Rôdeur"
+         "Druide",
+         "Rôdeur"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Force",
       "damageAmount":"4d8",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Un mur de vent violent s'élève du sol à un point de votre choix à portée. Vous pouvez construire un mur mesurant jusqu'à 15 mètres de long, 4,50 mètres de haut et 30 cm d'épaisseur. Vous pouvez façonner le mur comme vous le souhaitez, à condition qu'il trace un chemin continu le long du sol. Le mur dure toute la durée du sort. Lorsque le mur apparaît, chaque créature dans sa zone effectue un jet de sauvegarde de Force, subissant 4d8 dégâts contondants en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Le vent violent maintient le brouillard, la fumée et autres gaz à distance. Les créatures ou objets volants de taille P ou inférieure ne peuvent pas traverser le mur. Les matériaux légers et meubles introduits dans le mur volent vers le haut. Les flèches, carreaux et autres projectiles ordinaires lancés sur des cibles derrière le mur sont déviés vers le haut et manquent automatiquement leur cible. Les rochers lancés par des géants ou des engins de siège, ainsi que les projectiles similaires, ne sont pas affectés. Les créatures sous forme gazeuse ne peuvent pas le traverser."
+      "descriptionSort":"Un mur de vent violent s'élève du sol à un point de votre choix à portée. Vous pouvez construire un mur mesurant jusqu'à 15 mètres de long, 4,50 mètres de haut et 30 cm d'épaisseur. Vous pouvez façonner le mur comme vous le souhaitez, à condition qu'il trace un chemin continu le long du sol. Le mur dure toute la durée du sort. Lorsque le mur apparaît, chaque créature dans sa zone effectue un jet de sauvegarde de Force, subissant 4d8 dégâts contondants en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Le vent violent maintient le brouillard, la fumée et autres gaz à distance. Les créatures ou objets volants de taille P ou inférieure ne peuvent pas traverser le mur. Les matériaux légers et meubles introduits dans le mur volent vers le haut. Les flèches, carreaux et autres projectiles ordinaires lancés sur des cibles derrière le mur sont déviés vers le haut et manquent automatiquement leur cible. Les rochers lancés par des géants ou des engins de siège, ainsi que les projectiles similaires, ne sont pas affectés. Les créatures sous forme gazeuse ne peuvent pas le traverser.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Nuage nauséabond",
@@ -977,10 +1047,11 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Barde", "Ensorceleur", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"",
@@ -999,10 +1070,10 @@
       "duree":"8 heures",
       "niveau":3,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -1021,10 +1092,12 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -1043,10 +1116,13 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":3,
       "classes":[
-         "Clerc", "Druide", "Rôdeur", "Ensorceleur", "Magicien"
+         "Clerc",
+         "Druide",
+         "Rôdeur",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -1065,10 +1141,12 @@
       "duree":"24 heures",
       "niveau":3,
       "classes":[
-         "Druide", "Rôdeur", "Ensorceleur", "Magicien"
+         "Druide",
+         "Rôdeur",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -1087,10 +1165,12 @@
       "duree":"Instantanée",
       "niveau":3,
       "classes":[
-         "Clerc", "Druide", "Paladin", "Rôdeur"
+         "Clerc",
+         "Druide",
+         "Paladin",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -1109,10 +1189,11 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":3,
       "classes":[
-         "Druide", "Ensorceleur", "Magicien"
+         "Druide",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"",
@@ -1131,10 +1212,11 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":3,
       "classes":[
-         "Ensorceleur", "Occultiste", "Magicien"
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -1157,12 +1239,14 @@
          "Occultiste"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"2d6",
       "alternateDamageAmount":"",
       "descriptionSort":"Vous ouvrez un portail vers le Royaume Lointain, une région infestée d'horreurs innomables. Une Sphère de Ténèbres de 6 mètres de rayon apparaît, centrée sur un point à portée et pour la durée du sort. La Sphère est un Terrain difficile emplie d'étranges murmures et de bruits de succion, audibles jusqu'à 9 mètres. Aucune lumière, magique ou autre, ne peut éclairer la zone, et les créatures qui s'y trouvent entièrement ont l'état Aveuglé. Toute créature qui commence son tour dans la zone subit 2d6 dégâts de froid. Toute créature qui y termine son tour doit réussir un jet de sauvegarde de Dextérité sous peine de subir 2d6 dégâts d'acide infligés par des tentacules d'Outremonde.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts de froid ou d'acide (selon votre choix) augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 3."
    }
 ]

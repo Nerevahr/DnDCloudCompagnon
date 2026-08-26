@@ -11,10 +11,10 @@
       "duree":"Instantanée",
       "niveau":9,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -33,10 +33,10 @@
       "duree":"jusqu'à 1 heure",
       "niveau":9,
       "classes":[
-         "Druide", "Magicien"
+         "Druide",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -55,10 +55,10 @@
       "duree":"Jusqu'à dissipation",
       "niveau":9,
       "classes":[
-         "Occultiste", "Magicien"
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -77,15 +77,18 @@
       "duree":"jusqu'à 1 minute",
       "niveau":9,
       "classes":[
-         "Occultiste", "Magicien"
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"10d10",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous tentez de produire une terreur illusoire dans l'esprit d'autrui. Chaque créature que vous choisissez dans une Sphère de 9 m de rayon centrée sur un point à portée effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit 10d10 dégâts psychiques, ainsi que l'état Effrayé pour toute la durée. En cas de réussite, elle subit uniquement la moitié de ces dégâts. \nUne cible Effrayée effectue un JdS Sagesse à la fin de chacun de ses tours. En cas d'échec, elle subit 5d10 dégâts psychiques. En cas de réussite, le sort prend fin pour elle."
+      "descriptionSort":"Vous tentez de produire une terreur illusoire dans l'esprit d'autrui. Chaque créature que vous choisissez dans une Sphère de 9 m de rayon centrée sur un point à portée effectue un jet de sauvegarde de Sagesse. En cas d'échec, elle subit 10d10 dégâts psychiques, ainsi que l'état Effrayé pour toute la durée. En cas de réussite, elle subit uniquement la moitié de ces dégâts. \nUne cible Effrayée effectue un JdS Sagesse à la fin de chacun de ses tours. En cas d'échec, elle subit 5d10 dégâts psychiques. En cas de réussite, le sort prend fin pour elle.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Guérison de groupe",
@@ -102,7 +105,6 @@
          "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -121,10 +123,11 @@
       "duree":"jusqu'à 1 heure",
       "niveau":9,
       "classes":[
-         "Barde", "Occultiste", "Magicien"
+         "Barde",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -143,10 +146,10 @@
       "duree":"Instantanée",
       "niveau":9,
       "classes":[
-         "Barde", "Clerc"
+         "Barde",
+         "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -165,15 +168,20 @@
       "duree":"Instantanée",
       "niveau":9,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"12d12",
       "alternateDamageAmount":"",
-      "descriptionSort":"La mort s'impose à une créature que vous voyez à portée. Si la cible choisie est dotée de 100 points de vie ou moins, elle meurt. Dans le cas contraire, elle subit 12d12 dégâts psychiques."
+      "descriptionSort":"La mort s'impose à une créature que vous voyez à portée. Si la cible choisie est dotée de 100 points de vie ou moins, elle meurt. Dans le cas contraire, elle subit 12d12 dégâts psychiques.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Mur prismatique",
@@ -187,15 +195,18 @@
       "duree":"10 minutes",
       "niveau":9,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"12d6 par couche (voir description)",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Un plan multicolore de lueurs chatoyantes s'érige sous forme d'un mur vertical opaque centré sur un point à portée, avec les dimensions maximales suivantes : longueur 27 m, hauteur 9 m et épaisseur 2,50 cm. Vous pouvez au lieu de cela lui donner la forme d'un globe d'un diamètre maximal de 9 m, centré sur un point à portée. Le mur persiste pour toute la durée. Si vous positionnez le mur en un espace occupé par une créature, le sort prend aussitôt fin sans effet. \nLe mur produit une Lumière vive sur une distance de 30 m et une Lumière faible sur 30 m de plus. Vous et les créatures que vous désignez à l'incantation du sort pouvez sans risque traverser le mur et rester à proximité. Si une autre créature qui voit le mur s'approche dans un rayon de 6 m de sa zone ou y commence son tour, elle doit réussir un jet de sauvegarde de Constitution sous peine de subir l'état Aveuglé pendant 1 minute. \nLe mur est constitué de sept couches, chacune d'une couleur différente. Lorsqu'une créature tente de pénétrer le mur ou de le traverser, elle le fait couche après couche jusqu'à toutes les avoir franchies. Chaque couche contraint la créature à un jet de sauvegarde de Dextérité pour éviter d'être affectée par les propriétés de la couche, décrites dans la table ci-dessous. \nOn peut détruire le mur (CA 10), couche par couche, de la rouge à la violette, par des moyens propres à chaque couche. Quand une couche est détruite, elle disparaît pour toute la durée. Un champ antimagie reste sans effet sur le mur, tandis que dissipation de la magie n'affecte que la couche violette. \n1. Rouge. Échec au JdS : 12d6 dégâts de feu. JdS réussi : 1/2 dégâts. Effets supplémentaires : les attaques à distance non magiques ne peuvent traverser cette couche, détruite si elle subit au moins 25 dégâts de froid. \n2. Orange. Échec au JdS : 12d6 dégâts d'acide. JdS réussi : 1/2 dégâts. Effets supplémentaires : les attaques à distance magiques ne peuvent traverser cette couche, détruite par un vent fort (comme celui produit par bourrasque). \n3. Jaune. Échec au JdS : 12d6 dégâts de foudre. JdS réussi : 1/2 dégâts. Effets supplémentaires : la couche est détruite si elle subit au moins 60 dégâts de force. \n4. Verte. Échec au JdS : 12d6 dégâts de poison. JdS réussi : 1/2 dégâts. Effets supplémentaires : le sort passe-muraille, ou un autre sort de niveau supérieur ou égal capable d'ouvrir un portail sur une surface solide, détruit cette couche. \n5. Bleue. Échec au JdS : 12d6 dégâts de froid. JdS réussi : 1/2 dégâts. Effets supplémentaires : la couche est détruite si elle subit au moins 25 dégâts de feu. \n6. Indigo. Échec au JdS : la cible subit l'état Entravé et effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle se sauvegarde trois fois, l'état prend fin. Si elle rate trois fois le JdS, elle subit l'état Pétrifié jusqu'à en être libérée par un effet tel que restauration suprême. Ces réussites et échecs n'ont pas besoin d'être consécutifs ; notez-les quelque part, jusqu'à ce que la cible atteigne un total de trois pour l'un ou l'autre. Effets supplémentaires : les sorts ne peuvent pas traverser cette couche, détruite par la Lumière vive du sort lumière du jour. \n7. Violette. Échec au JdS : la cible subit l'état Aveuglé et effectue un jet de sauvegarde de Sagesse au début de votre tour suivant. En cas de réussite, l'état prend fin. En cas d'échec, l'état prend fin, et la créature est téléportée dans un autre plan d'existence (choisi par le MD). Effets supplémentaires : dissipation de la magie détruit cette couche."
+      "descriptionSort":"Un plan multicolore de lueurs chatoyantes s'érige sous forme d'un mur vertical opaque centré sur un point à portée, avec les dimensions maximales suivantes : longueur 27 m, hauteur 9 m et épaisseur 2,50 cm. Vous pouvez au lieu de cela lui donner la forme d'un globe d'un diamètre maximal de 9 m, centré sur un point à portée. Le mur persiste pour toute la durée. Si vous positionnez le mur en un espace occupé par une créature, le sort prend aussitôt fin sans effet. \nLe mur produit une Lumière vive sur une distance de 30 m et une Lumière faible sur 30 m de plus. Vous et les créatures que vous désignez à l'incantation du sort pouvez sans risque traverser le mur et rester à proximité. Si une autre créature qui voit le mur s'approche dans un rayon de 6 m de sa zone ou y commence son tour, elle doit réussir un jet de sauvegarde de Constitution sous peine de subir l'état Aveuglé pendant 1 minute. \nLe mur est constitué de sept couches, chacune d'une couleur différente. Lorsqu'une créature tente de pénétrer le mur ou de le traverser, elle le fait couche après couche jusqu'à toutes les avoir franchies. Chaque couche contraint la créature à un jet de sauvegarde de Dextérité pour éviter d'être affectée par les propriétés de la couche, décrites dans la table ci-dessous. \nOn peut détruire le mur (CA 10), couche par couche, de la rouge à la violette, par des moyens propres à chaque couche. Quand une couche est détruite, elle disparaît pour toute la durée. Un champ antimagie reste sans effet sur le mur, tandis que dissipation de la magie n'affecte que la couche violette. \n1. Rouge. Échec au JdS : 12d6 dégâts de feu. JdS réussi : 1/2 dégâts. Effets supplémentaires : les attaques à distance non magiques ne peuvent traverser cette couche, détruite si elle subit au moins 25 dégâts de froid. \n2. Orange. Échec au JdS : 12d6 dégâts d'acide. JdS réussi : 1/2 dégâts. Effets supplémentaires : les attaques à distance magiques ne peuvent traverser cette couche, détruite par un vent fort (comme celui produit par bourrasque). \n3. Jaune. Échec au JdS : 12d6 dégâts de foudre. JdS réussi : 1/2 dégâts. Effets supplémentaires : la couche est détruite si elle subit au moins 60 dégâts de force. \n4. Verte. Échec au JdS : 12d6 dégâts de poison. JdS réussi : 1/2 dégâts. Effets supplémentaires : le sort passe-muraille, ou un autre sort de niveau supérieur ou égal capable d'ouvrir un portail sur une surface solide, détruit cette couche. \n5. Bleue. Échec au JdS : 12d6 dégâts de froid. JdS réussi : 1/2 dégâts. Effets supplémentaires : la couche est détruite si elle subit au moins 25 dégâts de feu. \n6. Indigo. Échec au JdS : la cible subit l'état Entravé et effectue un jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle se sauvegarde trois fois, l'état prend fin. Si elle rate trois fois le JdS, elle subit l'état Pétrifié jusqu'à en être libérée par un effet tel que restauration suprême. Ces réussites et échecs n'ont pas besoin d'être consécutifs ; notez-les quelque part, jusqu'à ce que la cible atteigne un total de trois pour l'un ou l'autre. Effets supplémentaires : les sorts ne peuvent pas traverser cette couche, détruite par la Lumière vive du sort lumière du jour. \n7. Violette. Échec au JdS : la cible subit l'état Aveuglé et effectue un jet de sauvegarde de Sagesse au début de votre tour suivant. En cas de réussite, l'état prend fin. En cas d'échec, l'état prend fin, et la créature est téléportée dans un autre plan d'existence (choisi par le MD). Effets supplémentaires : dissipation de la magie détruit cette couche.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Nuée de météores",
@@ -209,15 +220,18 @@
       "duree":"Instantanée",
       "niveau":9,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"20d6 feu + 20d6 contondant",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Des orbes embrasés s'abattent au sol en quatre points différents que vous voyez à portée. Toute créature prise dans une Sphère d'un rayon de 12 m centrée sur l'un des quatre points effectue un jet de sauvegarde de Dextérité. Une créature subit 20d6 dégâts de feu et 20d6 dégâts contondants en cas d'échec, la moitié en cas de réussite. Une créature prise dans les zones de plus d'une Sphère ardente n'est affectée qu'une fois. \nUn objet non magique qui n'est porté par personne subit lui aussi les dégâts s'il est dans la zone d'effet du sort, et il s'embrase s'il est inflammable. \nLe nuage s'éloigne de 3 m de vous au début de chacun de vos tours, dans la direction de votre choix."
+      "descriptionSort":"Des orbes embrasés s'abattent au sol en quatre points différents que vous voyez à portée. Toute créature prise dans une Sphère d'un rayon de 12 m centrée sur l'un des quatre points effectue un jet de sauvegarde de Dextérité. Une créature subit 20d6 dégâts de feu et 20d6 dégâts contondants en cas d'échec, la moitié en cas de réussite. Une créature prise dans les zones de plus d'une Sphère ardente n'est affectée qu'une fois. \nUn objet non magique qui n'est porté par personne subit lui aussi les dégâts s'il est dans la zone d'effet du sort, et il s'embrase s'il est inflammable. \nLe nuage s'éloigne de 3 m de vous au début de chacun de vos tours, dans la direction de votre choix.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Portail",
@@ -231,10 +245,12 @@
       "duree":"jusqu'à 1 minute",
       "niveau":9,
       "classes":[
-         "Clerc", "Ensorceleur", "Occultiste", "Magicien"
+         "Clerc",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -253,10 +269,12 @@
       "duree":"8 heures",
       "niveau":9,
       "classes":[
-         "Barde", "Druide", "Occultiste", "Magicien"
+         "Barde",
+         "Druide",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -275,10 +293,11 @@
       "duree":"Jusqu'à dissipation",
       "niveau":9,
       "classes":[
-         "Clerc", "Occultiste", "Magicien"
+         "Clerc",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -297,10 +316,10 @@
       "duree":"Instantanée",
       "niveau":9,
       "classes":[
-         "Clerc", "Druide"
+         "Clerc",
+         "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -319,10 +338,10 @@
       "duree":"Instantanée",
       "niveau":9,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -344,11 +363,13 @@
          "Druide"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"2d6 tonnerre (voir description pour les tours suivants)",
       "alternateDamageAmount":"",
-      "descriptionSort":"Un nuage menaçant se forme pour toute la durée, centré sur un point à portée, et se déploie sur un rayon de 90 m. Chaque créature prise dans le nuage à son apparition doit réussir un jet de sauvegarde de Constitution sous peine de subir 2d6 dégâts de tonnerre, ainsi que l'état Assourdi pour toute la durée. \nAu début de chacun de vos tours suivants, la tempête produit des effets différents, comme détaillé ci-après. \nTour 2. Une pluie acide s'abat. Tous les objets et créatures directement dominés par le nuage subissent 4d6 dégâts d'acide. \nTour 3. Vous invoquez six éclairs qui jaillissent du nuage pour frapper six créatures ou objets dominés par le nuage. Chaque cible effectue un jet de sauvegarde de Dextérité, et subit 10d6 dégâts de foudre en cas d'échec, la moitié en cas de réussite. \nTour 4. La grêle s'abat depuis le nuage. Toute créature directement dominée par le nuage subit 2d6 dégâts contondants. \nTours 5 à 10. La zone directement dominée par le nuage est assaillie de bourrasques et d'une pluie glaciale. Toute créature qui s'y trouve subit 1d6 dégâts de froid. Jusqu'à la fin du sort, la zone constitue un Terrain difficile et présente une Visibilité nulle, les attaques à distance avec une arme y sont impossibles et un vent fort souffle dans toute la zone."
+      "descriptionSort":"Un nuage menaçant se forme pour toute la durée, centré sur un point à portée, et se déploie sur un rayon de 90 m. Chaque créature prise dans le nuage à son apparition doit réussir un jet de sauvegarde de Constitution sous peine de subir 2d6 dégâts de tonnerre, ainsi que l'état Assourdi pour toute la durée. \nAu début de chacun de vos tours suivants, la tempête produit des effets différents, comme détaillé ci-après. \nTour 2. Une pluie acide s'abat. Tous les objets et créatures directement dominés par le nuage subissent 4d6 dégâts d'acide. \nTour 3. Vous invoquez six éclairs qui jaillissent du nuage pour frapper six créatures ou objets dominés par le nuage. Chaque cible effectue un jet de sauvegarde de Dextérité, et subit 10d6 dégâts de foudre en cas d'échec, la moitié en cas de réussite. \nTour 4. La grêle s'abat depuis le nuage. Toute créature directement dominée par le nuage subit 2d6 dégâts contondants. \nTours 5 à 10. La zone directement dominée par le nuage est assaillie de bourrasques et d'une pluie glaciale. Toute créature qui s'y trouve subit 1d6 dégâts de froid. Jusqu'à la fin du sort, la zone constitue un Terrain difficile et présente une Visibilité nulle, les attaques à distance avec une arme y sont impossibles et un vent fort souffle dans toute la zone.",
+      "tags":[
+         "damage"
+      ]
    }
 ]

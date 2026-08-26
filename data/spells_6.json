@@ -14,7 +14,6 @@
          "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -36,12 +35,14 @@
          "Clerc"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"6d10",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous créez un mur de lames tourbillonnantes d'énergie magique. Le mur apparaît à portée et persiste pour toute la durée. Vous érigez ainsi un mur dont la hauteur n'excède pas 6 m et l'épaisseur 1,50 m ; pour le reste, vous avez le choix entre créer un mur droit long de 30 m au maximum ou un mur circulaire dont le diamètre ne dépasse pas 18 m. Le mur octroie un Abri supérieur et son espace constitue un Terrain difficile. Toute créature prise dans l'espace du mur effectue un jet de sauvegarde de Dextérité, et subit 6d10 dégâts de force en cas d'échec, la moitié en cas de réussite. Une créature effectue aussi ce JdS si elle pénètre dans l'espace du mur ou y termine son tour. Une même créature n'effectue en aucun cas ce JdS plus d'une fois par tour."
+      "descriptionSort":"Vous créez un mur de lames tourbillonnantes d'énergie magique. Le mur apparaît à portée et persiste pour toute la durée. Vous érigez ainsi un mur dont la hauteur n'excède pas 6 m et l'épaisseur 1,50 m ; pour le reste, vous avez le choix entre créer un mur droit long de 30 m au maximum ou un mur circulaire dont le diamètre ne dépasse pas 18 m. Le mur octroie un Abri supérieur et son espace constitue un Terrain difficile. Toute créature prise dans l'espace du mur effectue un jet de sauvegarde de Dextérité, et subit 6d10 dégâts de force en cas d'échec, la moitié en cas de réussite. Une créature effectue aussi ce JdS si elle pénètre dans l'espace du mur ou y termine son tour. Une même créature n'effectue en aucun cas ce JdS plus d'une fois par tour.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Cercle de mort",
@@ -55,15 +56,19 @@
       "duree":"Instantanée",
       "niveau":6,
       "classes":[
-         "Ensorceleur", "Occultiste", "Magicien"
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"8d8",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Des ondes d'énergie négative rayonnent sous forme d'une Sphère de 18 m de rayon centrée sur un point que vous choisissez à portée. Chaque créature prise dans la zone effectue un jet de sauvegarde de Constitution et subit 8d8 dégâts nécrotiques en cas d'échec, la moitié en cas de réussite.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 2d8 pour chaque niveau d'emplacement de sort supérieur à 6."
    },
    {
@@ -78,15 +83,18 @@
       "duree":"Instantanée",
       "niveau":6,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"10d8",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Vous projetez un trait de foudre vers une cible que vous voyez à portée. Trois éclairs jaillissent alors de cette cible vers un maximum de trois autres cibles, que vous choisissez, distantes de 9 m ou moins de la première. Toutes ces cibles peuvent être des créatures ou des objets, et ne peuvent être ciblées par plus d'un éclair. Chaque cible effectue un jet de sauvegarde de Dextérité, et subit 10d8 dégâts de foudre en cas d'échec, la moitié en cas de réussite.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Un éclair supplémentaire jaillit de la première cible vers une autre pour chaque niveau d'emplacement de sort supérieur à 6."
    },
    {
@@ -101,10 +109,10 @@
       "duree":"10 minutes",
       "niveau":6,
       "classes":[
-         "Occultiste", "Magicien"
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -126,12 +134,14 @@
          "Clerc"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"14d6",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous libérez une magie virulente sur une créature que vous voyez à portée. La cible effectue un jet de sauvegarde de Constitution. En cas d'échec, elle subit 14d6 dégâts nécrotiques et son maximum de points de vie est réduit d'autant que les dégâts nécrotiques subis. En cas de réussite, elle subit uniquement la moitié de ces dégâts. Ce sort ne peut réduire son maximum de points de vie en dessous de 1."
+      "descriptionSort":"Vous libérez une magie virulente sur une créature que vous voyez à portée. La cible effectue un jet de sauvegarde de Constitution. En cas d'échec, elle subit 14d6 dégâts nécrotiques et son maximum de points de vie est réduit d'autant que les dégâts nécrotiques subis. En cas de réussite, elle subit uniquement la moitié de ces dégâts. Ce sort ne peut réduire son maximum de points de vie en dessous de 1.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Convocation de fiélon",
@@ -145,10 +155,10 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":6,
       "classes":[
-         "Occultiste", "Magicien"
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -171,7 +181,6 @@
          "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -190,10 +199,11 @@
       "duree":"Instantanée",
       "niveau":6,
       "classes":[
-         "Clerc", "Occultiste", "Magicien"
+         "Clerc",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -213,10 +223,10 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":6,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"",
@@ -235,15 +245,18 @@
       "duree":"Instantanée",
       "niveau":6,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"10d6 + 40",
       "alternateDamageAmount":"",
       "descriptionSort":"Vous projetez un rayon vert vers une cible que vous voyez à portée. La cible peut être une créature, un objet non magique ou une création de force magique, telle que la paroi formée par mur de force. Une créature ciblée par ce sort effectue un jet de sauvegarde de Dextérité. En cas d'échec, elle subit 10d6 + 40 dégâts de force. Si ces dégâts la font tomber à 0 point de vie, elle est désintégrée en poussière grise avec tout objet non magique ce qu'elle porte. La cible ne peut être ramenée à la vie que par résurrection suprême ou souhait. Ce sort désintègre automatiquement un objet de taille G ou inférieure non magique, de même qu'une création de force magique dans la limite de cette taille. Dans le cas d'une taille TG ou supérieure, la désintégration ne concerne qu'une portion équivalente à un Cube de 3 m.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 3d6 par chaque niveau d'emplacement de sort supérieur à 6."
    },
    {
@@ -258,10 +271,11 @@
       "duree":"Instantanée",
       "niveau":6,
       "classes":[
-         "Barde", "Clerc", "Druide"
+         "Barde",
+         "Clerc",
+         "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -280,10 +294,11 @@
       "duree":"Concentration, jusqu'à 2 heures",
       "niveau":6,
       "classes":[
-         "Druide", "Ensorceleur", "Magicien"
+         "Druide",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -302,10 +317,10 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":6,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -325,10 +340,10 @@
       "duree":"Instantanée",
       "niveau":6,
       "classes":[
-         "Clerc", "Druide"
+         "Clerc",
+         "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -348,10 +363,10 @@
       "duree":"Jusqu'à dissipation",
       "niveau":6,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -373,12 +388,14 @@
          "Clerc"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"5d10",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous créez une barrière contre le voyage magique qui protège jusqu'à 3 600 m2 d'espace au sol, sur une hauteur de 9 m. Pour toute la durée, aucune créature ne peut se téléporter dans la zone ou y pénétrer par le biais d'un accès magique comme celui que crée le sort portail. Le sort proscrit tout voyage planaire dans la zone, ce qui empêche quiconque de s'y rendre depuis le Plan Astral, le Plan Éthéré, la Féerie ou la Gisombre, ou par le biais du sort changement de plan. De plus, le sort inflige des dégâts aux types de créature que vous désignez à l'incantation. Choisissez un ou plusieurs types parmi les suivants : Aberrations, Célestes, Élémentaires, Fées, Fiélons et Morts-vivants. Lorsqu'une créature désignée entre dans la zone pour la première fois d'un tour ou y termine son tour, elle subit 5d10 dégâts nécrotiques ou radiants (vous choisissez à l'incantation du sort). Vous pouvez choisir un mot de passe à l'incantation du sort. Une créature qui prononce ce sésame en pénétrant dans la zone ne subit aucun dégât du sort. La zone du sort ne peut pas chevaucher celle d'un autre sort d'interdiction. Si vous lancez chaque jour interdiction au même endroit pendant 30 jours, le sort persiste jusqu'à dissipation, les composantes matérielles étant détruites à la dernière incantation."
+      "descriptionSort":"Vous créez une barrière contre le voyage magique qui protège jusqu'à 3 600 m2 d'espace au sol, sur une hauteur de 9 m. Pour toute la durée, aucune créature ne peut se téléporter dans la zone ou y pénétrer par le biais d'un accès magique comme celui que crée le sort portail. Le sort proscrit tout voyage planaire dans la zone, ce qui empêche quiconque de s'y rendre depuis le Plan Astral, le Plan Éthéré, la Féerie ou la Gisombre, ou par le biais du sort changement de plan. De plus, le sort inflige des dégâts aux types de créature que vous désignez à l'incantation. Choisissez un ou plusieurs types parmi les suivants : Aberrations, Célestes, Élémentaires, Fées, Fiélons et Morts-vivants. Lorsqu'une créature désignée entre dans la zone pour la première fois d'un tour ou y termine son tour, elle subit 5d10 dégâts nécrotiques ou radiants (vous choisissez à l'incantation du sort). Vous pouvez choisir un mot de passe à l'incantation du sort. Une créature qui prononce ce sésame en pénétrant dans la zone ne subit aucun dégât du sort. La zone du sort ne peut pas chevaucher celle d'un autre sort d'interdiction. Si vous lancez chaque jour interdiction au même endroit pendant 30 jours, le sort persiste jusqu'à dissipation, les composantes matérielles étant détruites à la dernière incantation.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Invocation de fée",
@@ -395,7 +412,6 @@
          "Druide"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -415,10 +431,12 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":6,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -440,7 +458,6 @@
          "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -462,12 +479,14 @@
          "Druide"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"7d8",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Vous créez un mur fait d'un enchevêtrement végétal hérissé d'épines acérées. Le mur apparaît à portée sur une surface solide et persiste pour toute la durée. Vous pouvez ainsi ériger un mur dont l'épaisseur n'excède pas 1,50 m ; pour le reste, vous avez le choix entre un mur droit long d'un maximum de 18 m et haut de 3 m ou moins, et un mur circulaire dont le diamètre et la hauteur ne dépassent pas 6 m. Le mur bloque le champ de vision. Quand le mur apparaît, chaque créature prise dans sa zone effectue un jet de sauvegarde de Dextérité et subit 7d8 dégâts perforants en cas d'échec, la moitié en cas de réussite. Une créature peut se déplacer à travers ces ronces, mais l'opération est lente et douloureuse. Toute distance parcourue à travers le mur lui coûte le quadruple en termes de déplacement. De plus, la première fois d'un tour qu'une créature pénètre dans la haie ou qu'elle y termine son propre tour, elle effectue un jet de sauvegarde de Dextérité et subit 7d8 dégâts tranchants en cas d'échec, la moitié en cas de réussite. Une même créature n'effectue en aucun cas ce JdS plus d'une fois par tour.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts des deux types augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 6."
    },
    {
@@ -485,12 +504,14 @@
          "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"10d6",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Vous créez un mur de glace sur une surface solide à portée. Vous pouvez le façonner en dôme hémisphérique ou en globe d'un rayon maximal de 3 m, ou en faire une surface plane composée de dix pans de 3 m sur 3. Chaque pan doit être contigu avec un autre. Quelle que soit sa forme, le mur est épais de 30 cm et persiste pour toute la durée. Si le mur traverse l'espace d'une créature à son apparition, la créature est repoussée du côté du mur que vous choisissez et effectue un jet de sauvegarde de Dextérité ; elle subit 10d6 dégâts de froid en cas d'échec, la moitié en cas de réussite. Le mur est un objet que l'on peut endommager, ce qui permet d'y ouvrir une brèche. Doté d'une CA de 12 et de 30 points de vie par section de 3 m de côté, il bénéficie de l'Immunité contre les dégâts de froid, de poison et psychiques, et subit la Vulnérabilité aux dégâts de feu. Une section de 3 m de côté réduite à 0 point de vie est détruite et laisse une nappe d'air glacial dans l'espace qu'elle occupait. Une créature qui traverse une telle nappe pour la première fois d'un tour effectue un jet de sauvegarde de Constitution et subit 5d6 dégâts de froid en cas d'échec, la moitié en cas de réussite.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts infligés par le mur à son apparition augmentent de 2d6 et ceux de la nappe d'air glacial de 1d6 pour chaque niveau d'emplacement de sort supérieur à 6."
    },
    {
@@ -505,10 +526,11 @@
       "duree":"Concentration, jusqu'à 1 jour",
       "niveau":6,
       "classes":[
-         "Barde", "Clerc", "Druide"
+         "Barde",
+         "Clerc",
+         "Druide"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -527,10 +549,11 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":6,
       "classes":[
-         "Druide", "Ensorceleur", "Magicien"
+         "Druide",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"",
@@ -549,10 +572,11 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":6,
       "classes":[
-         "Ensorceleur", "Occultiste", "Magicien"
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -574,7 +598,6 @@
          "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -593,10 +616,10 @@
       "duree":"24 heures",
       "niveau":6,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -615,15 +638,20 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":6,
       "classes":[
-         "Clerc", "Druide", "Ensorceleur", "Magicien"
+         "Clerc",
+         "Druide",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"6d8",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous projetez un rayon de soleil sous forme d'une Ligne de 18 m de long et 1,50 m de large. Chaque créature prise dans la Ligne effectue un jet de sauvegarde de Constitution. En cas d'échec, elle subit 6d8 dégâts radiants, ainsi que l'état Aveuglé jusqu'au début de votre tour suivant. En cas de réussite, elle subit uniquement la moitié de ces dégâts. Jusqu'à la fin du sort, vous pouvez entreprendre l'action Magie pour produire une nouvelle Ligne de radiance. Pour toute la durée, un point de radiance brille juste au-dessus de vous. Il émet une Lumière vive sur un rayon de 9 m et une Lumière faible sur 9 m de plus. Cette lumière est celle du soleil."
+      "descriptionSort":"Vous projetez un rayon de soleil sous forme d'une Ligne de 18 m de long et 1,50 m de large. Chaque créature prise dans la Ligne effectue un jet de sauvegarde de Constitution. En cas d'échec, elle subit 6d8 dégâts radiants, ainsi que l'état Aveuglé jusqu'au début de votre tour suivant. En cas de réussite, elle subit uniquement la moitié de ces dégâts. Jusqu'à la fin du sort, vous pouvez entreprendre l'action Magie pour produire une nouvelle Ligne de radiance. Pour toute la durée, un point de radiance brille juste au-dessus de vous. Il émet une Lumière vive sur un rayon de 9 m et une Lumière faible sur 9 m de plus. Cette lumière est celle du soleil.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Sphère glacée d'Otiluke",
@@ -637,15 +665,18 @@
       "duree":"Instantanée",
       "niveau":6,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"10d6",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Un globe glacial jaillit de vous vers un point que vous choisissez à portée, où il explose sous forme d'une Sphère de 18 m de rayon. Chaque créature prise dans la zone effectue un jet de sauvegarde de Constitution et subit 10d6 dégâts de froid en cas d'échec, la moitié en cas de réussite. Si le globe heurte un volume d'eau, il gèle cette eau sur une profondeur de 15 cm et une surface carrée de 9 m de côté. Cette glace persiste pendant 1 minute. Les créatures qui nageaient à la surface de l'eau désormais gelée se retrouvent bloquées dans la glace, avec l'état Entravé. Une créature bloquée peut consacrer une action à effectuer un jet de Force (Athlétisme) contre le DD de sauvegarde de votre sort pour s'extraire de la glace. Vous pouvez si vous le souhaitez vous retenir de projeter le globe une fois l'incantation terminée. Dans ce cas, un globe de la taille d'une bille de fronde, froid au contact, apparaît dans votre main. À tout moment, vous ou une créature à qui vous confiez le globe pouvez le projeter (sur une distance maximale de 12 m) ou vous servir d'une fronde pour le lancer (profitant ainsi de la portée normale de la fronde). Il se brise à l'impact, en produisant les mêmes effets que l'incantation de base du sort. Vous pouvez également poser le globe sans le briser. Au bout de 1 minute, s'il ne s'est toujours pas brisé, le globe explose.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 6."
    },
    {
@@ -660,10 +691,11 @@
       "duree":"24 heures",
       "niveau":6,
       "classes":[
-         "Barde", "Ensorceleur", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -686,7 +718,6 @@
          "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",
@@ -708,7 +739,6 @@
          "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -727,10 +757,13 @@
       "duree":"1 heure",
       "niveau":6,
       "classes":[
-         "Barde", "Clerc", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Clerc",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -752,7 +785,6 @@
          "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",

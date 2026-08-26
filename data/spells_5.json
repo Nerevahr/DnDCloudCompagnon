@@ -11,10 +11,11 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":5,
       "classes":[
-         "Barde", "Ensorceleur", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -34,10 +35,11 @@
       "duree":"8 heures",
       "niveau":5,
       "classes":[
-         "Barde", "Ensorceleur", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",
@@ -56,15 +58,18 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":5,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"5d8",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Vous créez une Sphère de brouillard jaune-vert de 6 mètres de rayon centrée sur un point à portée. Le brouillard persiste pendant toute la durée du sort ou jusqu'à ce qu'un vent fort (comme celui créé par bourrasque) le disperse, mettant fin au sort. Sa zone a une Visibilité nulle. Toute créature dans la Sphère effectue un jet de sauvegarde de Constitution, subissant 5d8 dégâts de poison en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature doit également réussir ce jet de sauvegarde lorsque la Sphère entre dans son emplacement et lorsqu'elle y pénètre ou y termine son tour. Une créature n'effectue ce jet qu'une seule fois par tour. La Sphère s'éloigne de 3 mètres de vous au début de chacun de vos tours.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 5."
    },
    {
@@ -79,10 +84,11 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":5,
       "classes":[
-         "Clerc", "Paladin", "Magicien"
+         "Clerc",
+         "Paladin",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -101,10 +107,12 @@
       "duree":"1 round",
       "niveau":5,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -126,7 +134,6 @@
          "Paladin"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",
@@ -148,12 +155,14 @@
          "Clerc"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"5d6",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Une colonne verticale de feu fulgurant tombe du ciel. Toute créature dans un Cylindre de 3 mètres de rayon et 12 mètres de haut centré sur un point à portée effectue un jet de sauvegarde de Dextérité, subissant 5d6 dégâts de feu et 5d6 dégâts radiants en cas d'échec, ou la moitié de ces dégâts en cas de réussite.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts de feu et radiants augmentent de 1d6 pour chaque niveau d'emplacement de sort supérieur à 5."
    },
    {
@@ -171,7 +180,6 @@
          "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -190,10 +198,10 @@
       "duree":"Instantanée",
       "niveau":5,
       "classes":[
-         "Druide", "Rôdeur"
+         "Druide",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -212,15 +220,19 @@
       "duree":"Instantanée",
       "niveau":5,
       "classes":[
-         "Druide", "Ensorceleur", "Magicien"
+         "Druide",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"8d8",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Vous libérez un souffle d'air froid. Toute créature dans un Cône de 18 mètres émanant de vous effectue un jet de sauvegarde de Constitution, subissant 8d8 dégâts de froid en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature tuée par ce sort devient une statue de glace jusqu'à ce qu'elle dégèle.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 5."
    },
    {
@@ -235,15 +247,18 @@
       "duree":"1 minute",
       "niveau":5,
       "classes":[
-         "Occultiste", "Magicien"
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"6d6",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous contactez mentalement un demi-dieu, l'esprit d'un sage mort depuis longtemps ou une autre entité érudite venue d'un autre plan. Contacter cette intelligence surnaturelle peut vous briser l'esprit. Lorsque vous lancez ce sort, effectuez un jet de sauvegarde d'Intelligence DD 15. En cas de réussite, vous pouvez poser jusqu'à cinq questions à l'entité. Vous devez poser vos questions avant la fin du sort. Le MD répond à chaque question par un mot, tel que « oui », « non », « peut-être », « jamais », « hors sujet » ou « peu clair » (si l'entité ne connaît pas la réponse). Si une réponse en un seul mot est trompeuse, le MD peut proposer une courte phrase. En cas d'échec, vous subissez 6d6 dégâts psychiques et l'état Incapable d'agir jusqu'à la fin d'un Repos long. Un sort de restauration suprême lancé sur vous met fin à cet effet."
+      "descriptionSort":"Vous contactez mentalement un demi-dieu, l'esprit d'un sage mort depuis longtemps ou une autre entité érudite venue d'un autre plan. Contacter cette intelligence surnaturelle peut vous briser l'esprit. Lorsque vous lancez ce sort, effectuez un jet de sauvegarde d'Intelligence DD 15. En cas de réussite, vous pouvez poser jusqu'à cinq questions à l'entité. Vous devez poser vos questions avant la fin du sort. Le MD répond à chaque question par un mot, tel que « oui », « non », « peut-être », « jamais », « hors sujet » ou « peu clair » (si l'entité ne connaît pas la réponse). Si une réponse en un seul mot est trompeuse, le MD peut proposer une courte phrase. En cas d'échec, vous subissez 6d6 dégâts psychiques et l'état Incapable d'agir jusqu'à la fin d'un Repos long. Un sort de restauration suprême lancé sur vous met fin à cet effet.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Contagion",
@@ -257,15 +272,18 @@
       "duree":"7 jours",
       "niveau":5,
       "classes":[
-         "Clerc", "Druide"
+         "Clerc",
+         "Druide"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"11d8",
       "alternateDamageAmount":"",
-      "descriptionSort":"Votre contact inflige une contagion magique. La cible doit réussir un jet de sauvegarde de Constitution ou subir 11d8 dégâts nécrotiques et l'état Empoisonné. Choisissez également une caractéristique au moment du lancement du sort. Tant qu'elle est empoisonnée, la cible subit un Désavantage aux jets de sauvegarde effectués avec la caractéristique choisie. La cible doit refaire ce jet de sauvegarde à la fin de chacun de ses tours jusqu'à obtenir trois réussites ou échecs. Si elle réussit trois de ces jets, le sort prend fin. Si elle échoue trois de ces jets, le sort dure 7 jours. Chaque fois que la cible empoisonnée subit un effet qui mettrait fin à son état Empoisonné, elle doit réussir un jet de sauvegarde de Constitution pour ne plus être empoisonnée."
+      "descriptionSort":"Votre contact inflige une contagion magique. La cible doit réussir un jet de sauvegarde de Constitution ou subir 11d8 dégâts nécrotiques et l'état Empoisonné. Choisissez également une caractéristique au moment du lancement du sort. Tant qu'elle est empoisonnée, la cible subit un Désavantage aux jets de sauvegarde effectués avec la caractéristique choisie. La cible doit refaire ce jet de sauvegarde à la fin de chacun de ses tours jusqu'à obtenir trois réussites ou échecs. Si elle réussit trois de ces jets, le sort prend fin. Si elle échoue trois de ces jets, le sort dure 7 jours. Chaque fois que la cible empoisonnée subit un effet qui mettrait fin à son état Empoisonné, elle doit réussir un jet de sauvegarde de Constitution pour ne plus être empoisonnée.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Convocation de céleste",
@@ -279,10 +297,10 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":5,
       "classes":[
-         "Clerc", "Paladin"
+         "Clerc",
+         "Paladin"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -305,7 +323,6 @@
          "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -328,7 +345,6 @@
          "Druide"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -347,10 +363,10 @@
       "duree":"Spéciale",
       "niveau":5,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -370,10 +386,10 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":5,
       "classes":[
-         "Clerc", "Paladin"
+         "Clerc",
+         "Paladin"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",
@@ -392,10 +408,11 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":5,
       "classes":[
-         "Barde", "Ensorceleur", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -415,10 +432,11 @@
       "duree":"Concentration, jusqu'à 1 heure",
       "niveau":5,
       "classes":[
-         "Barde", "Occultiste", "Magicien"
+         "Barde",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -437,10 +455,13 @@
       "duree":"24 heures",
       "niveau":5,
       "classes":[
-         "Barde", "Clerc", "Druide", "Occultiste", "Magicien"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Charisme",
       "damageAmount":"",
@@ -460,10 +481,10 @@
       "duree":"Instantanée",
       "niveau":5,
       "classes":[
-         "Barde", "Druide"
+         "Barde",
+         "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -482,15 +503,19 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":5,
       "classes":[
-         "Clerc", "Druide", "Ensorceleur"
+         "Clerc",
+         "Druide",
+         "Ensorceleur"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"4d10",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Des essaims de sauterelles remplissent une Sphère de 6 mètres de rayon centrée sur un point que vous choisissez à portée. La Sphère reste en place pendant toute la durée du sort, sa zone a une visibilité réduite et elle est considérée comme un Terrain difficile. Lorsque l'essaim apparaît, toute créature qu'il contient effectue un jet de sauvegarde de Constitution, subissant 4d10 dégâts perforants en cas d'échec, ou la moitié de ces dégâts en cas de réussite. Une créature effectue également ce jet de sauvegarde lorsqu'elle entre dans la zone d'effet du sort pour la première fois au cours d'un tour ou y termine son tour. Une créature n'effectue ce jet qu'une seule fois par tour.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 5."
    },
    {
@@ -505,15 +530,18 @@
       "duree":"Instantanée",
       "niveau":5,
       "classes":[
-         "Rôdeur", "Magicien"
+         "Rôdeur",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"6d10",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous brandissez l'arme utilisée pour l'incantation, puis disparaissez pour frapper comme le vent. Choisissez jusqu'à cinq créatures que vous pouvez voir à portée. Effectuez une attaque de sort au corps à corps contre chaque cible. En cas de succès, la cible subit 6d10 dégâts de force. Vous vous téléportez ensuite dans un espace libre que vous pouvez voir dans un rayon de 1,50 mètre autour de l'une des cibles."
+      "descriptionSort":"Vous brandissez l'arme utilisée pour l'incantation, puis disparaissez pour frapper comme le vent. Choisissez jusqu'à cinq créatures que vous pouvez voir à portée. Effectuez une attaque de sort au corps à corps contre chaque cible. En cas de succès, la cible subit 6d10 dégâts de force. Vous vous téléportez ensuite dans un espace libre que vous pouvez voir dans un rayon de 1,50 mètre autour de l'une des cibles.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Immobilisation de monstre",
@@ -527,10 +555,12 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":5,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -550,15 +580,18 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":5,
       "classes":[
-         "Druide", "Magicien"
+         "Druide",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"8d8",
       "alternateDamageAmount":"",
       "descriptionSort":"Vous invoquez un esprit intangible de taille G, issu des plans élémentaires, qui apparaît dans un espace libre à portée. Choisissez l'élément de l'esprit, qui détermine le type de dégâts : air (foudre), terre (tonnerre), feu (feu) ou eau (froid). L'esprit persiste pendant toute la durée du sort. Chaque fois qu'une créature que vous pouvez voir entre dans l'espace de l'esprit ou commence son tour à 1,50 m ou moins de lui, vous pouvez la forcer à effectuer un jet de sauvegarde de Dextérité si l'esprit n'a entravée aucune autre créature. En cas d'échec, la cible subit 8d8 dégâts du type de l'esprit et subit aussi l'état Entravée jusqu'à la fin du sort. Au début de chacun de ses tours, la cible entravée refait son jet de sauvegarde. En cas d'échec, la cible subit 4d8 dégâts du type de l'esprit. En cas de réussite, la cible n'est plus entravée par l'esprit.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts augmentent de 1d8 pour chaque niveau d'emplacement de sort supérieur à 5."
    },
    {
@@ -576,12 +609,14 @@
          "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"8d8",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous brandissez l'arme utilisée pour lancer le sort et choisissez un point à portée. Des centaines d'armes spectrales similaires (ou de munitions adaptées) tombent en une volée puis disparaissent. Chaque créature de votre choix que vous pouvez voir dans un Cylindre de 12 mètres de rayon et de 6 mètres de haut centré sur ce point effectue un jet de sauvegarde de Dextérité. Une créature subit 8d8 dégâts de force en cas d'échec, ou la moitié de ces dégâts en cas de réussite."
+      "descriptionSort":"Vous brandissez l'arme utilisée pour lancer le sort et choisissez un point à portée. Des centaines d'armes spectrales similaires (ou de munitions adaptées) tombent en une volée puis disparaissent. Chaque créature de votre choix que vous pouvez voir dans un Cylindre de 12 mètres de rayon et de 6 mètres de haut centré sur ce point effectue un jet de sauvegarde de Dextérité. Une créature subit 8d8 dégâts de force en cas d'échec, ou la moitié de ces dégâts en cas de réussite.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Lien télépathique de Rary",
@@ -595,10 +630,10 @@
       "duree":"1 heure",
       "niveau":5,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -617,15 +652,18 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":5,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Force",
       "damageAmount":"5d8",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous créez une main de taille G d'énergie magique scintillante dans un espace libre, que vous pouvez voir et à portée. La main reste active pendant toute la durée du sort et se déplace à votre guise, imitant les mouvements de votre propre main. La main est un objet doté d'une CA de 20 et de points de vie égaux à votre maximum de points de vie. Si elle tombe à 0, le sort prend fin. La main n'occupe pas son espace. Lorsque vous lancez le sort et par une action Bonus lors de vos tours suivants, vous pouvez déplacer la main jusqu'à 18 mètres et provoquer l'un des effets suivants :\n**Poing serré.** La main frappe une cible dans un rayon de 1,50 mètre. Effectuez une attaque de sort au corps à corps. Si l'attaque touche, la cible subit 5d8 dégâts de force.\n**Main impérieuse.** La main tente de pousser une créature de taille TG ou inférieure dans un rayon de 1,50 mètre. La cible doit réussir un jet de sauvegarde de Force, ou la main la pousse jusqu'à 1,50 mètre plus 1,5 fois votre modificateur de caractéristique d'incantation. La main se déplace avec la cible, restant dans un rayon de 1,50 mètre autour d'elle.\n**Main agrippeuse.** La main tente d'agripper une créature de taille TG ou inférieure dans un rayon de 1,50 mètre. La cible doit réussir un jet de sauvegarde de Dextérité, ou elle est agrippée, avec un DD d'évasion égal au DD de sauvegarde de votre sort. Tant que la main agrippe la cible, vous pouvez prendre une action Bonus pour l'écraser, infligeant à la cible des dégâts contondants égaux à 4d6 plus votre modificateur de caractéristique d'incantation.\n**Main interposée.** La main vous confère un Abri partiel contre les attaques et autres effets provenant de son emplacement ou le traversant. De plus, son emplacement est considéré comme un Terrain difficile pour vos ennemis. Utilisation d'un niveau supérieur. Les dégâts de Poing serré augmentent de 2d8 et les dégâts de Main agrippeuse augmentent de 2d6 pour chaque niveau d'emplacement de sort supérieur à 5."
+      "descriptionSort":"Vous créez une main de taille G d'énergie magique scintillante dans un espace libre, que vous pouvez voir et à portée. La main reste active pendant toute la durée du sort et se déplace à votre guise, imitant les mouvements de votre propre main. La main est un objet doté d'une CA de 20 et de points de vie égaux à votre maximum de points de vie. Si elle tombe à 0, le sort prend fin. La main n'occupe pas son espace. Lorsque vous lancez le sort et par une action Bonus lors de vos tours suivants, vous pouvez déplacer la main jusqu'à 18 mètres et provoquer l'un des effets suivants :\n**Poing serré.** La main frappe une cible dans un rayon de 1,50 mètre. Effectuez une attaque de sort au corps à corps. Si l'attaque touche, la cible subit 5d8 dégâts de force.\n**Main impérieuse.** La main tente de pousser une créature de taille TG ou inférieure dans un rayon de 1,50 mètre. La cible doit réussir un jet de sauvegarde de Force, ou la main la pousse jusqu'à 1,50 mètre plus 1,5 fois votre modificateur de caractéristique d'incantation. La main se déplace avec la cible, restant dans un rayon de 1,50 mètre autour d'elle.\n**Main agrippeuse.** La main tente d'agripper une créature de taille TG ou inférieure dans un rayon de 1,50 mètre. La cible doit réussir un jet de sauvegarde de Dextérité, ou elle est agrippée, avec un DD d'évasion égal au DD de sauvegarde de votre sort. Tant que la main agrippe la cible, vous pouvez prendre une action Bonus pour l'écraser, infligeant à la cible des dégâts contondants égaux à 4d6 plus votre modificateur de caractéristique d'incantation.\n**Main interposée.** La main vous confère un Abri partiel contre les attaques et autres effets provenant de son emplacement ou le traversant. De plus, son emplacement est considéré comme un Terrain difficile pour vos ennemis. Utilisation d'un niveau supérieur. Les dégâts de Poing serré augmentent de 2d8 et les dégâts de Main agrippeuse augmentent de 2d6 pour chaque niveau d'emplacement de sort supérieur à 5.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Modification de mémoire",
@@ -639,10 +677,10 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":5,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -665,7 +703,6 @@
          "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -684,10 +721,11 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":5,
       "classes":[
-         "Druide", "Ensorceleur", "Magicien"
+         "Druide",
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Dextérité",
       "damageAmount":"",
@@ -706,10 +744,11 @@
       "duree":"Instantanée",
       "niveau":5,
       "classes":[
-         "Barde", "Clerc", "Magicien"
+         "Barde",
+         "Clerc",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -728,10 +767,10 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":5,
       "classes":[
-         "Druide", "Rôdeur"
+         "Druide",
+         "Rôdeur"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -753,7 +792,6 @@
          "Magicien"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -772,15 +810,20 @@
       "duree":"Instantanée",
       "niveau":5,
       "classes":[
-         "Barde", "Ensorceleur", "Occultiste", "Magicien"
+         "Barde",
+         "Ensorceleur",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"8d6",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous faites jaillir de l'énergie psychique en un point à portée. Chaque créature dans une Sphère de 6 mètres de rayon centrée sur ce point effectue un jet de sauvegarde d'Intelligence, subissant 8d6 dégâts psychiques en cas d'échec, ou seulement la moitié des dégâts en cas de réussite. En cas d'échec, la cible est également perturbée pendant 1 minute. Pendant ce temps, elle soustrait 1d6 à tous ses jets d'attaque et de caractéristique, ainsi qu'à ses jets de sauvegarde de Constitution pour maintenir sa Concentration. La cible effectue un jet de sauvegarde d'Intelligence à la fin de chacun de ses tours, mettant fin à l'effet en cas de réussite."
+      "descriptionSort":"Vous faites jaillir de l'énergie psychique en un point à portée. Chaque créature dans une Sphère de 6 mètres de rayon centrée sur ce point effectue un jet de sauvegarde d'Intelligence, subissant 8d6 dégâts psychiques en cas d'échec, ou seulement la moitié des dégâts en cas de réussite. En cas d'échec, la cible est également perturbée pendant 1 minute. Pendant ce temps, elle soustrait 1d6 à tous ses jets d'attaque et de caractéristique, ainsi qu'à ses jets de sauvegarde de Constitution pour maintenir sa Concentration. La cible effectue un jet de sauvegarde d'Intelligence à la fin de chacun de ses tours, mettant fin à l'effet en cas de réussite.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Présence royale de Yolane",
@@ -794,15 +837,18 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":5,
       "classes":[
-         "Barde", "Magicien"
+         "Barde",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"4d6",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Vous vous entourez d'une majesté surnaturelle sous forme d'une Émanation de 3 mètres. Chaque fois que l'Émanation pénètre dans l'espace d'une créature que vous pouvez voir, et chaque fois qu'une créature que vous pouvez voir y pénètre ou y termine son tour, vous pouvez la forcer à effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la cible subit 4d6 dégâts psychiques et l'état À terre, et vous pouvez la repousser jusqu'à 3 mètres. En cas de réussite, la cible subit seulement la moitié des dégâts. Une créature n'effectue ce jet qu'une seule fois par tour."
+      "descriptionSort":"Vous vous entourez d'une majesté surnaturelle sous forme d'une Émanation de 3 mètres. Chaque fois que l'Émanation pénètre dans l'espace d'une créature que vous pouvez voir, et chaque fois qu'une créature que vous pouvez voir y pénètre ou y termine son tour, vous pouvez la forcer à effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la cible subit 4d6 dégâts psychiques et l'état À terre, et vous pouvez la repousser jusqu'à 3 mètres. En cas de réussite, la cible subit seulement la moitié des dégâts. Une créature n'effectue ce jet qu'une seule fois par tour.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Quête",
@@ -816,15 +862,21 @@
       "duree":"30 jours",
       "niveau":5,
       "classes":[
-         "Barde", "Clerc", "Druide", "Paladin", "Magicien"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Paladin",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"5d10",
       "alternateDamageAmount":"",
       "descriptionSort":"Vous donnez un ordre verbal à une créature que vous pouvez voir à portée, lui ordonnant d'accomplir un service ou de s'abstenir d'une action ou d'une activité, selon votre choix. La cible doit réussir un jet de sauvegarde de Sagesse ou subir l'état Charmé pendant toute la durée du sort. La cible réussit automatiquement si elle ne comprend pas votre ordre. Tant qu'elle est charmée, la créature subit 5d10 dégâts psychiques si elle agit d'une manière contraire à votre ordre. Elle ne subit ces dégâts qu'une fois par jour. Vous pouvez donner l'ordre de votre choix, sauf s'il s'agit d'une activité qui entraînerait une mort certaine. Si vous donnez un ordre suicidaire, le sort prend fin. Un sort délivrance des malédictions, restauration suprême ou souhait met fin à ce sort.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Si vous utilisez un emplacement de sort de niveau 7 ou 8, la durée est de 365 jours. Si vous utilisez un emplacement de sort de niveau 9, le sort dure jusqu'à ce qu'il soit interrompu par l'un des sorts mentionnés ci-dessus."
    },
    {
@@ -839,10 +891,11 @@
       "duree":"Instantanée",
       "niveau":5,
       "classes":[
-         "Barde", "Clerc", "Paladin"
+         "Barde",
+         "Clerc",
+         "Paladin"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -864,7 +917,6 @@
          "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -883,10 +935,13 @@
       "duree":"Instantanée",
       "niveau":5,
       "classes":[
-         "Barde", "Clerc", "Druide", "Paladin", "Rôdeur"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Paladin",
+         "Rôdeur"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -908,7 +963,6 @@
          "Clerc"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -927,10 +981,13 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":5,
       "classes":[
-         "Barde", "Clerc", "Druide", "Occultiste", "Magicien"
+         "Barde",
+         "Clerc",
+         "Druide",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"",
@@ -949,10 +1006,11 @@
       "duree":"Instantanée",
       "niveau":5,
       "classes":[
-         "Barde", "Clerc", "Druide"
+         "Barde",
+         "Clerc",
+         "Druide"
       ],
       "concentration":false,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",
@@ -972,15 +1030,19 @@
       "duree":"8 heures",
       "niveau":5,
       "classes":[
-         "Barde", "Occultiste", "Magicien"
+         "Barde",
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Sagesse",
       "damageAmount":"3d6",
       "alternateDamageAmount":"",
-      "descriptionSort":"Vous ciblez une créature que vous connaissez sur le même plan d'existence. Vous, ou une créature consentante que vous touchez, entrez en transe pour agir comme messager onirique. Pendant cette transe, le messager subit l'état Incapable d'agir et a une Vitesse de 0. Si la cible dort, le messager apparaît dans ses rêves et peut converser avec elle tant qu'elle reste endormie, pendant toute la durée du sort. Il peut également façonner l'environnement du rêve, créant des paysages, des objets et d'autres images. Il peut sortir de transe à tout moment, mettant fin au sort. La cible se souvient parfaitement du rêve à son réveil. Si la cible est éveillée lorsque vous lancez le sort, le messager le sait et peut soit mettre fin à la transe (et au sort), soit attendre qu'elle s'endorme, auquel cas il entre dans ses rêves. Vous pouvez rendre le messager terrifiant pour la cible. Dans ce cas, le messager peut délivrer un message de dix mots maximum, après quoi la cible effectue un jet de sauvegarde de Sagesse. En cas d'échec au jet de sauvegarde, la cible ne tire aucun avantage de son repos et subit 3d6 dégâts psychiques lorsqu'elle se réveille."
+      "descriptionSort":"Vous ciblez une créature que vous connaissez sur le même plan d'existence. Vous, ou une créature consentante que vous touchez, entrez en transe pour agir comme messager onirique. Pendant cette transe, le messager subit l'état Incapable d'agir et a une Vitesse de 0. Si la cible dort, le messager apparaît dans ses rêves et peut converser avec elle tant qu'elle reste endormie, pendant toute la durée du sort. Il peut également façonner l'environnement du rêve, créant des paysages, des objets et d'autres images. Il peut sortir de transe à tout moment, mettant fin au sort. La cible se souvient parfaitement du rêve à son réveil. Si la cible est éveillée lorsque vous lancez le sort, le messager le sait et peut soit mettre fin à la transe (et au sort), soit attendre qu'elle s'endorme, auquel cas il entre dans ses rêves. Vous pouvez rendre le messager terrifiant pour la cible. Dans ce cas, le messager peut délivrer un message de dix mots maximum, après quoi la cible effectue un jet de sauvegarde de Sagesse. En cas d'échec au jet de sauvegarde, la cible ne tire aucun avantage de son repos et subit 3d6 dégâts psychiques lorsqu'elle se réveille.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Télékinésie",
@@ -994,10 +1056,10 @@
       "duree":"Concentration, jusqu'à 10 minutes",
       "niveau":5,
       "classes":[
-         "Ensorceleur", "Magicien"
+         "Ensorceleur",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":true,
       "savingThrowStat":"Force",
       "damageAmount":"",
@@ -1016,15 +1078,18 @@
       "duree":"Concentration, jusqu'à 1 minute",
       "niveau":5,
       "classes":[
-         "Occultiste", "Magicien"
+         "Occultiste",
+         "Magicien"
       ],
       "concentration":true,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"2d10",
       "alternateDamageAmount":"moitié",
       "descriptionSort":"Vous déchaînez une tempête d'éclats lumineux et de tonnerre dans un Cylindre de 3 mètres de rayon et 12 mètres de haut, centré sur un point que vous pouvez voir à portée. Dans cette zone, les créatures subissent les états Aveuglé et Assourdi, et ne peuvent pas lancer de sorts à composante verbale. Lorsqu'elle apparaît, chaque créature dans la tempête effectue un jet de sauvegarde de Constitution, subissant 2d10 dégâts radiants et 2d10 dégâts de tonnerre en cas d'échec, ou seulement la moitié de ces dégâts en cas de réussite. Une créature effectue également ce jet de sauvegarde lorsqu'elle entre dans la zone du sort pour la première fois au cours d'un tour ou si elle y termine son tour. Une créature n'effectue ce jet qu'une seule fois par tour.",
+      "tags":[
+         "damage"
+      ],
       "emplacementNiveauSuperieur":"Les dégâts radiants et de tonnerre augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur à 5."
    },
    {
@@ -1042,12 +1107,14 @@
          "Paladin"
       ],
       "concentration":false,
-      "isOffensive":true,
       "requiresSavingThrow":true,
       "savingThrowStat":"Constitution",
       "damageAmount":"5d6",
       "alternateDamageAmount":"moitié",
-      "descriptionSort":"Une énergie destructrice se propage autour de vous dans une Émanation de 9 mètres. Chaque créature choisie dans l'Émanation effectue un jet de sauvegarde de Constitution. En cas d'échec, la cible subit 5d6 dégâts de tonnerre et 5d6 dégâts radiants ou nécrotiques (selon votre choix) ainsi que l'état À terre. En cas de réussite, la cible subit seulement la moitié des dégâts."
+      "descriptionSort":"Une énergie destructrice se propage autour de vous dans une Émanation de 9 mètres. Chaque créature choisie dans l'Émanation effectue un jet de sauvegarde de Constitution. En cas d'échec, la cible subit 5d6 dégâts de tonnerre et 5d6 dégâts radiants ou nécrotiques (selon votre choix) ainsi que l'état À terre. En cas de réussite, la cible subit seulement la moitié des dégâts.",
+      "tags":[
+         "damage"
+      ]
    },
    {
       "name":"Vif carquois",
@@ -1064,7 +1131,6 @@
          "Rôdeur"
       ],
       "concentration":true,
-      "isOffensive":false,
       "requiresSavingThrow":false,
       "savingThrowStat":"",
       "damageAmount":"",

@@ -18,8 +18,9 @@ interface Spell {
     classes: string[];
     concentration: boolean;
     descriptionSort: string;
+    tags?: string[];
+    emplacementNiveauSuperieur?: string;
     ameliorationSortMineur?: string;
-    isOffensive?: boolean;
     requiresSavingThrow?: boolean;
     savingThrowStat?: string;
     damageAmount?: string;
@@ -36,14 +37,15 @@ interface SpellItem {
     CastingTime: string;
     Duration: string;
     Classes: string[];
+    Tags: string[];
     Concentration: boolean;
     ComponentV: boolean;
     ComponentS: boolean;
     ComponentM: boolean;
     MaterialDescription: string;
     Description: string;
+    HigherLevelSlot: string;
     MinorSpellImprovement: string;
-    IsOffensive: boolean;
     RequiresSavingThrow: boolean;
     SavingThrowStat: string;
     DamageAmount: string;
@@ -91,14 +93,15 @@ function toItem(spell: Spell): SpellItem {
         CastingTime: spell.dureeIncantation,
         Duration: spell.duree,
         Classes: spell.classes,
+        Tags: spell.tags ?? [],
         Concentration: spell.concentration,
         ComponentV: spell.componentV,
         ComponentS: spell.componentS,
         ComponentM: spell.componentM,
         MaterialDescription: spell.materialDescription ?? "",
         Description: spell.descriptionSort,
+        HigherLevelSlot: spell.emplacementNiveauSuperieur ?? "",
         MinorSpellImprovement: spell.ameliorationSortMineur ?? "",
-        IsOffensive: spell.isOffensive ?? false,
         RequiresSavingThrow: spell.requiresSavingThrow ?? false,
         SavingThrowStat: spell.savingThrowStat ?? "",
         DamageAmount: spell.damageAmount ?? "",
