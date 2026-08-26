@@ -54,7 +54,7 @@ describe('Tests index', function () {
                 Level: 3,
                 Classes: ['Magicien'],
                 Tags: ['Dégâts', 'Zone'],
-                self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/boule-de-feu'
+                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/boule-de-feu'
             },
             {
                 id: 'lumiere',
@@ -63,7 +63,7 @@ describe('Tests index', function () {
                 Level: 0,
                 Classes: ['Clerc', 'Magicien'],
                 Tags: ['Utilitaire'],
-                self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/lumiere'
+                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/lumiere'
             }
         ]);
     });
@@ -305,7 +305,7 @@ describe('Tests index', function () {
                 Classes: ['Magicien'],
                 Range: '45 mètres',
                 Description: 'Une boule de feu explose...',
-                self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/boule-de-feu'
+                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/spells/boule-de-feu'
             });
             expect(result.headers?.['Cache-Control']).to.be.undefined;
 
