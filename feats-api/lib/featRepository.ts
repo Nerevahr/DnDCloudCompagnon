@@ -5,9 +5,10 @@ import { normalizeCategory, normalizeForComparison } from "./normalize";
 const FEAT_ID_PREFIX = "FEAT#";
 
 // Récupère la liste des dons (FEAT#), éventuellement filtrés par catégorie.
-// Le filtre catégorie est appliqué côté application (et non via DynamoDB FilterExpression)
-// et compare le mot-clé fourni (ex: "general") au nom de catégorie une fois le préfixe
-// "don"/"don de"/"don d'" retiré, insensible aux accents et à la casse.
+// Le filtre catégorie est appliqué côté application (et non via DynamoDB FilterExpression) :
+// le mot-clé fourni (ex: "general", "combat") est recherché dans le nom de catégorie une fois
+// le préfixe "don"/"don de"/"don d'" retiré, insensible aux accents et à la casse
+// (ex: "combat" matche la catégorie "don de style de combat").
 // Ne remonte que les informations minimales (nom, catégorie, prérequis) afin de garder le body léger :
 // le détail complet d'un don est disponible via getFeatById.
 export const scanFeats = async (categoryFilters: string[]) => {
@@ -31,7 +32,10 @@ export const scanFeats = async (categoryFilters: string[]) => {
 
     if (categoryFilters.length > 0) {
         const normalizedFilters = categoryFilters.map(normalizeForComparison);
-        items = items.filter((item) => normalizedFilters.includes(normalizeCategory(item.Category as string)));
+        items = items.filter((item) => {
+            const normalizedCategory = normalizeCategory(item.Category as string);
+            return normalizedFilters.some((filter) => normalizedCategory.includes(filter));
+        });
     }
 
     return {

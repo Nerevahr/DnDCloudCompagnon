@@ -158,6 +158,19 @@ describe('Tests index', function () {
         expect(response.feats.map((feat: { Name: string }) => feat.Name)).to.deep.equal(['Chanceux']);
     });
 
+    it('matches "combat" against the "don de style de combat" category', async () => {
+        const combatFeat = { PK: 'FEAT#escrimeur', SK: 'METADATA', Name: 'Escrimeur', Category: 'don de style de combat', Prerequisites: [] };
+        ddbMock.on(ScanCommand).resolves({ Count: rawFeats.length + 1, Items: [...rawFeats, combatFeat] });
+
+        const result = await lambdaHandler(buildEvent({ queryStringParameters: { category: 'combat' } }));
+
+        expect(result.statusCode).to.equal(200);
+
+        const response = JSON.parse(result.body as string);
+        expect(response.count).to.equal(1);
+        expect(response.feats.map((feat: { Name: string }) => feat.Name)).to.deep.equal(['Escrimeur']);
+    });
+
     it('returns a 500 response when DynamoDB fails', async () => {
         ddbMock.on(ScanCommand).rejects(new Error('boom'));
 
