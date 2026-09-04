@@ -51,7 +51,7 @@ interface SpellItem {
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = path.join(__dirname, "..", "..", "data");
+const DATA_DIR = path.join(__dirname, "..", "data");
 const DATA_FILE_PATTERN = /^spells_\d+\.json$/;
 const BATCH_SIZE = 25; // limite DynamoDB pour BatchWriteItem
 
