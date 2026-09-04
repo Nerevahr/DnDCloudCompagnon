@@ -4,8 +4,9 @@ This project contains source code and supporting files for a serverless applicat
 
 - spells-api - Code for the spells API Lambda function.
 - feats-api - Code for the feats API Lambda function.
+- items-api - Code for the items API Lambda function.
 - events - Invocation events that you can use to invoke the function.
-- spells-api/tests, feats-api/tests - Unit tests for the application code. 
+- spells-api/tests, feats-api/tests, items-api/tests - Unit tests for the application code. 
 - template.yaml - A template that defines the application's AWS resources.
 
 The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.

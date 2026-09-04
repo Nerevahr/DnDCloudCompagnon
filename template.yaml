@@ -199,6 +199,52 @@ Resources:
       LogGroupName: !Sub "/aws/lambda/${FeatsApiFunction}"
       RetentionInDays: 7
 
+  ItemsApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: items-api/
+      Handler: app.lambdaHandler
+      Runtime: nodejs24.x
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref SpellsTable
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref SpellsTable
+      Events:
+        ListItems:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /items
+            Method: get
+            Auth:
+              Authorizer: NONE
+        GetItem:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /items/{id}
+            Method: get
+            Auth:
+              Authorizer: NONE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: "es2022"
+        Sourcemap: true
+        EntryPoints:
+          - app.ts
+
+  ItemsApiFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${ItemsApiFunction}"
+      RetentionInDays: 7
+
   # Copie le Host du visiteur (le domaine CloudFront) dans un header custom X-Forwarded-Host.
   # On ne peut pas forwarder le header Host lui-même jusqu'à API Gateway : le endpoint execute-api
   # par défaut exige que Host corresponde exactement à son propre domaine et répond 403 Forbidden
@@ -219,17 +265,17 @@ Resources:
         }
 
   # Policy CachingOptimized géré par AWS (658327ea-f89d-4fab-a63d-7e88639e58f6) exclut les query
-  # strings de la clé de cache : les filtres ?school=/?level=/?class=/?tag=/?category=/?sort=
+  # strings de la clé de cache : les filtres ?school=/?level=/?class=/?tag=/?category=/?type=/?sort=
   # étaient bien transmis à l'origine (via OriginRequestPolicy) mais CloudFront servait la même
   # réponse en cache pour toutes les combinaisons. On whitelist donc explicitement ces paramètres
   # dans la clé de cache. Cette policy est partagée par toutes les routes de la distribution
-  # (spells et feats), d'où la liste combinée des deux API.
+  # (spells, feats et items), d'où la liste combinée des trois API.
   SpellsCachePolicy:
     Type: AWS::CloudFront::CachePolicy
     Properties:
       CachePolicyConfig:
         Name: !Sub "${AWS::StackName}-spells-cache-policy"
-        Comment: "Cache spells/feats responses par combinaison de filtres (school/level/class/tag/category/sort)"
+        Comment: "Cache spells/feats/items responses par combinaison de filtres (school/level/class/tag/category/type/sort)"
         DefaultTTL: 86400
         MinTTL: 1
         MaxTTL: 31536000
@@ -244,6 +290,7 @@ Resources:
               - class
               - tag
               - category
+              - type
               - sort
           HeadersConfig:
             HeaderBehavior: none
@@ -371,3 +418,18 @@ Outputs:
   FeatsApiFunctionIamRole:
     Description: "Implicit IAM Role created for the Feats API function"
     Value: !GetAtt FeatsApiFunctionRole.Arn
+  ItemsCloudFrontEndpoint:
+    Description: "Full CloudFront URL for accessing the Items API"
+    Value: !Sub "https://${SpellsDistribution.DomainName}/items"
+  ItemsCustomDomainEndpoint:
+    Description: "Full custom domain URL for accessing the Items API"
+    Value: !Sub "https://${SpellsDomainName}/items"
+  ItemsApiGatewayEndpoint:
+    Description: "Direct API Gateway endpoint (for admin use only, client requests should use CloudFront)"
+    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/items"
+  ItemsApiFunction:
+    Description: "Items API Lambda Function ARN"
+    Value: !GetAtt ItemsApiFunction.Arn
+  ItemsApiFunctionIamRole:
+    Description: "Implicit IAM Role created for the Items API function"
+    Value: !GetAtt ItemsApiFunctionRole.Arn

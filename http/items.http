@@ -1,0 +1,29 @@
+###
+GET http://localhost:3000/items
+    ?type=arme
+
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+
+    });
+    client.test("All items are of type Arme", function () {
+        client.assert(Array.isArray(response.body.items), "items is not an array");
+        const nonMatchingItems = response.body.items.filter(item => item.Type !== "Arme");
+        client.assert(nonMatchingItems.length === 0, "Some items are not of type Arme");
+    });
+%}
+###
+
+GET http://localhost:3000/items/baton-de-combat
+
+> {%
+    client.test("Request executed successfully", function () {
+        client.assert(response.status === 200, "Response status is not 200");
+    });
+    client.test("Body has a self link", function () {
+        client.assert(response.body.hasOwnProperty("_self"), "missing self link");
+    });
+%}
+###

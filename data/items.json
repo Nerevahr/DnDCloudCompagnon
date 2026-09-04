@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Bâton de combat",
+    "itemDescription": "",
+    "type": "Arme",
+    "weaponType": "Arme courante de corps à corps",
+    "damageDice": "1d6",
+    "damageType": "Contondant",
+    "armorCategory": null,
+    "baseArmorClass": null
+  },
+  {
+    "name": "Arc court",
+    "itemDescription": "",
+    "type": "Arme",
+    "weaponType": "Arme courante à distance",
+    "damageDice": "1d6",
+    "damageType": "Perforant",
+    "armorCategory": null,
+    "baseArmorClass": null
+  },
+  {
+    "name": "Chemise de maille",
+    "itemDescription": "",
+    "type": "Armure",
+    "armorCategory": "Intermédiaire",
+    "baseArmorClass": 13,
+    "weaponType": null,
+    "damageDice": null,
+    "damageType": null
+  },
+  {
+    "name": "Symbole sacré",
+    "itemDescription": "",
+    "type": "Objet",
+    "armorCategory": null,
+    "baseArmorClass": null,
+    "weaponType": null,
+    "damageDice": null,
+    "damageType": null
+  },
+  {
+    "name": "Bouclier",
+    "itemDescription": "",
+    "type": "Bouclier",
+    "armorCategory": null,
+    "baseArmorClass": null,
+    "weaponType": null,
+    "damageDice": null,
+    "damageType": null
+  }
+]
