@@ -1,0 +1,15 @@
+{
+  "name": "dnd-cloud-compagnon-scripts",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "create-table": "tsx scripts/create-table.ts"
+  }
+}
