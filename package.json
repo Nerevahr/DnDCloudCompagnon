@@ -21,7 +21,7 @@
     "seed:items": "tsx scripts/seed-items.ts",
     "seed:spells": "tsx scripts/seed-spells.ts",
     "seed:all": "npm run seed:feats && npm run seed:items && npm run seed:spells",
-    "seed:local": "npm run create-table && npm run seed:all",
+    "seed:local": "DYNAMODB_ENDPOINT=http://localhost:8080 npm run create-table && DYNAMODB_ENDPOINT=http://localhost:8080 npm run seed:all",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
   }
