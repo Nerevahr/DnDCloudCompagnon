@@ -1,14 +1,6 @@
-// Normalise une chaîne pour une comparaison insensible aux accents et à la casse
-// (ex: "Don Général" et "don general" sont considérés identiques).
-const COMBINING_DIACRITICS = new RegExp("[\\u0300-\\u036f]", "g");
+import { normalizeForComparison } from "@dndcloud/core";
 
-export function normalizeForComparison(value: string): string {
-    return value
-        .normalize("NFD")
-        .replace(COMBINING_DIACRITICS, "") // retire les accents
-        .toLowerCase()
-        .trim();
-}
+export { normalizeForComparison };
 
 // Retire le préfixe "don"/"don de"/"don d'" d'une catégorie déjà normalisée,
 // pour permettre de filtrer avec juste le mot-clé (ex: "general" au lieu de "don général").

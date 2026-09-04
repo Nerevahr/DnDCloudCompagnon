@@ -5,9 +5,20 @@ This project contains source code and supporting files for a serverless applicat
 - spells-api - Code for the spells API Lambda function.
 - feats-api - Code for the feats API Lambda function.
 - items-api - Code for the items API Lambda function.
+- core - Shared infrastructure code (`@dndcloud/core`): DynamoDB client, HTTP responses, self-link building, string normalization. See "Shared code (`core`)" below.
 - events - Invocation events that you can use to invoke the function.
 - spells-api/tests, feats-api/tests, items-api/tests - Unit tests for the application code. 
 - template.yaml - A template that defines the application's AWS resources.
+
+## Shared code (`core`)
+
+`spells-api`, `feats-api` and `items-api` share infrastructure code (the DynamoDB client, the JSON HTTP response helpers, absolute self-link building, accent/case-insensitive string normalization) through a local package, `@dndcloud/core` (folder `core/`). It is TypeScript source only, no build step of its own.
+
+This repo is an **npm workspace** (`package.json` at the root lists `core`, `spells-api`, `feats-api`, `items-api`): run `npm install` once at the repo root, not inside each `*-api` folder. That single install links `@dndcloud/core` into every workspace member so `tsc`, `tsx`/mocha and your IDE resolve it directly.
+
+`sam build` needs to see the same code, but esbuild's `NodejsNpmEsbuildBuilder` builds each function in an isolated copy of its `CodeUri` and runs its own `npm install` there — it never sees the workspace symlinks, and a plain `"@dndcloud/core": "*"` dependency would fail with a 404 against the public npm registry. That's what the `_core` symlink inside each `*-api` folder is for (`feats-api/_core -> ../core`, etc.), paired with a `"@dndcloud/core": "file:./_core"` dependency in that API's `package.json`: SAM's isolated copy dereferences the symlink into a real folder, so the isolated `npm install` resolves it locally and esbuild bundles it into `app.js`. Don't delete the `_core` symlinks or point the dependency back at `"*"` — that's what makes `sam build` work.
+
+The SAM CLI's incremental build cache (`cached = true`) does not replay this correctly on repeat builds (it takes a `LinkSource` shortcut that can leave `@dndcloud/core` unresolved), so `samconfig.toml` sets `cached = false` for the `build` command. Builds are fast enough for this project's size that this isn't noticeable.
 
 The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
 
@@ -106,11 +117,11 @@ You can find more information and examples about filtering Lambda function logs 
 
 ## Unit tests
 
-Tests are defined in the `spells-api/tests` folder in this project. Use NPM to install the [Mocha test framework](https://mochajs.org/) and run unit tests.
+Tests are defined in the `spells-api/tests`, `feats-api/tests` and `items-api/tests` folders in this project, using the [Mocha test framework](https://mochajs.org/). Install dependencies once at the repo root (this is an npm workspace, see "Shared code (`core`)" above), then run each API's tests from its own folder:
 
 ```bash
+DnDCloudCompagnon$ npm install
 DnDCloudCompagnon$ cd spells-api
-spells-api$ npm install
 spells-api$ npm run test
 ```
 

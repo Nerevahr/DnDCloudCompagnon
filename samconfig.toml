@@ -5,8 +5,12 @@ version = 0.1
 [default.global.parameters]
 stack_name = "DnDCloudCompagnon"
 
+# cached = false : le cache incrémental de sam build utilise un raccourci "LinkSource"
+# sur les rebuilds qui ne rejoue pas la copie/déréférencement du symlink */_core -> ../core
+# (voir *-api/_core), et échoue de façon intermittente à résoudre @dndcloud/core. Comme les
+# fonctions sont petites, on désactive le cache plutôt que de risquer un build cassé.
 [default.build.parameters]
-cached = true
+cached = false
 parallel = true
 
 [default.validate.parameters]

@@ -1,6 +1,6 @@
 import type { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from "aws-lambda";
 import { getItemById, scanItems } from "./lib/itemRepository";
-import { successResponse, errorResponse, notFoundResponse } from "./lib/httpResponse";
+import { successResponse, errorResponse, notFoundResponse } from "@dndcloud/core";
 import { buildItemSelfLink } from "./lib/links";
 
 export const lambdaHandler = async (
