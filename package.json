@@ -22,6 +22,7 @@
     "seed:spells": "tsx scripts/seed-spells.ts",
     "seed:all": "npm run seed:feats && npm run seed:items && npm run seed:spells",
     "seed:local": "DYNAMODB_ENDPOINT=http://localhost:8000 npm run create-table && DYNAMODB_ENDPOINT=http://localhost:8000 npm run seed:all",
+    "seed:remote": "DYNAMODB_ENDPOINT= npm run seed:all",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
   }
