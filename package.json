@@ -17,6 +17,10 @@
   },
   "scripts": {
     "create-table": "tsx scripts/create-table.ts",
+    "seed:feats": "tsx scripts/seed-feats.ts",
+    "seed:items": "tsx scripts/seed-items.ts",
+    "seed:spells": "tsx scripts/seed-spells.ts",
+    "seed:all": "npm run seed:feats && npm run seed:items && npm run seed:spells",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
   }
