@@ -1,6 +1,6 @@
 import type { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from "aws-lambda";
 import { getSpellById, scanSpells } from "./lib/spellRepository";
-import { successResponse, errorResponse, notFoundResponse } from "./lib/httpResponse";
+import { successResponse, errorResponse, notFoundResponse } from "@dndcloud/core";
 import { buildSpellSelfLink } from "./lib/links";
 
 export const lambdaHandler = async (

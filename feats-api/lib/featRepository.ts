@@ -1,5 +1,5 @@
 import { GetCommand, ScanCommand } from "@aws-sdk/lib-dynamodb";
-import { docClient, tableName } from "./dynamoClient";
+import { docClient, tableName } from "@dndcloud/core";
 import { normalizeCategory, normalizeForComparison } from "./normalize";
 
 const FEAT_ID_PREFIX = "FEAT#";

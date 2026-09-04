@@ -5,7 +5,7 @@ import { GetCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { expect } from 'chai';
 import type { APIGatewayProxyEventV2 } from 'aws-lambda';
 import { lambdaHandler } from '../../app';
-import { docClient } from '../../lib/dynamoClient';
+import { docClient } from '@dndcloud/core';
 
 const ddbMock = mockClient(docClient);
 

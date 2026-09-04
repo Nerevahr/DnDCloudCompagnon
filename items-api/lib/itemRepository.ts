@@ -1,6 +1,5 @@
 import { GetCommand, ScanCommand } from "@aws-sdk/lib-dynamodb";
-import { docClient, tableName } from "./dynamoClient";
-import { normalizeForComparison } from "./normalize";
+import { docClient, tableName, normalizeForComparison } from "@dndcloud/core";
 
 const ITEM_ID_PREFIX = "ITEM#";
 

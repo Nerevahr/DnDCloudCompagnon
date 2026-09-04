@@ -1,5 +1,5 @@
 import { GetCommand, ScanCommand } from "@aws-sdk/lib-dynamodb";
-import { docClient, tableName } from "./dynamoClient";
+import { docClient, tableName } from "@dndcloud/core";
 
 const SPELL_ID_PREFIX = "SPELL#";
 
