@@ -26,7 +26,7 @@ interface FeatItem {
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_FILE = path.join(__dirname, "..", "..", "data", "feats.json");
+const DATA_FILE = path.join(__dirname, "..", "data", "feats.json");
 const BATCH_SIZE = 25; // limite DynamoDB pour BatchWriteItem
 
 const tableName = process.env.TABLE_NAME || "DnD_Companion";

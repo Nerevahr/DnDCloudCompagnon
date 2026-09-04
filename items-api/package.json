@@ -12,10 +12,10 @@
   "scripts": {
     "test": "mocha",
     "typecheck": "tsc",
-    "seed:items": "tsx scripts/seed-items.ts",
+    "seed:items": "tsx ../scripts/seed-items.ts",
     "create-table": "tsx ../scripts/create-table.ts",
-    "seed:local": "npm run create-table && DYNAMODB_ENDPOINT=http://localhost:8000 tsx scripts/seed-items.ts",
-    "seed:remote": "DYNAMODB_ENDPOINT= tsx scripts/seed-items.ts"
+    "seed:local": "npm run create-table && DYNAMODB_ENDPOINT=http://localhost:8000 tsx ../scripts/seed-items.ts",
+    "seed:remote": "DYNAMODB_ENDPOINT= tsx ../scripts/seed-items.ts"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.145",
