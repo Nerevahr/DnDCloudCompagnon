@@ -11,11 +11,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "typecheck": "tsc",
-    "seed:feats": "tsx ../scripts/seed-feats.ts",
-    "create-table": "tsx ../scripts/create-table.ts",
-    "seed:local": "npm run create-table && DYNAMODB_ENDPOINT=http://localhost:8000 tsx ../scripts/seed-feats.ts",
-    "seed:remote": "DYNAMODB_ENDPOINT= tsx ../scripts/seed-feats.ts"
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.145",
