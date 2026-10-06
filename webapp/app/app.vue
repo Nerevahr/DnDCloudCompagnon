@@ -1,7 +1,9 @@
 <template>
   <UApp>
+    <VitePwaManifest />
     <NuxtRouteAnnouncer />
     <UHeader
+      class="pt-[env(safe-area-inset-top)]"
       :toggle="false"
       :ui="{ container: 'max-w-none' }"
     >

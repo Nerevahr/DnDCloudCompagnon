@@ -11,9 +11,13 @@
   },
   "dependencies": {
     "@nuxt/ui": "^4.11.3",
+    "@vite-pwa/nuxt": "^1.1.1",
     "nuxt": "^4.5.2",
     "tailwindcss": "^4.3.3",
     "vue": "^3.5.43",
     "vue-router": "^5.3.1"
+  },
+  "devDependencies": {
+    "@vite-pwa/assets-generator": "^1.0.4"
   }
 }
