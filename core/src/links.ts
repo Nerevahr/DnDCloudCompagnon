@@ -32,7 +32,7 @@ export function buildBaseUrl(event: APIGatewayProxyEventV2): string {
     return `${protocol}://${host}${stagePrefix}`;
 }
 
-// Lien "self" d'une ressource (ex: buildSelfLink(event, "feats", id) => ".../feats/chanceux"),
+// Lien "self" d'une ressource (ex: buildSelfLink(event, "api/v1/feats", id) => ".../api/v1/feats/chanceux"),
 // permettant à un client de retrouver ses détails complets (auto-discovery).
 export function buildSelfLink(event: APIGatewayProxyEventV2, resource: string, id: string): string {
     return `${buildBaseUrl(event)}/${resource}/${id}`;

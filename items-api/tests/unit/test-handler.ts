@@ -68,7 +68,7 @@ describe('Tests index', function () {
                 WeaponType: 'Arme courante de corps à corps',
                 DamageDice: '1d6',
                 DamageType: 'Contondant',
-                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/items/baton-de-combat'
+                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/api/v1/items/baton-de-combat'
             },
             {
                 id: 'chemise-de-maille',
@@ -76,7 +76,7 @@ describe('Tests index', function () {
                 Type: 'Armure',
                 ArmorCategory: 'Intermédiaire',
                 BaseArmorClass: 13,
-                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/items/chemise-de-maille'
+                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/api/v1/items/chemise-de-maille'
             }
         ]);
     });
@@ -220,7 +220,7 @@ describe('Tests index', function () {
                 WeaponType: 'Arme courante de corps à corps',
                 DamageDice: '1d6',
                 DamageType: 'Contondant',
-                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/items/baton-de-combat'
+                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/api/v1/items/baton-de-combat'
             });
 
             const getCalls = ddbMock.commandCalls(GetCommand);

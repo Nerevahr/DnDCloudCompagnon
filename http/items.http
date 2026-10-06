@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3000/items
+GET http://localhost:3000/api/v1/items
     ?type=arme
 
 
@@ -16,7 +16,7 @@ GET http://localhost:3000/items
 %}
 ###
 
-GET http://localhost:3000/items/baton-de-combat
+GET http://localhost:3000/api/v1/items/baton-de-combat
 
 > {%
     client.test("Request executed successfully", function () {

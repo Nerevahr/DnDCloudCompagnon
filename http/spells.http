@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3000/spells
+GET http://localhost:3000/api/v1/spells
     ?level=0&class=Clerc
 
 
@@ -16,7 +16,7 @@ GET http://localhost:3000/spells
 %}
 ###
 
-GET http://localhost:3000/spells/flamme-sacree
+GET http://localhost:3000/api/v1/spells/flamme-sacree
 
 > {%
     client.test("Request executed successfully", function () {

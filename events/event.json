@@ -1,7 +1,7 @@
 {
   "version": "2.0",
-  "routeKey": "GET /spells",
-  "rawPath": "/spells",
+  "routeKey": "GET /api/v1/spells",
+  "rawPath": "/api/v1/spells",
   "rawQueryString": "school=Évocation",
   "headers": {
     "accept": "application/json",
@@ -21,13 +21,13 @@
     "domainPrefix": "1234567890",
     "http": {
       "method": "GET",
-      "path": "/spells",
+      "path": "/api/v1/spells",
       "protocol": "HTTP/1.1",
       "sourceIp": "127.0.0.1",
       "userAgent": "Custom User Agent String"
     },
     "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
-    "routeKey": "GET /spells",
+    "routeKey": "GET /api/v1/spells",
     "stage": "$default",
     "time": "09/Apr/2015:12:34:56 +0000",
     "timeEpoch": 1428582896000

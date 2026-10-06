@@ -51,14 +51,14 @@ describe('Tests index', function () {
                 Name: 'Chanceux',
                 Category: "don d'origine",
                 Prerequisites: [],
-                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/feats/chanceux'
+                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/api/v1/feats/chanceux'
             },
             {
                 id: 'athlete',
                 Name: 'Athlète',
                 Category: 'don général',
                 Prerequisites: [{ Type: 'niveau', Value: '4' }],
-                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/feats/athlete'
+                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/api/v1/feats/athlete'
             }
         ]);
     });
@@ -227,7 +227,7 @@ describe('Tests index', function () {
                 Category: "don d'origine",
                 Prerequisites: [],
                 Description: 'Vous bénéficiez des avantages suivants...',
-                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/feats/chanceux'
+                _self: 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod/api/v1/feats/chanceux'
             });
 
             const getCalls = ddbMock.commandCalls(GetCommand);

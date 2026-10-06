@@ -126,7 +126,7 @@ Resources:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
-            Path: /spells
+            Path: /api/v1/spells
             Method: get
             Auth:
               Authorizer: NONE
@@ -134,7 +134,7 @@ Resources:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
-            Path: /spells/{id}
+            Path: /api/v1/spells/{id}
             Method: get
             Auth:
               Authorizer: NONE
@@ -172,7 +172,7 @@ Resources:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
-            Path: /feats
+            Path: /api/v1/feats
             Method: get
             Auth:
               Authorizer: NONE
@@ -180,7 +180,7 @@ Resources:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
-            Path: /feats/{id}
+            Path: /api/v1/feats/{id}
             Method: get
             Auth:
               Authorizer: NONE
@@ -218,7 +218,7 @@ Resources:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
-            Path: /items
+            Path: /api/v1/items
             Method: get
             Auth:
               Authorizer: NONE
@@ -226,7 +226,7 @@ Resources:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
-            Path: /items/{id}
+            Path: /api/v1/items/{id}
             Method: get
             Auth:
               Authorizer: NONE
@@ -381,13 +381,13 @@ Outputs:
     Value: !GetAtt SpellsDistribution.DomainName
   SpellsCloudFrontEndpoint:
     Description: "Full CloudFront URL for accessing the Spells API"
-    Value: !Sub "https://${SpellsDistribution.DomainName}/spells"
+    Value: !Sub "https://${SpellsDistribution.DomainName}/api/v1/spells"
   SpellsCustomDomainEndpoint:
     Description: "Full custom domain URL for accessing the Spells API"
-    Value: !Sub "https://${SpellsDomainName}/spells"
+    Value: !Sub "https://${SpellsDomainName}/api/v1/spells"
   SpellsApiGatewayEndpoint:
     Description: "Direct API Gateway endpoint (for admin use only, client requests should use CloudFront)"
-    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/spells"
+    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/api/v1/spells"
   SpellsUserPoolId:
     Description: "Cognito User Pool ID used to authenticate API requests"
     Value: !Ref SpellsUserPool
@@ -405,13 +405,13 @@ Outputs:
     Value: !GetAtt SpellsApiFunctionRole.Arn
   FeatsCloudFrontEndpoint:
     Description: "Full CloudFront URL for accessing the Feats API"
-    Value: !Sub "https://${SpellsDistribution.DomainName}/feats"
+    Value: !Sub "https://${SpellsDistribution.DomainName}/api/v1/feats"
   FeatsCustomDomainEndpoint:
     Description: "Full custom domain URL for accessing the Feats API"
-    Value: !Sub "https://${SpellsDomainName}/feats"
+    Value: !Sub "https://${SpellsDomainName}/api/v1/feats"
   FeatsApiGatewayEndpoint:
     Description: "Direct API Gateway endpoint (for admin use only, client requests should use CloudFront)"
-    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/feats"
+    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/api/v1/feats"
   FeatsApiFunction:
     Description: "Feats API Lambda Function ARN"
     Value: !GetAtt FeatsApiFunction.Arn
@@ -420,13 +420,13 @@ Outputs:
     Value: !GetAtt FeatsApiFunctionRole.Arn
   ItemsCloudFrontEndpoint:
     Description: "Full CloudFront URL for accessing the Items API"
-    Value: !Sub "https://${SpellsDistribution.DomainName}/items"
+    Value: !Sub "https://${SpellsDistribution.DomainName}/api/v1/items"
   ItemsCustomDomainEndpoint:
     Description: "Full custom domain URL for accessing the Items API"
-    Value: !Sub "https://${SpellsDomainName}/items"
+    Value: !Sub "https://${SpellsDomainName}/api/v1/items"
   ItemsApiGatewayEndpoint:
     Description: "Direct API Gateway endpoint (for admin use only, client requests should use CloudFront)"
-    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/items"
+    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/api/v1/items"
   ItemsApiFunction:
     Description: "Items API Lambda Function ARN"
     Value: !GetAtt ItemsApiFunction.Arn
