@@ -44,7 +44,19 @@ export default defineNuxtConfig({
     },
     workbox: {
       navigateFallback: '/',
-      globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+      runtimeCaching: [
+        {
+          // API du compendium (quel que soit l'hôte défini par apiBase) : réponse du cache puis mise à jour en arrière-plan
+          urlPattern: ({ url, request }) => request.method === 'GET' && url.pathname.startsWith('/api/v1/'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'api-v1',
+            expiration: { maxEntries: 500, maxAgeSeconds: 60 * 60 * 24 * 30 },
+            cacheableResponse: { statuses: [0, 200] }
+          }
+        }
+      ]
     },
     client: { installPrompt: true },
     devOptions: { enabled: false }
