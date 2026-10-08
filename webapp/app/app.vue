@@ -41,6 +41,12 @@ const menu = computed(() => [
     icon: 'i-lucide-book-open',
     to: '/compendium',
     active: route.path.startsWith('/compendium')
+  },
+  {
+    label: 'Cartes',
+    icon: 'i-lucide-map',
+    to: '/cartes',
+    active: route.path.startsWith('/cartes')
   }
 ])
 </script>
