@@ -297,6 +297,82 @@ Resources:
           CookiesConfig:
             CookieBehavior: none
 
+  # Bucket privé hébergeant la webapp (Nuxt generate). Seul CloudFront peut le lire, via OAC.
+  WebBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  WebOriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${AWS::StackName}-web-oac"
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  WebBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebBucket
+      PolicyDocument:
+        Statement:
+          - Sid: AllowCloudFrontRead
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub "${WebBucket.Arn}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${SpellsDistribution}"
+
+  # Fallback SPA : toute URL sans extension (/compendium/spells...) renvoie index.html.
+  # On le fait ici plutôt qu'avec CustomErrorResponses, qui s'appliquerait aussi aux 403/404
+  # de l'API (/api/v1/*) et les transformerait en 200 + HTML.
+  WebSpaRewriteFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: !Sub "${AWS::StackName}-spa-rewrite"
+      AutoPublish: true
+      FunctionConfig:
+        Comment: "Réécrit les URLs sans extension vers /index.html (SPA)"
+        Runtime: cloudfront-js-2.0
+      FunctionCode: |
+        function handler(event) {
+            var request = event.request;
+            if (request.uri.indexOf('.') === -1) {
+                request.uri = '/index.html';
+            }
+            return request;
+        }
+
+  # Cache edge d'un an pour la webapp. MinTTL = 1 an : CloudFront ignore le "no-cache" posé sur
+  # index.html/sw.js (qui sert à faire revalider les navigateurs) et ne retourne à S3 qu'après une
+  # invalidation, déclenchée par scripts/deploy-webapp.sh à chaque déploiement.
+  WebCachePolicy:
+    Type: AWS::CloudFront::CachePolicy
+    Properties:
+      CachePolicyConfig:
+        Name: !Sub "${AWS::StackName}-web-cache-policy"
+        DefaultTTL: 31536000
+        MinTTL: 31536000
+        MaxTTL: 31536000
+        ParametersInCacheKeyAndForwardedToOrigin:
+          EnableAcceptEncodingGzip: true
+          EnableAcceptEncodingBrotli: true
+          QueryStringsConfig:
+            QueryStringBehavior: none
+          HeadersConfig:
+            HeaderBehavior: none
+          CookiesConfig:
+            CookieBehavior: none
+
   SpellsDistribution:
     Type: AWS::CloudFront::Distribution
     Properties:
@@ -309,21 +385,40 @@ Resources:
           AcmCertificateArn: !Ref SpellsCertificateArn
           SslSupportMethod: sni-only
           MinimumProtocolVersion: TLSv1.2_2021
+        DefaultRootObject: index.html
+        # Webapp statique (S3) par défaut ; l'API est servie sur le même domaine sous /api/v1/*
         DefaultCacheBehavior:
-          TargetOriginId: ApiGatewayOrigin
+          TargetOriginId: WebBucketOrigin
           ViewerProtocolPolicy: redirect-to-https
           AllowedMethods:
             - GET
             - HEAD
-            - OPTIONS
-          CachePolicyId: !Ref SpellsCachePolicy
-          # AllViewerExceptHostHeader : Host doit rester celui d'API Gateway (voir SpellsForwardHostFunction
-          # ci-dessus pour comment la Lambda récupère quand même le domaine public via X-Forwarded-Host).
-          OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
+          Compress: true
+          CachePolicyId: !Ref WebCachePolicy
           FunctionAssociations:
             - EventType: viewer-request
-              FunctionARN: !GetAtt SpellsForwardHostFunction.FunctionARN
+              FunctionARN: !GetAtt WebSpaRewriteFunction.FunctionARN
+        CacheBehaviors:
+          - PathPattern: /api/v1/*
+            TargetOriginId: ApiGatewayOrigin
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            CachePolicyId: !Ref SpellsCachePolicy
+            # AllViewerExceptHostHeader : Host doit rester celui d'API Gateway (voir SpellsForwardHostFunction
+            # ci-dessus pour comment la Lambda récupère quand même le domaine public via X-Forwarded-Host).
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
+            FunctionAssociations:
+              - EventType: viewer-request
+                FunctionARN: !GetAtt SpellsForwardHostFunction.FunctionARN
         Origins:
+          - DomainName: !GetAtt WebBucket.RegionalDomainName
+            Id: WebBucketOrigin
+            OriginAccessControlId: !GetAtt WebOriginAccessControl.Id
+            S3OriginConfig:
+              OriginAccessIdentity: ""
           - DomainName: !Sub "${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
             Id: ApiGatewayOrigin
             OriginPath: /prod
@@ -373,6 +468,15 @@ Resources:
               Address: !Ref BudgetAlertEmail
 
 Outputs:
+  WebBucketName:
+    Description: "S3 bucket hosting the webapp (target of the deploy script)"
+    Value: !Ref WebBucket
+  WebDistributionId:
+    Description: "CloudFront distribution ID (for cache invalidation)"
+    Value: !Ref SpellsDistribution
+  WebUrl:
+    Description: "Public URL of the webapp"
+    Value: !Sub "https://${SpellsDomainName}/"
   SpellsTableName:
     Description: "DynamoDB table name storing spells data"
     Value: !Ref SpellsTable

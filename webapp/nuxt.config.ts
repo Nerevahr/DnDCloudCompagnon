@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+  // SPA : données chargées côté client depuis l'API, hébergement statique S3 + fallback index.html
+  ssr: false,
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@vite-pwa/nuxt'],
   css: ['~/assets/css/main.css'],
@@ -63,8 +65,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      // Surchargeable via NUXT_PUBLIC_API_BASE (ex: URL CloudFront / API Gateway en production)
-      apiBase: 'http://localhost:4000'
+      // En production (build/generate) l'API est servie sur le même domaine : appels relatifs /api/v1/*.
+      // Surchargeable via NUXT_PUBLIC_API_BASE
+      apiBase: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:4000'
     }
   }
 })
