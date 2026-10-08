@@ -1,2 +1,20 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+:root {
+  /* Bottom menu mobile : aucune marge de zone sûre du bas (évite un grand vide sous les icônes) */
+  --bottom-nav-pad: 0px;
+  --bottom-nav-height: calc(3.5rem + var(--bottom-nav-pad));
+}
+
+:root {
+  --safe-top: env(safe-area-inset-top);
+}
+
+/* PWA installée : si iOS ne remonte pas (ou sous-estime) la zone sûre du haut,
+   on garantit une marge minimale pour ne pas passer sous la dynamic island */
+@media (display-mode: standalone) {
+  :root {
+    --safe-top: max(env(safe-area-inset-top), 6rem);
+  }
+}
