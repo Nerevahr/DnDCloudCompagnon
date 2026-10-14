@@ -17,11 +17,28 @@
         />
       </UFormField>
     </UCard>
+
+    <UCard class="mt-4">
+      <UFormField
+        label="Compte"
+        description="Fermer la session sur cet appareil."
+      >
+        <UButton
+          color="neutral"
+          variant="outline"
+          icon="i-lucide-log-out"
+          @click="logout"
+        >
+          Se déconnecter
+        </UButton>
+      </UFormField>
+    </UCard>
   </div>
 </template>
 
 <script setup lang="ts">
 const colorMode = useColorMode()
+const { logout } = useAuth()
 
 const themes = [
   { label: 'Système', value: 'system' },

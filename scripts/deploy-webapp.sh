@@ -14,7 +14,10 @@ BUCKET="$(output WebBucketName)"
 DIST="$(output WebDistributionId)"
 
 # apiBase vaut "" en production (même origine que l'API)
-(cd "$ROOT/webapp" && npm run generate)
+(cd "$ROOT/webapp" && \
+  NUXT_PUBLIC_COGNITO_DOMAIN="$(output SpellsHostedUIDomain)" \
+  NUXT_PUBLIC_COGNITO_CLIENT_ID="$(output SpellsUserPoolClientId)" \
+  npm run generate)
 
 OUT="$ROOT/webapp/.output/public"
 # Assets versionnés : cache long ; le reste (html, sw, manifest) est revalidé

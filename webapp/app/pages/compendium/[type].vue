@@ -85,6 +85,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const config = useRuntimeConfig()
+const apiOptions = useApiFetchOptions()
 const search = ref('')
 
 const resource = computed(() => resourceTypes.find(t => t.slug === route.params.type))
@@ -95,7 +96,7 @@ if (!resource.value) {
 
 const { data, status, error } = useLazyFetch<Record<string, Record<string, unknown>[]>>(
   () => `${config.public.apiBase}/api/v1/${resource.value!.apiPath ?? resource.value!.slug}`,
-  { query: computed(() => ({ sort: resource.value!.sort })), key: () => `compendium-${route.params.type}`, watch: [() => route.params.type] }
+  { ...apiOptions, query: computed(() => ({ sort: resource.value!.sort })), key: () => `compendium-${route.params.type}`, watch: [() => route.params.type] }
 )
 
 const UButton = resolveComponent('UButton')

@@ -67,7 +67,14 @@ export default defineNuxtConfig({
     public: {
       // En production (build/generate) l'API est servie sur le même domaine : appels relatifs /api/v1/*.
       // Surchargeable via NUXT_PUBLIC_API_BASE
-      apiBase: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:4000'
+      apiBase: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:4000',
+      // Entrées de menu masquées (ids séparés par des virgules : compendium, cartes, settings).
+      // Les pages restent accessibles par leur URL. Fixé au build via NUXT_PUBLIC_HIDDEN_MENU
+      hiddenMenu: '',
+      // Cognito Hosted UI (sorties SpellsHostedUIDomain et SpellsUserPoolClientId du stack).
+      // Fixés au build via NUXT_PUBLIC_COGNITO_DOMAIN / NUXT_PUBLIC_COGNITO_CLIENT_ID
+      cognitoDomain: '',
+      cognitoClientId: ''
     }
   }
 })

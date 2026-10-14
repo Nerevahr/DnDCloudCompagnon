@@ -109,10 +109,11 @@ const props = defineProps<{
 const emit = defineEmits<{ close: [] }>()
 
 const config = useRuntimeConfig()
+const apiOptions = useApiFetchOptions()
 
 const { data, status, error } = useLazyFetch<Record<string, unknown>>(
   () => `${config.public.apiBase}/api/v1/${props.resource.apiPath ?? props.resource.slug}/${props.id}`,
-  { key: () => `compendium-${props.resource.slug}-${props.id}` }
+  { ...apiOptions, key: () => `compendium-${props.resource.slug}-${props.id}` }
 )
 
 const detail = computed(() => (data.value ? formatRow(data.value) : undefined))

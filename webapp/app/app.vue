@@ -3,6 +3,7 @@
     <VitePwaManifest />
     <NuxtRouteAnnouncer />
     <UHeader
+      v-if="showNav"
       class="hidden pt-[env(safe-area-inset-top)] lg:block"
       :toggle="false"
       :ui="{ container: 'max-w-none' }"
@@ -30,10 +31,13 @@
       <NuxtPage />
     </UMain>
 
-    <nav class="fixed inset-x-0 bottom-0 z-50 grid h-(--bottom-nav-height) grid-cols-4 border-t border-default bg-default pb-(--bottom-nav-pad) lg:hidden">
+    <nav
+      v-if="showNav"
+      class="fixed inset-x-0 bottom-0 z-50 grid h-(--bottom-nav-height) grid-flow-col auto-cols-fr border-t border-default bg-default pb-(--bottom-nav-pad) lg:hidden"
+    >
       <NuxtLink
-        v-for="item in bottomMenu"
-        :key="item.label"
+        v-for="(item, i) in bottomMenu"
+        :key="item.id ?? item.label + i"
         :to="item.to"
         :aria-disabled="!item.to"
         class="flex flex-col items-center justify-center gap-1 text-xs"
@@ -54,33 +58,45 @@
 
 <script setup lang="ts">
 const route = useRoute()
+// Pas de navigation sur les écrans de connexion
+const showNav = computed(() => !['/login', '/auth/callback'].includes(route.path))
+
+// Entrées masquées au build (NUXT_PUBLIC_HIDDEN_MENU) : retirées du menu, pages toujours routables
+const hidden = String(useRuntimeConfig().public.hiddenMenu)
+  .split(',')
+  .map(id => id.trim())
+  .filter(Boolean)
+const isVisible = (item: { id?: string }) => !item.id || !hidden.includes(item.id)
 
 const menu = computed(() => [
   {
+    id: 'compendium',
     label: 'Compendium',
     icon: 'i-lucide-book-open',
     to: '/compendium',
     active: route.path.startsWith('/compendium')
   },
   {
+    id: 'cartes',
     label: 'Cartes',
     icon: 'i-lucide-map',
     to: '/cartes',
     active: route.path.startsWith('/cartes')
   },
   {
+    id: 'settings',
     label: 'Réglages',
     icon: 'i-lucide-settings',
     to: '/settings',
     active: route.path.startsWith('/settings')
   }
-])
+].filter(isVisible))
 
 // Bottom menu mobile : seul le compendium est actif, les autres entrées sont des placeholders
 const bottomMenu = [
-  { label: 'Compendium', icon: 'i-lucide-book-open', to: '/compendium' },
+  { id: 'compendium', label: 'Compendium', icon: 'i-lucide-book-open', to: '/compendium' },
   { label: 'Soon', icon: 'i-lucide-users', to: undefined },
   { label: 'Soon', icon: 'i-lucide-map', to: undefined },
-  { label: 'Réglages', icon: 'i-lucide-settings', to: '/settings' }
-]
+  { id: 'settings', label: 'Réglages', icon: 'i-lucide-settings', to: '/settings' }
+].filter(isVisible)
 </script>

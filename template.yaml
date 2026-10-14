@@ -34,6 +34,9 @@ Resources:
         - email
       UsernameAttributes:
         - email
+      # Pas d'inscription libre : les comptes sont créés par un administrateur
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: true
 
   SpellsUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
@@ -47,17 +50,20 @@ Resources:
         - COGNITO
       AllowedOAuthFlowsUserPoolClient: true
       AllowedOAuthFlows:
-        - implicit
         - code
       AllowedOAuthScopes:
         - openid
         - email
         - profile
       CallbackURLs:
-        - https://example.com/callback
+        - !Sub "https://${SpellsDomainName}/auth/callback"
+        - http://localhost:3000/auth/callback
+        - http://localhost:3001/auth/callback
         - https://oauth.pstmn.io/v1/callback
       LogoutURLs:
-        - https://example.com/logout
+        - !Sub "https://${SpellsDomainName}/login"
+        - http://localhost:3000/login
+        - http://localhost:3001/login
 
   SpellsUserPoolDomain:
     Type: AWS::Cognito::UserPoolDomain
@@ -128,16 +134,12 @@ Resources:
             ApiId: !Ref SpellsHttpApi
             Path: /api/v1/spells
             Method: get
-            Auth:
-              Authorizer: NONE
         GetSpell:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
             Path: /api/v1/spells/{id}
             Method: get
-            Auth:
-              Authorizer: NONE
     Metadata:
       BuildMethod: esbuild
       BuildProperties:
@@ -174,16 +176,12 @@ Resources:
             ApiId: !Ref SpellsHttpApi
             Path: /api/v1/feats
             Method: get
-            Auth:
-              Authorizer: NONE
         GetFeat:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
             Path: /api/v1/feats/{id}
             Method: get
-            Auth:
-              Authorizer: NONE
     Metadata:
       BuildMethod: esbuild
       BuildProperties:
@@ -220,16 +218,12 @@ Resources:
             ApiId: !Ref SpellsHttpApi
             Path: /api/v1/items
             Method: get
-            Auth:
-              Authorizer: NONE
         GetItem:
           Type: HttpApi
           Properties:
             ApiId: !Ref SpellsHttpApi
             Path: /api/v1/items/{id}
             Method: get
-            Auth:
-              Authorizer: NONE
     Metadata:
       BuildMethod: esbuild
       BuildProperties:
@@ -495,9 +489,9 @@ Outputs:
   SpellsUserPoolId:
     Description: "Cognito User Pool ID used to authenticate API requests"
     Value: !Ref SpellsUserPool
-  SpellsHostedUILoginUrl:
-    Description: "Cognito Hosted UI login page (implicit flow, token returned in the callback URL fragment)"
-    Value: !Sub "https://dndcloud-${AWS::AccountId}.auth.${AWS::Region}.amazoncognito.com/login?client_id=${SpellsUserPoolClient}&response_type=token&scope=openid+email+profile&redirect_uri=https://example.com/callback"
+  SpellsHostedUIDomain:
+    Description: "Cognito Hosted UI base URL (NUXT_PUBLIC_COGNITO_DOMAIN du front)"
+    Value: !Sub "https://dndcloud-${AWS::AccountId}.auth.${AWS::Region}.amazoncognito.com"
   SpellsUserPoolClientId:
     Description: "Cognito User Pool Client ID used to authenticate API requests"
     Value: !Ref SpellsUserPoolClient
