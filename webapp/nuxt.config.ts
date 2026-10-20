@@ -49,8 +49,8 @@ export default defineNuxtConfig({
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
       runtimeCaching: [
         {
-          // API du compendium (quel que soit l'hôte défini par apiBase) : réponse du cache puis mise à jour en arrière-plan
-          urlPattern: ({ url, request }) => request.method === 'GET' && url.pathname.startsWith('/api/v1/'),
+          // API du compendium (quel que soit l'hôte défini par apiBase ; pas les personnages, modifiables et privés) : réponse du cache puis mise à jour en arrière-plan
+          urlPattern: ({ url, request }) => request.method === 'GET' && url.pathname.startsWith('/api/v1/') && !url.pathname.startsWith('/api/v1/characters'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'api-v1',

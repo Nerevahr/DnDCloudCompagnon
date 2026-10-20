@@ -6,7 +6,8 @@
     "core",
     "feats-api",
     "spells-api",
-    "items-api"
+    "items-api",
+    "characters-api"
   ],
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.0.0"

@@ -1,0 +1,48 @@
+# Remplacer <ACCESS_TOKEN> par un jeton d'accès Cognito (Authorization: Bearer ...)
+@baseUrl = https://dnd.nerevahr.fr
+@token = <ACCESS_TOKEN>
+
+###
+GET {{baseUrl}}/api/v1/characters
+Authorization: Bearer {{token}}
+
+###
+# @name createCharacter
+POST {{baseUrl}}/api/v1/characters
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Name": "Aria",
+  "Class": "Magicien",
+  "Species": "Elfe",
+  "Level": 3,
+  "Abilities": { "Intelligence": 16 },
+  "HitPoints": { "Current": 18, "Max": 18 },
+  "ArmorClass": 12
+}
+
+> {%
+    client.test("Character created", function () {
+        client.assert(response.status === 201, "Response status is not 201");
+    });
+    client.global.set("characterId", response.body.id);
+%}
+
+###
+GET {{baseUrl}}/api/v1/characters/{{characterId}}
+Authorization: Bearer {{token}}
+
+###
+PATCH {{baseUrl}}/api/v1/characters/{{characterId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "HitPoints": { "Current": 7 },
+  "Notes": "Blessée par un gobelin"
+}
+
+###
+DELETE {{baseUrl}}/api/v1/characters/{{characterId}}
+Authorization: Bearer {{token}}

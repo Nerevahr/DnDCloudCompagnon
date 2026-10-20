@@ -20,6 +20,19 @@
 
     <UCard class="mt-4">
       <UFormField
+        label="Jets de dés"
+        description="Qui lance le d20 pour les jets de compétence et de caractéristique."
+      >
+        <URadioGroup
+          v-model="diceModel"
+          :items="diceModes"
+          variant="card"
+        />
+      </UFormField>
+    </UCard>
+
+    <UCard class="mt-4">
+      <UFormField
         label="Compte"
         description="Fermer la session sur cet appareil."
       >
@@ -39,6 +52,16 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
 const { logout } = useAuth()
+const { diceMode, setDiceMode } = useDiceMode()
+
+const diceModes = [
+  { label: 'Manuel', description: 'Je lance mes dés et je saisis le résultat.', value: 'manual' },
+  { label: 'Dans l\'application', description: 'L\'application tire le d20 à ma place.', value: 'app' }
+]
+const diceModel = computed({
+  get: () => diceMode.value,
+  set: (value: DiceMode) => setDiceMode(value)
+})
 
 const themes = [
   { label: 'Système', value: 'system' },

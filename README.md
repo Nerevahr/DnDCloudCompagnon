@@ -5,6 +5,7 @@ This project contains source code and supporting files for a serverless applicat
 - spells-api - Code for the spells API Lambda function.
 - feats-api - Code for the feats API Lambda function.
 - items-api - Code for the items API Lambda function.
+- characters-api - Code for the player characters API Lambda function (read/write, scoped to the authenticated Cognito user). See "Characters API" below.
 - core - Shared infrastructure code (`@dndcloud/core`): DynamoDB client, HTTP responses, self-link building, string normalization. See "Shared code (`core`)" below.
 - events - Invocation events that you can use to invoke the function.
 - spells-api/tests, feats-api/tests, items-api/tests - Unit tests for the application code. 
@@ -12,9 +13,9 @@ This project contains source code and supporting files for a serverless applicat
 
 ## Shared code (`core`)
 
-`spells-api`, `feats-api` and `items-api` share infrastructure code (the DynamoDB client, the JSON HTTP response helpers, absolute self-link building, accent/case-insensitive string normalization) through a local package, `@dndcloud/core` (folder `core/`). It is TypeScript source only, no build step of its own.
+`spells-api`, `feats-api`, `items-api` and `characters-api` share infrastructure code (the DynamoDB client, the JSON HTTP response helpers, absolute self-link building, accent/case-insensitive string normalization) through a local package, `@dndcloud/core` (folder `core/`). It is TypeScript source only, no build step of its own.
 
-This repo is an **npm workspace** (`package.json` at the root lists `core`, `spells-api`, `feats-api`, `items-api`): run `npm install` once at the repo root, not inside each `*-api` folder. That single install links `@dndcloud/core` into every workspace member so `tsc`, `tsx`/mocha and your IDE resolve it directly.
+This repo is an **npm workspace** (`package.json` at the root lists `core`, `spells-api`, `feats-api`, `items-api`, `characters-api`): run `npm install` once at the repo root, not inside each `*-api` folder. That single install links `@dndcloud/core` into every workspace member so `tsc`, `tsx`/mocha and your IDE resolve it directly.
 
 `sam build` needs to see the same code, but esbuild's `NodejsNpmEsbuildBuilder` builds each function in an isolated copy of its `CodeUri` and runs its own `npm install` there — it never sees the workspace symlinks, and a plain `"@dndcloud/core": "*"` dependency would fail with a 404 against the public npm registry. That's what the `_core` symlink inside each `*-api` folder is for (`feats-api/_core -> ../core`, etc.), paired with a `"@dndcloud/core": "file:./_core"` dependency in that API's `package.json`: SAM's isolated copy dereferences the symlink into a real folder, so the isolated `npm install` resolves it locally and esbuild bundles it into `app.js`. Don't delete the `_core` symlinks or point the dependency back at `"*"` — that's what makes `sam build` work.
 
@@ -115,9 +116,29 @@ DnDCloudCompagnon$ sam logs -n SpellsApiFunction --stack-name DnDCloudCompagnon 
 
 You can find more information and examples about filtering Lambda function logs in the [SAM CLI Documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html).
 
+## Characters API
+
+Unlike the compendium APIs, `characters-api` is read/write. Every route requires a Cognito JWT, and a character belongs to the user whose `sub` claim is in the token (stored as `PK = USER#<sub>`, `SK = CHARACTER#<id>`), so users only ever see and modify their own characters.
+
+| Method | Path | Description |
+| --- | --- | --- |
+| GET | `/api/v1/characters` | List the caller's characters (summary fields) |
+| POST | `/api/v1/characters` | Create a character (`Name` and `Class` required) → 201 + `Location` |
+| GET | `/api/v1/characters/{id}` | Full character |
+| PATCH | `/api/v1/characters/{id}` | Partial update; nested objects merge (`{"HitPoints": {"Current": 5}}` leaves `Max` untouched) |
+| DELETE | `/api/v1/characters/{id}` | Delete → 204 |
+
+Fields: `Name`, `Class`, `Subclass`, `Species`, `Background`, `Notes`, `Level` (1-20), `ArmorClass`, `Abilities` (`Strength`…`Charisma`, 1-30), `HitPoints` (`Current`, `Max`, `Temporary`), and `Spells` / `Feats` / `Items` (lists of compendium ids). Unknown fields are rejected with a 400.
+
+On creation, `HitPoints.Max` is computed with the D&D 2024 rules from the class hit die, the level and the Constitution modifier (level 1: max die + modifier; each further level: average die rounded up + modifier, at least 1 per level), and `HitPoints.Current` starts at that maximum. A `HitPoints.Max` sent explicitly wins (e.g. rolled hit points), and an unknown class (homebrew) leaves it at 0. Class names are matched case- and accent-insensitively (`lib/hitPoints.ts`). PATCH never recomputes hit points.
+
+Responses for a single character also include `ProficiencyBonus` (+2 at levels 1-4 up to +6 at levels 17-20). It is derived from `Level` on every read and never stored, so it cannot go stale. When the class can cast spells (2024 rules: Bard/Paladin/Sorcerer/Warlock Charisma, Cleric/Druid/Ranger Wisdom, Wizard Intelligence, plus the Eldritch Knight and Arcane Trickster subclasses, matched by their French names *Chevalier occulte* and *Escroc arcanique*), they also include `Spellcasting`: `Ability`, `Modifier`, `SaveDC` (8 + proficiency + modifier) and `AttackBonus` (proficiency + modifier). `Spellcasting.SpellSlots` gives the total slots per spell level from the 2024 tables (full, half and third casters, and the Warlock's Pact Magic). Classes that do not cast get no `Spellcasting` key. Skills: `SkillProficiencies` and `SkillExpertise` (lists of skill keys such as `Survival`, `SleightOfHand`) are stored, and responses carry a derived `Skills` list of the 18 skills with their `Ability`, `Bonus` (ability modifier, + proficiency, or + twice the proficiency with expertise) and `Proficiency` (`none`, `proficient`, `expertise`). Responses also carry `SavingThrows`: for each ability, the saving throw `Bonus` and whether the class makes it `Proficient` (two per class, 2024 rules; an unknown class has none). `Gold` (gold pieces, default 0) accepts at most 2 decimals and is rounded to the hundredth. Spent slots are stored in `SpellSlotsUsed` (`{"1": 2}`; PATCH replaces the whole map).
+
+CloudFront serves `/api/v1/characters*` through its own behavior (no caching, all HTTP methods), and the webapp's service worker excludes these routes from its API cache. `sam local start-api` does not run the JWT authorizer, so local calls get a 401 unless you inject an authorizer context in the event.
+
 ## Unit tests
 
-Tests are defined in the `spells-api/tests`, `feats-api/tests` and `items-api/tests` folders in this project, using the [Mocha test framework](https://mochajs.org/). Install dependencies once at the repo root (this is an npm workspace, see "Shared code (`core`)" above), then run each API's tests from its own folder:
+Tests are defined in the `spells-api/tests`, `feats-api/tests`, `items-api/tests` and `characters-api/tests` folders in this project, using the [Mocha test framework](https://mochajs.org/). Install dependencies once at the repo root (this is an npm workspace, see "Shared code (`core`)" above), then run each API's tests from its own folder:
 
 ```bash
 DnDCloudCompagnon$ npm install

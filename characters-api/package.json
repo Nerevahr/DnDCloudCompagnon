@@ -1,0 +1,27 @@
+{
+  "name": "characters-api",
+  "version": "1.0.0",
+  "description": "Lambda function serving the DnD Cloud Compagnon player characters API",
+  "main": "app.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.0.0",
+    "@aws-sdk/lib-dynamodb": "^3.0.0",
+    "@dndcloud/core": "file:./_core"
+  },
+  "scripts": {
+    "test": "mocha",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "^22.5.0",
+    "aws-sdk-client-mock": "^4.1.0",
+    "chai": "^4.3.6",
+    "mocha": "^10.2.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}

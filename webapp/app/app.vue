@@ -70,6 +70,13 @@ const isVisible = (item: { id?: string }) => !item.id || !hidden.includes(item.i
 
 const menu = computed(() => [
   {
+    id: 'personnages',
+    label: 'Personnages',
+    icon: 'i-lucide-users',
+    to: '/personnages',
+    active: route.path.startsWith('/personnages')
+  },
+  {
     id: 'compendium',
     label: 'Compendium',
     icon: 'i-lucide-book-open',
@@ -92,10 +99,10 @@ const menu = computed(() => [
   }
 ].filter(isVisible))
 
-// Bottom menu mobile : seul le compendium est actif, les autres entrées sont des placeholders
+// Bottom menu mobile : l'entrée Soon restante est un placeholder
 const bottomMenu = [
   { id: 'compendium', label: 'Compendium', icon: 'i-lucide-book-open', to: '/compendium' },
-  { label: 'Soon', icon: 'i-lucide-users', to: undefined },
+  { id: 'personnages', label: 'Persos', icon: 'i-lucide-users', to: '/personnages' },
   { label: 'Soon', icon: 'i-lucide-map', to: undefined },
   { id: 'settings', label: 'Réglages', icon: 'i-lucide-settings', to: '/settings' }
 ].filter(isVisible)
