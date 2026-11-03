@@ -34,7 +34,14 @@ onMounted(async () => {
   }
   try {
     await handleCallback(code, state)
-    await navigateTo('/', { replace: true })
+    // Retour à la page demandée avant la connexion (chemin interne uniquement)
+    let target = '/'
+    try {
+      const saved = sessionStorage.getItem('dnd-return-to')
+      sessionStorage.removeItem('dnd-return-to')
+      if (saved && saved.startsWith('/') && !saved.startsWith('//')) target = saved
+    } catch { /* sessionStorage indisponible */ }
+    await navigateTo(target, { replace: true })
   } catch {
     error.value = 'La connexion a échoué. Réessayez.'
   }

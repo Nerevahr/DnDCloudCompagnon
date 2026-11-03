@@ -1,0 +1,69 @@
+# Remplacer <ACCESS_TOKEN> par un jeton d'accès Cognito (Authorization: Bearer ...)
+@baseUrl = https://dnd.nerevahr.fr
+@token = <ACCESS_TOKEN>
+
+###
+GET {{baseUrl}}/api/v1/campaigns
+Authorization: Bearer {{token}}
+
+###
+# Le créateur devient MJ ; la réponse contient InviteCode (le lien à partager est <webapp>/campagnes/rejoindre/<InviteCode>)
+# @name createCampaign
+POST {{baseUrl}}/api/v1/campaigns
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Name": "Les Mines de Phandelver",
+  "Description": "Une aventure pour des personnages de niveau 1"
+}
+
+> {%
+    client.test("Campaign created", function () {
+        client.assert(response.status === 201, "Response status is not 201");
+    });
+    client.global.set("campaignId", response.body.id);
+    client.global.set("inviteCode", response.body.InviteCode);
+%}
+
+###
+GET {{baseUrl}}/api/v1/campaigns/{{campaignId}}
+Authorization: Bearer {{token}}
+
+###
+PATCH {{baseUrl}}/api/v1/campaigns/{{campaignId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Description": "Une aventure pour des personnages de niveau 3"
+}
+
+###
+# Joueur : rejoindre via le code du lien d'invitation (CharacterId optionnel)
+POST {{baseUrl}}/api/v1/campaigns/join
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "InviteCode": "{{inviteCode}}"
+}
+
+###
+# Joueur : choisir (ou changer) son personnage dans la campagne
+PUT {{baseUrl}}/api/v1/campaigns/{{campaignId}}/character
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "CharacterId": "<CHARACTER_ID>"
+}
+
+###
+# MJ : nouveau lien d'invitation (l'ancien est invalidé)
+POST {{baseUrl}}/api/v1/campaigns/{{campaignId}}/invite
+Authorization: Bearer {{token}}
+
+###
+DELETE {{baseUrl}}/api/v1/campaigns/{{campaignId}}
+Authorization: Bearer {{token}}

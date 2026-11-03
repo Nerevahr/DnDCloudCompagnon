@@ -6,6 +6,7 @@ This project contains source code and supporting files for a serverless applicat
 - feats-api - Code for the feats API Lambda function.
 - items-api - Code for the items API Lambda function.
 - characters-api - Code for the player characters API Lambda function (read/write, scoped to the authenticated Cognito user). See "Characters API" below.
+- campaigns-api - Code for the campaigns API Lambda function (game master / players, invite links). See "Campaigns API" below.
 - core - Shared infrastructure code (`@dndcloud/core`): DynamoDB client, HTTP responses, self-link building, string normalization. See "Shared code (`core`)" below.
 - events - Invocation events that you can use to invoke the function.
 - spells-api/tests, feats-api/tests, items-api/tests - Unit tests for the application code. 
@@ -13,9 +14,9 @@ This project contains source code and supporting files for a serverless applicat
 
 ## Shared code (`core`)
 
-`spells-api`, `feats-api`, `items-api` and `characters-api` share infrastructure code (the DynamoDB client, the JSON HTTP response helpers, absolute self-link building, accent/case-insensitive string normalization) through a local package, `@dndcloud/core` (folder `core/`). It is TypeScript source only, no build step of its own.
+`spells-api`, `feats-api`, `items-api`, `characters-api` and `campaigns-api` share infrastructure code (the DynamoDB client, the JSON HTTP response helpers, absolute self-link building, accent/case-insensitive string normalization) through a local package, `@dndcloud/core` (folder `core/`). It is TypeScript source only, no build step of its own.
 
-This repo is an **npm workspace** (`package.json` at the root lists `core`, `spells-api`, `feats-api`, `items-api`, `characters-api`): run `npm install` once at the repo root, not inside each `*-api` folder. That single install links `@dndcloud/core` into every workspace member so `tsc`, `tsx`/mocha and your IDE resolve it directly.
+This repo is an **npm workspace** (`package.json` at the root lists `core`, `spells-api`, `feats-api`, `items-api`, `characters-api`, `campaigns-api`): run `npm install` once at the repo root, not inside each `*-api` folder. That single install links `@dndcloud/core` into every workspace member so `tsc`, `tsx`/mocha and your IDE resolve it directly.
 
 `sam build` needs to see the same code, but esbuild's `NodejsNpmEsbuildBuilder` builds each function in an isolated copy of its `CodeUri` and runs its own `npm install` there — it never sees the workspace symlinks, and a plain `"@dndcloud/core": "*"` dependency would fail with a 404 against the public npm registry. That's what the `_core` symlink inside each `*-api` folder is for (`feats-api/_core -> ../core`, etc.), paired with a `"@dndcloud/core": "file:./_core"` dependency in that API's `package.json`: SAM's isolated copy dereferences the symlink into a real folder, so the isolated `npm install` resolves it locally and esbuild bundles it into `app.js`. Don't delete the `_core` symlinks or point the dependency back at `"*"` — that's what makes `sam build` work.
 
@@ -135,6 +136,25 @@ On creation, `HitPoints.Max` is computed with the D&D 2024 rules from the class 
 Responses for a single character also include `ProficiencyBonus` (+2 at levels 1-4 up to +6 at levels 17-20). It is derived from `Level` on every read and never stored, so it cannot go stale. When the class can cast spells (2024 rules: Bard/Paladin/Sorcerer/Warlock Charisma, Cleric/Druid/Ranger Wisdom, Wizard Intelligence, plus the Eldritch Knight and Arcane Trickster subclasses, matched by their French names *Chevalier occulte* and *Escroc arcanique*), they also include `Spellcasting`: `Ability`, `Modifier`, `SaveDC` (8 + proficiency + modifier) and `AttackBonus` (proficiency + modifier). `Spellcasting.SpellSlots` gives the total slots per spell level from the 2024 tables (full, half and third casters, and the Warlock's Pact Magic). Classes that do not cast get no `Spellcasting` key. Skills: `SkillProficiencies` and `SkillExpertise` (lists of skill keys such as `Survival`, `SleightOfHand`) are stored, and responses carry a derived `Skills` list of the 18 skills with their `Ability`, `Bonus` (ability modifier, + proficiency, or + twice the proficiency with expertise) and `Proficiency` (`none`, `proficient`, `expertise`). Responses also carry `SavingThrows`: for each ability, the saving throw `Bonus` and whether the class makes it `Proficient` (two per class, 2024 rules; an unknown class has none). `Gold` (gold pieces, default 0) accepts at most 2 decimals and is rounded to the hundredth. Spent slots are stored in `SpellSlotsUsed` (`{"1": 2}`; PATCH replaces the whole map).
 
 CloudFront serves `/api/v1/characters*` through its own behavior (no caching, all HTTP methods), and the webapp's service worker excludes these routes from its API cache. `sam local start-api` does not run the JWT authorizer, so local calls get a 401 unless you inject an authorizer context in the event.
+
+## Campaigns API
+
+`campaigns-api` manages campaigns. Every route requires a Cognito JWT. The user who creates a campaign becomes its game master (`Role: "GM"`); other users join as `PLAYER` through an invite link. Only members can see a campaign (anyone else gets a 404).
+
+| Method | Path | Who | Description |
+| --- | --- | --- | --- |
+| GET | `/api/v1/campaigns` | any | Campaigns of the caller (as GM or player), with his `Role` |
+| POST | `/api/v1/campaigns` | any | Create a campaign (`Name` required, `Description` optional) → 201; the caller is GM |
+| GET | `/api/v1/campaigns/{id}` | member | Campaign, members and their chosen character (summary). `NeedsCharacter` is true for a player who has not chosen one yet. `InviteCode` is only returned to the GM |
+| PATCH | `/api/v1/campaigns/{id}` | GM | Rename / change the description |
+| DELETE | `/api/v1/campaigns/{id}` | GM | Delete the campaign, its memberships and its invite → 204 |
+| POST | `/api/v1/campaigns/{id}/invite` | GM | Generate a new invite link; the previous one stops working |
+| POST | `/api/v1/campaigns/join` | any | Join with `{"InviteCode": "...", "CharacterId": "..."}` (`CharacterId` optional) → 201, or 200 if already a member |
+| PUT | `/api/v1/campaigns/{id}/character` | player | Choose (or change) which of the caller's characters plays in the campaign: `{"CharacterId": "..."}` |
+
+Flow: the GM shares `<webapp origin>/campagnes/rejoindre/<InviteCode>` (built by the webapp, since the API does not know its URL; that page calls `POST /campaigns/join`); on the player's first visit `NeedsCharacter` is true and the webapp asks him to pick a character from `GET /characters`, then calls the `PUT .../character` route. A character must belong to the caller. The GM does not play a character.
+
+Single-table layout: `CAMPAIGN#<id>/METADATA`, `CAMPAIGN#<id>/MEMBER#<sub>` (role, character), `USER#<sub>/CAMPAIGN#<id>` (reverse index for the list) and `INVITE#<code>/INVITE` (code lookup). CloudFront serves `/api/v1/campaigns*` through its own uncached behavior, like characters.
 
 ## Unit tests
 

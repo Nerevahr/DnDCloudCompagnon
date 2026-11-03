@@ -77,6 +77,13 @@ const menu = computed(() => [
     active: route.path.startsWith('/personnages')
   },
   {
+    id: 'campagnes',
+    label: 'Campagnes',
+    icon: 'i-lucide-scroll-text',
+    to: '/campagnes',
+    active: route.path.startsWith('/campagnes')
+  },
+  {
     id: 'compendium',
     label: 'Compendium',
     icon: 'i-lucide-book-open',
@@ -99,11 +106,11 @@ const menu = computed(() => [
   }
 ].filter(isVisible))
 
-// Bottom menu mobile : l'entrée Soon restante est un placeholder
+// Bottom menu mobile
 const bottomMenu = [
   { id: 'compendium', label: 'Compendium', icon: 'i-lucide-book-open', to: '/compendium' },
   { id: 'personnages', label: 'Persos', icon: 'i-lucide-users', to: '/personnages' },
-  { label: 'Soon', icon: 'i-lucide-map', to: undefined },
+  { id: 'campagnes', label: 'Campagnes', icon: 'i-lucide-scroll-text', to: '/campagnes' },
   { id: 'settings', label: 'Réglages', icon: 'i-lucide-settings', to: '/settings' }
 ].filter(isVisible)
 </script>

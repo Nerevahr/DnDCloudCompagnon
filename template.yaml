@@ -81,6 +81,7 @@ Resources:
         AllowMethods:
           - GET
           - POST
+          - PUT
           - PATCH
           - DELETE
           - OPTIONS
@@ -302,6 +303,84 @@ Resources:
       LogGroupName: !Sub "/aws/lambda/${CharactersApiFunction}"
       RetentionInDays: 7
 
+  CampaignsApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: campaigns-api/
+      Handler: app.lambdaHandler
+      Runtime: nodejs24.x
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref SpellsTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SpellsTable
+      Events:
+        ListCampaigns:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns
+            Method: get
+        CreateCampaign:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns
+            Method: post
+        JoinCampaign:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/join
+            Method: post
+        GetCampaign:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}
+            Method: get
+        UpdateCampaign:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}
+            Method: patch
+        DeleteCampaign:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}
+            Method: delete
+        RenewCampaignInvite:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/invite
+            Method: post
+        ChooseCampaignCharacter:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/character
+            Method: put
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: "es2022"
+        Sourcemap: true
+        EntryPoints:
+          - app.ts
+
+  CampaignsApiFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${CampaignsApiFunction}"
+      RetentionInDays: 7
+
   # Copie le Host du visiteur (le domaine CloudFront) dans un header custom X-Forwarded-Host.
   # On ne peut pas forwarder le header Host lui-même jusqu'à API Gateway : le endpoint execute-api
   # par défaut exige que Host corresponde exactement à son propre domaine et répond 403 Forbidden
@@ -475,6 +554,23 @@ Resources:
             FunctionAssociations:
               - EventType: viewer-request
                 FunctionARN: !GetAtt SpellsForwardHostFunction.FunctionARN
+          # Campagnes : même traitement que les personnages (données privées et modifiables, jamais en cache).
+          - PathPattern: /api/v1/campaigns*
+            TargetOriginId: ApiGatewayOrigin
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+              - PUT
+              - PATCH
+              - POST
+              - DELETE
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+            OriginRequestPolicyId: b689b0a8-53d0-40ab-baf2-68738e2966ac
+            FunctionAssociations:
+              - EventType: viewer-request
+                FunctionARN: !GetAtt SpellsForwardHostFunction.FunctionARN
           - PathPattern: /api/v1/*
             TargetOriginId: ApiGatewayOrigin
             ViewerProtocolPolicy: redirect-to-https
@@ -628,3 +724,18 @@ Outputs:
   CharactersApiFunctionIamRole:
     Description: "Implicit IAM Role created for the Characters API function"
     Value: !GetAtt CharactersApiFunctionRole.Arn
+  CampaignsCloudFrontEndpoint:
+    Description: "Full CloudFront URL for accessing the Campaigns API"
+    Value: !Sub "https://${SpellsDistribution.DomainName}/api/v1/campaigns"
+  CampaignsCustomDomainEndpoint:
+    Description: "Full custom domain URL for accessing the Campaigns API"
+    Value: !Sub "https://${SpellsDomainName}/api/v1/campaigns"
+  CampaignsApiGatewayEndpoint:
+    Description: "Direct API Gateway endpoint (for admin use only, client requests should use CloudFront)"
+    Value: !Sub "https://${SpellsHttpApi}.execute-api.${AWS::Region}.amazonaws.com/prod/api/v1/campaigns"
+  CampaignsApiFunction:
+    Description: "Campaigns API Lambda Function ARN"
+    Value: !GetAtt CampaignsApiFunction.Arn
+  CampaignsApiFunctionIamRole:
+    Description: "Implicit IAM Role created for the Campaigns API function"
+    Value: !GetAtt CampaignsApiFunctionRole.Arn

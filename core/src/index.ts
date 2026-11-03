@@ -6,7 +6,9 @@ export {
     createdResponse,
     noContentResponse,
     badRequestResponse,
-    unauthorizedResponse
+    unauthorizedResponse,
+    forbiddenResponse
 } from "./httpResponse";
 export { buildBaseUrl, buildSelfLink } from "./links";
 export { normalizeForComparison } from "./normalize";
+export { getUserId } from "./userId";

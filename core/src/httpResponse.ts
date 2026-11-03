@@ -57,3 +57,9 @@ export const unauthorizedResponse = (message: string): APIGatewayProxyStructured
     headers: jsonHeaders,
     body: JSON.stringify({ error: message })
 });
+
+export const forbiddenResponse = (message: string): APIGatewayProxyStructuredResultV2 => ({
+    statusCode: 403,
+    headers: jsonHeaders,
+    body: JSON.stringify({ error: message })
+});

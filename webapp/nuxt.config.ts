@@ -50,7 +50,7 @@ export default defineNuxtConfig({
       runtimeCaching: [
         {
           // API du compendium (quel que soit l'hôte défini par apiBase ; pas les personnages, modifiables et privés) : réponse du cache puis mise à jour en arrière-plan
-          urlPattern: ({ url, request }) => request.method === 'GET' && url.pathname.startsWith('/api/v1/') && !url.pathname.startsWith('/api/v1/characters'),
+          urlPattern: ({ url, request }) => request.method === 'GET' && url.pathname.startsWith('/api/v1/') && !url.pathname.startsWith('/api/v1/characters') && !url.pathname.startsWith('/api/v1/campaigns'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'api-v1',

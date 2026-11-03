@@ -6,7 +6,8 @@ import {
     badRequestResponse,
     unauthorizedResponse,
     notFoundResponse,
-    errorResponse
+    errorResponse,
+    getUserId
 } from "@dndcloud/core";
 import { createCharacter, deleteCharacter, getCharacter, listCharacters, updateCharacter } from "./lib/characterRepository";
 import { buildCharacterSelfLink } from "./lib/links";
@@ -21,12 +22,8 @@ type Event = APIGatewayProxyEventV2WithJWTAuthorizer;
 type Result = APIGatewayProxyStructuredResultV2;
 
 export const lambdaHandler = async (event: Event): Promise<Result> => {
-    // Identifiant Cognito de l'utilisateur, posé par l'authorizer JWT de l'API Gateway.
-    // sam local n'exécute pas l'authorizer : en local uniquement, on utilise un utilisateur fictif.
-    // AWS_SAM_LOCAL n'est jamais défini sur une Lambda déployée.
-    const ownerId = process.env.AWS_SAM_LOCAL === "true"
-        ? "local-user"
-        : event.requestContext.authorizer?.jwt?.claims?.sub;
+    // Identifiant Cognito de l'utilisateur (voir getUserId)
+    const ownerId = getUserId(event);
     if (typeof ownerId !== "string" || !ownerId) {
         return unauthorizedResponse("Utilisateur non identifié");
     }
