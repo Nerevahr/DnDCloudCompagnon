@@ -8,7 +8,8 @@
     "spells-api",
     "items-api",
     "characters-api",
-    "campaigns-api"
+    "campaigns-api",
+    "realtime-api"
   ],
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.0.0"

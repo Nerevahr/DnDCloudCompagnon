@@ -2,6 +2,7 @@ import { randomBytes, randomUUID } from "node:crypto";
 import type { BatchGetCommandOutput } from "@aws-sdk/lib-dynamodb";
 import { BatchGetCommand, BatchWriteCommand, GetCommand, QueryCommand, TransactWriteCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
 import { docClient, tableName } from "@dndcloud/core";
+import { listCombatKeys } from "./combatRepository";
 import type { CampaignData, CampaignPatch } from "./validation";
 
 // Modèle single-table. Une campagne regroupe plusieurs items :
@@ -222,7 +223,7 @@ export const deleteCampaign = async (campaign: Campaign) => {
 
     await remove([...members.map((member) => userCampaignKey(member.UserId, campaign.id)), inviteKey(campaign.InviteCode)]);
     await remove(members.map((member) => memberKey(campaign.id, member.UserId)));
-    await remove([campaignKey(campaign.id)]);
+    await remove([...(await listCombatKeys(campaign.id)), campaignKey(campaign.id)]);
 };
 
 // Remplace le lien d'invitation : l'ancien code cesse immédiatement de fonctionner

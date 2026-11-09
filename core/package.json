@@ -1,7 +1,7 @@
 {
   "name": "@dndcloud/core",
   "version": "1.0.0",
-  "description": "Code d'infrastructure partagé par les API DnD Cloud Compagnon (client DynamoDB, réponses HTTP, construction de liens, normalisation de chaînes)",
+  "description": "Code d'infrastructure partag\u00e9 par les API DnD Cloud Compagnon (client DynamoDB, r\u00e9ponses HTTP, construction de liens, normalisation de cha\u00eenes)",
   "private": true,
   "license": "MIT",
   "main": "src/index.ts",
@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.0.0",
-    "@aws-sdk/lib-dynamodb": "^3.0.0"
+    "@aws-sdk/lib-dynamodb": "^3.0.0",
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.0.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.145",

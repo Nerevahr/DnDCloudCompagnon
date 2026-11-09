@@ -116,6 +116,10 @@ Resources:
           KeyType: HASH
         - AttributeName: SK
           KeyType: RANGE
+      # Purge des connexions WebSocket orphelines (voir realtime-api) ; sans effet sur les items sans ExpiresAt
+      TimeToLiveSpecification:
+        AttributeName: ExpiresAt
+        Enabled: true
 
   SpellsApiFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -314,9 +318,15 @@ Resources:
       Environment:
         Variables:
           TABLE_NAME: !Ref SpellsTable
+          # Pousse les changements de combat aux joueurs connectés (voir RealtimeApiFunction)
+          WEBSOCKET_ENDPOINT: !Sub "https://${RealtimeWebSocketApi}.execute-api.${AWS::Region}.amazonaws.com/prod"
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref SpellsTable
+        - Statement:
+            - Effect: Allow
+              Action: execute-api:ManageConnections
+              Resource: !Sub "arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${RealtimeWebSocketApi}/prod/POST/@connections/*"
       Events:
         ListCampaigns:
           Type: HttpApi
@@ -366,6 +376,54 @@ Resources:
             ApiId: !Ref SpellsHttpApi
             Path: /api/v1/campaigns/{id}/character
             Method: put
+        ListCampaignCombats:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/combats
+            Method: get
+        CreateCampaignCombat:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/combats
+            Method: post
+        UpdateCampaignCombat:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/combats/{combatId}
+            Method: put
+        DeleteCampaignCombat:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/combats/{combatId}
+            Method: delete
+        StartCampaignCombat:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/combats/{combatId}/start
+            Method: post
+        ChangeCampaignCombatOrder:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/combats/{combatId}/order
+            Method: put
+        BeginCampaignCombat:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/combats/{combatId}/begin
+            Method: post
+        SendCampaignInitiative:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref SpellsHttpApi
+            Path: /api/v1/campaigns/{id}/combats/{combatId}/initiative
+            Method: put
     Metadata:
       BuildMethod: esbuild
       BuildProperties:
@@ -380,6 +438,99 @@ Resources:
     Properties:
       LogGroupName: !Sub "/aws/lambda/${CampaignsApiFunction}"
       RetentionInDays: 7
+
+  # Temps réel de la partie : un joueur qui "joue" se connecte en WebSocket (wss://<api>.execute-api/prod?campaignId=&token=),
+  # devient présent, et reçoit les notifications du MJ (combat lancé...). Le jeton Cognito est vérifié par la Lambda
+  # elle-même ($connect), les autorizers JWT des API HTTP n'existant pas pour les API WebSocket.
+  RealtimeWebSocketApi:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: !Sub "${AWS::StackName}-realtime"
+      ProtocolType: WEBSOCKET
+      RouteSelectionExpression: "$request.body.action"
+
+  RealtimeApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: realtime-api/
+      Handler: app.lambdaHandler
+      Runtime: nodejs24.x
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          TABLE_NAME: !Ref SpellsTable
+          USER_POOL_ID: !Ref SpellsUserPool
+          USER_POOL_CLIENT_ID: !Ref SpellsUserPoolClient
+          WEBSOCKET_ENDPOINT: !Sub "https://${RealtimeWebSocketApi}.execute-api.${AWS::Region}.amazonaws.com/prod"
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SpellsTable
+        - Statement:
+            - Effect: Allow
+              Action: execute-api:ManageConnections
+              Resource: !Sub "arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${RealtimeWebSocketApi}/prod/POST/@connections/*"
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: "es2022"
+        Sourcemap: true
+        EntryPoints:
+          - app.ts
+
+  RealtimeApiFunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${RealtimeApiFunction}"
+      RetentionInDays: 7
+
+  RealtimeIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref RealtimeWebSocketApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !Sub "arn:${AWS::Partition}:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${RealtimeApiFunction.Arn}/invocations"
+
+  RealtimeConnectRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref RealtimeWebSocketApi
+      RouteKey: $connect
+      AuthorizationType: NONE
+      Target: !Sub "integrations/${RealtimeIntegration}"
+
+  RealtimeDisconnectRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref RealtimeWebSocketApi
+      RouteKey: $disconnect
+      Target: !Sub "integrations/${RealtimeIntegration}"
+
+  RealtimeDefaultRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref RealtimeWebSocketApi
+      RouteKey: $default
+      Target: !Sub "integrations/${RealtimeIntegration}"
+
+  RealtimeStage:
+    Type: AWS::ApiGatewayV2::Stage
+    Properties:
+      ApiId: !Ref RealtimeWebSocketApi
+      StageName: prod
+      AutoDeploy: true
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 20
+        ThrottlingRateLimit: 10
+
+  RealtimeApiInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref RealtimeApiFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub "arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${RealtimeWebSocketApi}/*"
 
   # Copie le Host du visiteur (le domaine CloudFront) dans un header custom X-Forwarded-Host.
   # On ne peut pas forwarder le header Host lui-même jusqu'à API Gateway : le endpoint execute-api
@@ -739,3 +890,9 @@ Outputs:
   CampaignsApiFunctionIamRole:
     Description: "Implicit IAM Role created for the Campaigns API function"
     Value: !GetAtt CampaignsApiFunctionRole.Arn
+  RealtimeWebSocketUrl:
+    Description: "WebSocket URL of the realtime API (NUXT_PUBLIC_WS_BASE du front)"
+    Value: !Sub "wss://${RealtimeWebSocketApi}.execute-api.${AWS::Region}.amazonaws.com/prod"
+  RealtimeApiFunction:
+    Description: "Realtime API Lambda Function ARN"
+    Value: !GetAtt RealtimeApiFunction.Arn

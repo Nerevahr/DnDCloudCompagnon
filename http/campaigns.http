@@ -67,3 +67,67 @@ Authorization: Bearer {{token}}
 ###
 DELETE {{baseUrl}}/api/v1/campaigns/{{campaignId}}
 Authorization: Bearer {{token}}
+
+###
+# Combats (MJ) : prépare un combat à l'avance (autant que voulu). Initiative des ennemis fixée par le MJ.
+# @name createCombat
+POST {{baseUrl}}/api/v1/campaigns/<CAMPAIGN_ID>/combats
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Name": "Embuscade gobeline",
+  "Enemies": [
+    { "Name": "Gobelin 1", "Initiative": 12 },
+    { "Name": "Chef gobelin", "Initiative": 15 }
+  ]
+}
+
+###
+# Combats : liste (tous les combats pour le MJ ; seulement le combat lancé, en vue réduite, pour un joueur)
+GET {{baseUrl}}/api/v1/campaigns/<CAMPAIGN_ID>/combats
+Authorization: Bearer {{token}}
+
+###
+# Combat (MJ) : modifie un combat pas encore lancé
+PUT {{baseUrl}}/api/v1/campaigns/<CAMPAIGN_ID>/combats/<COMBAT_ID>
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "Name": "Embuscade gobeline", "Enemies": [{ "Name": "Gobelin 1", "Initiative": 12 }] }
+
+###
+# Combat (MJ) : lance le combat (un seul à la fois), les joueurs doivent alors envoyer leur initiative
+POST {{baseUrl}}/api/v1/campaigns/<CAMPAIGN_ID>/combats/<COMBAT_ID>/start
+Authorization: Bearer {{token}}
+
+###
+# Combat (joueur) : envoie le total de son jet d'initiative (d20 + Dextérité)
+PUT {{baseUrl}}/api/v1/campaigns/<CAMPAIGN_ID>/combats/<COMBAT_ID>/initiative
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "Initiative": 17 }
+
+###
+# Combat (MJ) : modifie l'ordre de jeu (une fois toutes les initiatives connues, avant ou après le démarrage)
+# NewEnemies (optionnel) : ennemis ajoutés, désignés dans Order par l'id provisoire de votre choix. Les joueurs ne sont
+# prévenus qu'à cet appel.
+PUT {{baseUrl}}/api/v1/campaigns/<CAMPAIGN_ID>/combats/<COMBAT_ID>/order
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "Order": ["<ID>", "renfort-1", "<ID>"],
+  "NewEnemies": [{ "id": "renfort-1", "Name": "Renfort", "Initiative": 14 }]
+}
+
+###
+# Combat (MJ) : démarre le combat une fois toutes les initiatives reçues ; l'ordre de jeu devient visible des joueurs
+POST {{baseUrl}}/api/v1/campaigns/<CAMPAIGN_ID>/combats/<COMBAT_ID>/begin
+Authorization: Bearer {{token}}
+
+###
+# Combat (MJ) : supprime un combat préparé, ou termine le combat lancé
+DELETE {{baseUrl}}/api/v1/campaigns/<CAMPAIGN_ID>/combats/<COMBAT_ID>
+Authorization: Bearer {{token}}

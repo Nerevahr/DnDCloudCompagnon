@@ -74,7 +74,10 @@ export default defineNuxtConfig({
       // Cognito Hosted UI (sorties SpellsHostedUIDomain et SpellsUserPoolClientId du stack).
       // Fixés au build via NUXT_PUBLIC_COGNITO_DOMAIN / NUXT_PUBLIC_COGNITO_CLIENT_ID
       cognitoDomain: '',
-      cognitoClientId: ''
+      cognitoClientId: '',
+      // API WebSocket de la partie en cours (sortie RealtimeWebSocketUrl du stack). Fixée au build via
+      // NUXT_PUBLIC_WS_BASE ; vide (dev local), le front interroge l'API REST à intervalle régulier
+      wsBase: ''
     }
   }
 })

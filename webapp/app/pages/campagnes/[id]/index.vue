@@ -179,6 +179,16 @@
         </UButton>
       </section>
 
+      <UButton
+        v-if="!campaign.NeedsCharacter"
+        :to="`/campagnes/${id}/${isGm ? 'mj' : 'jouer'}`"
+        size="lg"
+        block
+        icon="i-lucide-swords"
+      >
+        {{ isGm ? 'Jouer en tant que MJ' : 'Jouer' }}
+      </UButton>
+
       <section class="space-y-3">
         <h2 class="font-semibold">
           Membres ({{ campaign.Members.length }})

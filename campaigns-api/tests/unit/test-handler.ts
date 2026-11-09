@@ -1,24 +1,26 @@
 'use strict';
 
 import { mockClient } from 'aws-sdk-client-mock';
-import { BatchGetCommand, BatchWriteCommand, GetCommand, QueryCommand, TransactWriteCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import { BatchGetCommand, BatchWriteCommand, DeleteCommand, GetCommand, PutCommand, QueryCommand, TransactWriteCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
 import { expect } from 'chai';
 import type { APIGatewayProxyEventV2WithJWTAuthorizer } from 'aws-lambda';
 import { lambdaHandler } from '../../app';
+import { ApiGatewayManagementApiClient, PostToConnectionCommand } from '@aws-sdk/client-apigatewaymanagementapi';
 import { docClient, tableName } from '@dndcloud/core';
 
 const ddbMock = mockClient(docClient);
+const wsMock = mockClient(ApiGatewayManagementApiClient);
 
 const USER = 'user-123';
 const BASE = 'https://1234567890.execute-api.eu-west-3.amazonaws.com/prod';
 const SELF_BASE = `${BASE}/api/v1/campaigns`;
 
-function buildEvent(method: string, options: { id?: string; suffix?: string; body?: unknown; sub?: string | null } = {}): APIGatewayProxyEventV2WithJWTAuthorizer {
+function buildEvent(method: string, options: { id?: string; suffix?: string; body?: unknown; sub?: string | null; combatId?: string } = {}): APIGatewayProxyEventV2WithJWTAuthorizer {
     const sub = options.sub === undefined ? USER : options.sub;
     const path = `/api/v1/campaigns${options.id ? `/${options.id}` : ''}${options.suffix ?? ''}`;
     return {
         headers: { 'x-forwarded-proto': 'https' },
-        pathParameters: options.id ? { id: options.id } : undefined,
+        pathParameters: options.id ? { id: options.id, ...(options.combatId && { combatId: options.combatId }) } : undefined,
         body: options.body === undefined ? undefined : typeof options.body === 'string' ? options.body : JSON.stringify(options.body),
         requestContext: {
             domainName: '1234567890.execute-api.eu-west-3.amazonaws.com',
@@ -49,6 +51,7 @@ const mockMembership = (role: string | null, characterId?: string) => {
 describe('Campaigns API', function () {
     beforeEach(() => {
         ddbMock.reset();
+        wsMock.reset();
     });
 
     it('rejects requests without an authenticated user', async () => {
@@ -224,6 +227,7 @@ describe('Campaigns API', function () {
         it('deletes everything, the metadata last', async () => {
             mockMembership('GM');
             ddbMock.on(QueryCommand).resolves({ Items: [memberItem(USER, 'GM'), memberItem('p1', 'PLAYER')] });
+            ddbMock.on(QueryCommand, { ExpressionAttributeValues: { ':pk': 'CAMPAIGN#c1', ':prefix': 'COMBAT#' } }).resolves({ Items: [{ PK: 'CAMPAIGN#c1', SK: 'COMBAT#k1' }, { PK: 'CAMPAIGN#c1', SK: 'COMBAT#k2' }] });
             ddbMock.on(BatchWriteCommand).resolves({});
 
             const result = await lambdaHandler(buildEvent('DELETE', { id: 'c1' }));
@@ -234,7 +238,7 @@ describe('Campaigns API', function () {
             expect(deleted).to.deep.equal([
                 [`USER#${USER} CAMPAIGN#c1`, 'USER#p1 CAMPAIGN#c1', 'INVITE#code-abc INVITE'],
                 [`CAMPAIGN#c1 MEMBER#${USER}`, 'CAMPAIGN#c1 MEMBER#p1'],
-                ['CAMPAIGN#c1 METADATA']
+                ['CAMPAIGN#c1 COMBAT#k1', 'CAMPAIGN#c1 COMBAT#k2', 'CAMPAIGN#c1 METADATA']
             ]);
         });
 
@@ -384,5 +388,277 @@ describe('Campaigns API', function () {
 
     it('answers 405 to an unsupported method', async () => {
         expect((await lambdaHandler(buildEvent('PUT', { id: 'c1' }))).statusCode).to.equal(405);
+    });
+
+    describe('combats', () => {
+        const combatItem = (id: string, extra: Record<string, unknown> = {}) => ({
+            PK: 'CAMPAIGN#c1', SK: `COMBAT#${id}`, Name: 'Embuscade', Status: 'PREPARING',
+            Enemies: [{ id: 'e1', Name: 'Gobelin', Initiative: 12 }], Initiatives: {}, Bonuses: {},
+            CreatedAt: '2026-01-03T00:00:00.000Z', UpdatedAt: '2026-01-03T00:00:00.000Z', ...extra
+        });
+        const COMBAT = combatItem('k1');
+        const mockCombat = (item: Record<string, unknown> | undefined, id = 'k1') =>
+            ddbMock.on(GetCommand, { Key: { PK: 'CAMPAIGN#c1', SK: `COMBAT#${id}` } }).resolves({ Item: item });
+        const mockCombatList = (items: Record<string, unknown>[]) =>
+            ddbMock.on(QueryCommand, { ExpressionAttributeValues: { ':pk': 'CAMPAIGN#c1', ':prefix': 'COMBAT#' } }).resolves({ Items: items });
+        const NEW_BODY = { Name: ' Embuscade ', Enemies: [{ Name: 'Gobelin', Initiative: 12 }] };
+        const call = (method: string, suffix: string, body?: unknown) => lambdaHandler(buildEvent(method, { id: 'c1', suffix, body, combatId: suffix.split('/')[2] }));
+
+        it('lets the GM prepare several combats in advance', async () => {
+            mockMembership('GM');
+            ddbMock.on(PutCommand).resolves({});
+
+            const first = await call('POST', '/combats', NEW_BODY);
+            const second = await call('POST', '/combats', { Name: 'Boss', Enemies: [{ Name: 'Dragon', Initiative: 20 }] });
+
+            expect(first.statusCode).to.equal(201);
+            expect(parse(first).Combat).to.deep.include({ Name: 'Embuscade', Status: 'PREPARING' });
+            const keys = ddbMock.commandCalls(PutCommand).map((c) => c.args[0].input.Item!.SK);
+            expect(keys).to.have.length(2);
+            expect(keys[0]).to.match(/^COMBAT#/);
+            expect(keys[0]).to.not.equal(keys[1]);
+            expect(second.statusCode).to.equal(201);
+        });
+
+        it('lists every combat for the GM', async () => {
+            mockMembership('GM');
+            mockCombatList([combatItem('k1'), combatItem('k2', { Name: 'Boss', CreatedAt: '2026-01-04T00:00:00.000Z' })]);
+
+            const result = await call('GET', '/combats');
+
+            expect(parse(result).Combats.map((c: { id: string }) => c.id)).to.deep.equal(['k1', 'k2']);
+        });
+
+        it('rejects invalid combats and non-GM callers', async () => {
+            mockMembership('GM');
+            const noEnemy = await call('POST', '/combats', { Name: 'x', Enemies: [] });
+            const badInit = await call('POST', '/combats', { Name: 'x', Enemies: [{ Name: 'a', Initiative: 1.5 }] });
+            mockMembership('PLAYER');
+            const player = await call('POST', '/combats', NEW_BODY);
+
+            expect(noEnemy.statusCode).to.equal(400);
+            expect(badInit.statusCode).to.equal(400);
+            expect(player.statusCode).to.equal(403);
+        });
+
+        it('edits a prepared combat but not a running one', async () => {
+            mockMembership('GM');
+            mockCombat(COMBAT);
+            ddbMock.on(UpdateCommand).resolvesOnce({ Attributes: { ...COMBAT, Name: 'Embuscade' } });
+            const ok = await call('PUT', '/combats/k1', NEW_BODY);
+            ddbMock.on(UpdateCommand).rejects(Object.assign(new Error('x'), { name: 'ConditionalCheckFailedException' }));
+            const running = await call('PUT', '/combats/k1', NEW_BODY);
+            mockCombat(undefined, 'k9');
+            const missing = await call('PUT', '/combats/k9', NEW_BODY);
+
+            expect(ok.statusCode).to.equal(200);
+            expect(parse(ok).Combat.id).to.equal('k1');
+            expect(running.statusCode).to.equal(409);
+            expect(missing.statusCode).to.equal(404);
+        });
+
+        it('starts a combat for the GM only, one at a time', async () => {
+            mockMembership('GM');
+            mockCombatList([COMBAT]);
+            ddbMock.on(UpdateCommand).resolves({ Attributes: { ...COMBAT, Status: 'INITIATIVE' } });
+            const started = await call('POST', '/combats/k1/start');
+            mockCombatList([COMBAT, combatItem('k2', { Status: 'INITIATIVE' })]);
+            const busy = await call('POST', '/combats/k1/start');
+            mockMembership('PLAYER');
+            const forbidden = await call('POST', '/combats/k1/start');
+
+            expect(started.statusCode).to.equal(200);
+            expect(parse(started).Combat.Status).to.equal('INITIATIVE');
+            expect(busy.statusCode).to.equal(409);
+            expect(forbidden.statusCode).to.equal(403);
+        });
+
+        it('notifies the connected members when a combat is launched', async () => {
+            process.env.WEBSOCKET_ENDPOINT = 'https://ws.example.com/prod';
+            try {
+                mockMembership('GM');
+                mockCombatList([COMBAT]);
+                ddbMock.on(QueryCommand, { ExpressionAttributeValues: { ':pk': 'CAMPAIGN#c1', ':prefix': 'CONN#' } })
+                    .resolves({ Items: [{ PK: 'CAMPAIGN#c1', SK: 'CONN#a', UserId: 'p1', Role: 'PLAYER' }, { PK: 'CAMPAIGN#c1', SK: 'CONN#b', UserId: 'p2', Role: 'PLAYER' }] });
+                ddbMock.on(UpdateCommand).resolves({ Attributes: { ...COMBAT, Status: 'INITIATIVE' } });
+                wsMock.on(PostToConnectionCommand).resolves({});
+
+                const result = await call('POST', '/combats/k1/start');
+
+                expect(result.statusCode).to.equal(200);
+                const sent = wsMock.commandCalls(PostToConnectionCommand).map((c) => [c.args[0].input.ConnectionId, Buffer.from(c.args[0].input.Data as Uint8Array).toString()]);
+                expect(sent).to.deep.equal([['a', '{"type":"combat"}'], ['b', '{"type":"combat"}']]);
+            } finally {
+                delete process.env.WEBSOCKET_ENDPOINT;
+            }
+        });
+
+        it('still succeeds when the notification fails', async () => {
+            process.env.WEBSOCKET_ENDPOINT = 'https://ws.example.com/prod';
+            try {
+                mockMembership('GM');
+                mockCombatList([COMBAT]);
+                ddbMock.on(QueryCommand, { ExpressionAttributeValues: { ':pk': 'CAMPAIGN#c1', ':prefix': 'CONN#' } }).rejects(new Error('boom'));
+                ddbMock.on(UpdateCommand).resolves({ Attributes: { ...COMBAT, Status: 'INITIATIVE' } });
+
+                expect((await call('POST', '/combats/k1/start')).statusCode).to.equal(200);
+            } finally {
+                delete process.env.WEBSOCKET_ENDPOINT;
+            }
+        });
+
+        it('deletes a combat', async () => {
+            mockMembership('GM');
+            ddbMock.on(DeleteCommand).resolves({});
+
+            const result = await call('DELETE', '/combats/k1');
+
+            expect(result.statusCode).to.equal(204);
+            expect(ddbMock.commandCalls(DeleteCommand)[0].args[0].input.Key).to.deep.equal({ PK: 'CAMPAIGN#c1', SK: 'COMBAT#k1' });
+        });
+
+        it('shows nothing to players while combats are only prepared', async () => {
+            mockMembership('PLAYER', 'char-1');
+            mockCombatList([COMBAT]);
+
+            const result = await call('GET', '/combats');
+
+            expect(parse(result)).to.deep.equal({ Combats: [] });
+        });
+
+        it('shows only the running combat to players, without the enemies, with their initiative bonus', async () => {
+            mockMembership('PLAYER', 'char-1');
+            mockCombatList([COMBAT, combatItem('k2', { Status: 'INITIATIVE', Initiatives: { [USER]: 17 } })]);
+            ddbMock.on(GetCommand, { Key: { PK: `USER#${USER}`, SK: 'CHARACTER#char-1' } }).resolves({ Item: { Abilities: { Dexterity: 14 } } });
+
+            const { Combats } = parse(await call('GET', '/combats'));
+
+            expect(Combats).to.have.length(1);
+            expect(Combats[0]).to.deep.include({ id: 'k2', Name: 'Embuscade', Status: 'INITIATIVE', Initiative: 17, InitiativeBonus: 2 });
+            expect(Combats[0]).to.not.have.property('Enemies');
+        });
+
+        it('records a player initiative', async () => {
+            mockMembership('PLAYER', 'char-1');
+            ddbMock.on(GetCommand, { Key: { PK: `USER#${USER}`, SK: 'CHARACTER#char-1' } }).resolves({ Item: {} });
+            ddbMock.on(UpdateCommand).resolves({ Attributes: { ...COMBAT, Status: 'INITIATIVE', Initiatives: { [USER]: 15 } } });
+
+            const result = await call('PUT', '/combats/k1/initiative', { Initiative: 15 });
+            const bad = await call('PUT', '/combats/k1/initiative', { Initiative: 'x' });
+
+            expect(result.statusCode).to.equal(200);
+            expect(parse(result).Combat.Initiative).to.equal(15);
+            expect(bad.statusCode).to.equal(400);
+        });
+
+        it('publishes the play order once every player has rolled, breaking ties with the bonus', async () => {
+            mockMembership('PLAYER', 'char-1');
+            ddbMock.on(GetCommand, { Key: { PK: `USER#${USER}`, SK: 'CHARACTER#char-1' } }).resolves({ Item: { Abilities: { Dexterity: 14 } } });
+            const rolled = { ...COMBAT, Status: 'INITIATIVE', Initiatives: { [USER]: 12 }, Bonuses: { [USER]: 2 } };
+            ddbMock.on(UpdateCommand).resolvesOnce({ Attributes: rolled }).resolvesOnce({ Attributes: { ...rolled, Status: 'ORDER' } });
+
+            const result = await call('PUT', '/combats/k1/initiative', { Initiative: 12 });
+
+            const published = ddbMock.commandCalls(UpdateCommand)[1].args[0].input.ExpressionAttributeValues![':entries'];
+            // Même initiative (12) que le gobelin : le joueur (bonus +2) passe devant
+            expect(published.map((e: { Name: string }) => e.Name)).to.deep.equal(['Aria', 'Gobelin']);
+            expect(result.statusCode).to.equal(200);
+        });
+
+        it('keeps waiting while a player has not rolled', async () => {
+            mockMembership('PLAYER', 'char-1');
+            ddbMock.on(GetCommand, { Key: { PK: `USER#${USER}`, SK: 'CHARACTER#char-1' } }).resolves({ Item: {} });
+            ddbMock.on(QueryCommand).resolves({ Items: [memberItem(USER, 'PLAYER', 'char-1'), memberItem('p2', 'PLAYER', 'char-2')] });
+            ddbMock.on(UpdateCommand).resolves({ Attributes: { ...COMBAT, Status: 'INITIATIVE', Initiatives: { [USER]: 12 }, Bonuses: { [USER]: 0 } } });
+
+            await call('PUT', '/combats/k1/initiative', { Initiative: 12 });
+
+            expect(ddbMock.commandCalls(UpdateCommand)).to.have.length(1);
+        });
+
+        it('hides the play order from players until the GM begins the combat', async () => {
+            const order = [{ id: 'a', Name: 'A', Initiative: 5, Bonus: 0, Enemy: false }];
+            mockMembership('PLAYER', 'char-1');
+            ddbMock.on(GetCommand, { Key: { PK: `USER#${USER}`, SK: 'CHARACTER#char-1' } }).resolves({ Item: {} });
+            mockCombatList([combatItem('k1', { Status: 'ORDER', Initiatives: { [USER]: 12 }, Order: order })]);
+            const waiting = parse(await call('GET', '/combats')).Combats[0];
+            mockCombatList([combatItem('k1', { Status: 'RUNNING', Initiatives: { [USER]: 12 }, Order: order })]);
+            const running = parse(await call('GET', '/combats')).Combats[0];
+
+            expect(waiting).to.deep.include({ Status: 'ORDER', Initiative: 12 });
+            expect(waiting).to.not.have.property('Order');
+            // Seul l'ordre est transmis : ni initiatives ni bonus
+            expect(running.Order).to.deep.equal([{ id: 'a', Name: 'A', Enemy: false }]);
+            expect(JSON.stringify(running.Order)).to.not.match(/Initiative|Bonus/);
+        });
+
+        it('lets the GM begin a combat once the order is ready', async () => {
+            mockMembership('GM');
+            mockCombat({ ...COMBAT, Status: 'ORDER' });
+            ddbMock.on(UpdateCommand).resolvesOnce({ Attributes: { ...COMBAT, Status: 'RUNNING' } });
+            const ok = await call('POST', '/combats/k1/begin');
+            ddbMock.on(UpdateCommand).rejects(Object.assign(new Error('x'), { name: 'ConditionalCheckFailedException' }));
+            const early = await call('POST', '/combats/k1/begin');
+            mockMembership('PLAYER');
+            const forbidden = await call('POST', '/combats/k1/begin');
+
+            expect(ok.statusCode).to.equal(200);
+            expect(parse(ok).Combat.Status).to.equal('RUNNING');
+            expect(early.statusCode).to.equal(409);
+            expect(forbidden.statusCode).to.equal(403);
+        });
+
+        it('lets the GM add enemies to a running combat when saving the order', async () => {
+            const order = [{ id: 'a', Name: 'A', Initiative: 5, Bonus: 0, Enemy: false }, { id: 'b', Name: 'B', Initiative: 4, Bonus: 0, Enemy: true }];
+            mockMembership('GM');
+            mockCombat({ ...COMBAT, Status: 'RUNNING', Enemies: [{ id: 'b', Name: 'B', Initiative: 4 }], Order: order });
+            ddbMock.on(UpdateCommand).resolves({ Attributes: { ...COMBAT, Status: 'RUNNING' } });
+
+            const ok = await call('PUT', '/combats/k1/order', { Order: ['a', 'new-1', 'b'], NewEnemies: [{ id: 'new-1', Name: ' Renfort ', Initiative: 9 }] });
+            const input = ddbMock.commandCalls(UpdateCommand)[0].args[0].input;
+            const entries = input.ExpressionAttributeValues![':entries'];
+            const enemies = input.ExpressionAttributeValues![':enemies'];
+            const clash = await call('PUT', '/combats/k1/order', { Order: ['a', 'b'], NewEnemies: [{ id: 'a', Name: 'x', Initiative: 9 }] });
+
+            expect(ok.statusCode).to.equal(200);
+            expect(entries.map((e: { Name: string }) => e.Name)).to.deep.equal(['A', 'Renfort', 'B']);
+            expect(entries[1]).to.include({ Initiative: 9, Bonus: 0, Enemy: true });
+            expect(entries[1].id).to.not.equal('new-1');
+            expect(enemies.map((e: { Name: string }) => e.Name)).to.deep.equal(['B', 'Renfort']);
+            expect(clash.statusCode).to.equal(400);
+        });
+
+        it('lets the GM remove enemies but never players when saving the order', async () => {
+            const order = [{ id: 'a', Name: 'A', Initiative: 5, Bonus: 0, Enemy: false }, { id: 'e1', Name: 'Gobelin', Initiative: 4, Bonus: 0, Enemy: true }];
+            mockMembership('GM');
+            mockCombat({ ...COMBAT, Status: 'RUNNING', Order: order });
+            ddbMock.on(UpdateCommand).resolves({ Attributes: { ...COMBAT, Status: 'RUNNING' } });
+
+            const ok = await call('PUT', '/combats/k1/order', { Order: ['a'] });
+            const input = ddbMock.commandCalls(UpdateCommand)[0].args[0].input;
+            const player = await call('PUT', '/combats/k1/order', { Order: ['e1'] });
+
+            expect(ok.statusCode).to.equal(200);
+            expect(input.ExpressionAttributeValues![':entries'].map((e: { id: string }) => e.id)).to.deep.equal(['a']);
+            expect(input.ExpressionAttributeValues![':enemies']).to.deep.equal([]);
+            expect(player.statusCode).to.equal(400);
+            expect(ddbMock.commandCalls(UpdateCommand)).to.have.length(1);
+        });
+
+        it('lets the GM reorder the play order with the same participants only', async () => {
+            const order = [{ id: 'a', Name: 'A', Initiative: 5, Bonus: 0, Enemy: false }, { id: 'b', Name: 'B', Initiative: 4, Bonus: 0, Enemy: true }];
+            mockMembership('GM');
+            mockCombat({ ...COMBAT, Status: 'ORDER', Order: order });
+            ddbMock.on(UpdateCommand).resolves({ Attributes: { ...COMBAT, Status: 'ORDER', Order: [order[1], order[0]] } });
+
+            const ok = await call('PUT', '/combats/k1/order', { Order: ['b', 'a'] });
+            const missing = await call('PUT', '/combats/k1/order', { Order: ['b'] });
+            const unknown = await call('PUT', '/combats/k1/order', { Order: ['b', 'z'] });
+
+            expect(ok.statusCode).to.equal(200);
+            expect(parse(ok).Combat.Order.map((e: { id: string }) => e.id)).to.deep.equal(['b', 'a']);
+            expect(missing.statusCode).to.equal(400);
+            expect(unknown.statusCode).to.equal(400);
+        });
     });
 });

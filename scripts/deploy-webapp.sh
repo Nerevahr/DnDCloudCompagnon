@@ -17,6 +17,7 @@ DIST="$(output WebDistributionId)"
 (cd "$ROOT/webapp" && \
   NUXT_PUBLIC_COGNITO_DOMAIN="$(output SpellsHostedUIDomain)" \
   NUXT_PUBLIC_COGNITO_CLIENT_ID="$(output SpellsUserPoolClientId)" \
+  NUXT_PUBLIC_WS_BASE="$(output RealtimeWebSocketUrl)" \
   npm run generate)
 
 OUT="$ROOT/webapp/.output/public"
