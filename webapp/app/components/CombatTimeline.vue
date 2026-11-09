@@ -1,9 +1,11 @@
 <template>
-  <ol class="space-y-2">
+  <ol
+    ref="list"
+    class="space-y-2"
+  >
     <li
       v-for="(entry, index) in entries"
       :key="entry.id"
-      ref="items"
       class="flex items-center gap-3 rounded-lg border bg-default p-3"
       :class="[
         entry.id === selfId ? 'border-primary bg-primary/10' : 'border-default',
@@ -70,17 +72,21 @@ import type { OrderEntry } from '~/composables/useCampaigns'
 const props = defineProps<{ entries: OrderEntry[], selfId?: string, editable?: boolean }>()
 const emit = defineEmits<{ move: [from: number, to: number], remove: [index: number] }>()
 
-const items = ref<HTMLElement[]>([])
+// Les lignes sont lues dans l'ordre du DOM au début du glissement : un `ref` dans un v-for suit l'ordre de montage,
+// pas l'ordre affiché (un élément inséré au milieu serait rangé en dernier)
+const list = ref<HTMLElement>()
 
 // Glissement en cours : `centers` sont les centres verticaux des lignes au départ, `height` la hauteur de la ligne
 // saisie (pas comprise) ; `to` est la position visée d'après la position du pointeur.
 const drag = ref<{ from: number, to: number, startY: number, offset: number, centers: number[], height: number }>()
 
 function start(event: PointerEvent, index: number) {
-  const rects = items.value.map(item => item.getBoundingClientRect())
+  const rects = [...(list.value?.children ?? [])].map(item => item.getBoundingClientRect())
   const row = rects[index]
   if (!row) return
-  ;(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId)
+  try {
+    ;(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId)
+  } catch { /* pointeur déjà relâché : le glissement se poursuit sans capture */ }
   drag.value = {
     from: index,
     to: index,
